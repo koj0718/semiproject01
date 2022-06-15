@@ -27,7 +27,6 @@
 	font-size:16px;
 	}
 	
-	
 	section>ul{
     display: flex;
     height: 50px;
@@ -37,6 +36,8 @@
     margin-left: 1.2rem;
     padding-left:10px;
     padding-right:10px;
+    
+  
 	}
 	section>ul>li>a{
     text-decoration: none;
@@ -47,7 +48,6 @@
 	}
 	section>ul>li>a:hover{
     border-bottom: 2px solid red;
-    
     }
     
     .nav-item>a{
@@ -142,150 +142,150 @@
 						<img src="https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg" class="card-img-top" alt="...">
 					</div>
 					<div class="row">
-						<div class="row">
-							<div class="col-9">
+						<div class="col" style="display: flex; justify-content: space-between;">
+							<div>
 								<p>교촌 치킨</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>찜</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-3">
+						<div style="display: flex; justify-content: space-around;" >
+							<div>
 								<p>별점</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>리뷰수</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>거리</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>포장여부</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-7">
+						<div style="display: flex; justify-content: flex-start;">
+							<div>
 								<p>배달시간</p>
 							</div>
-							<div class="col-5">
+							<div>
 								<p>배달요금</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" >
 				<div class="card" style="">
 					<div>
 						<img src="https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg" class="card-img-top" alt="...">
 					</div>
 					<div class="row">
-						<div class="row">
-							<div class="col-9">
+						<div class="col" style="display: flex; justify-content: space-between;">
+							<div>
 								<p>교촌 치킨</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>찜</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-3">
+						<div style="display: flex; justify-content: space-around;" >
+							<div>
 								<p>별점</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>리뷰수</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>거리</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>포장여부</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-7">
+						<div style="display: flex; justify-content: flex-start;">
+							<div>
 								<p>배달시간</p>
 							</div>
-							<div class="col-5">
+							<div>
 								<p>배달요금</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" >
 				<div class="card" style="">
 					<div>
 						<img src="https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg" class="card-img-top" alt="...">
 					</div>
 					<div class="row">
-						<div class="row">
-							<div class="col-9">
+						<div class="col" style="display: flex; justify-content: space-between;">
+							<div>
 								<p>교촌 치킨</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>찜</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-3">
+						<div style="display: flex; justify-content: space-around;" >
+							<div>
 								<p>별점</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>리뷰수</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>거리</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>포장여부</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-7">
+						<div style="display: flex; justify-content: flex-start;">
+							<div>
 								<p>배달시간</p>
 							</div>
-							<div class="col-5">
+							<div>
 								<p>배달요금</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" >
 				<div class="card" style="">
 					<div>
 						<img src="https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg" class="card-img-top" alt="...">
 					</div>
 					<div class="row">
-						<div class="row">
-							<div class="col-9">
+						<div class="col" style="display: flex; justify-content: space-between;">
+							<div>
 								<p>교촌 치킨</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>찜</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-3">
+						<div style="display: flex; justify-content: space-around;" >
+							<div>
 								<p>별점</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>리뷰수</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>거리</p>
 							</div>
-							<div class="col-3">
+							<div>
 								<p>포장여부</p>
 							</div>
-						</div>					
-						<div class="row">
-							<div class="col-7">
+						</div>
+						<div style="display: flex; justify-content: flex-start;">
+							<div>
 								<p>배달시간</p>
 							</div>
-							<div class="col-5">
+							<div>
 								<p>배달요금</p>
 							</div>
 						</div>
