@@ -245,20 +245,20 @@ display:inline-block;
 
 	<div class="menu_container">
 
-		<!-- 리스트 -->
+		<!-- 리스트 --> 
 		<div class="main_lists">
-			<div class="main_list"><button>전체</button></div>
-			<div class="main_list"><button>햄버거</button></div>
-			<div class="main_list"><button>돈까스/일식</button></div>
-			<div class="main_list"><button>피자</button></div>
-			<div class="main_list"><button>족발</button></div>
-			<div class="main_list"><button>회/초밥</button></div>
-			<div class="main_list"><button>고기/구이</button></div>
-			<div class="main_list"><button>아시안</button></div>
-			<div class="main_list"><button>중식</button></div>
-			<div class="main_list"><button>카페/디저트</button></div>
-			<div class="main_list"><button>프랜차이즈</button></div>
-			<div class="main_list"><button>랭킹</button></div>
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=전체');">전체</button></div>
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=햄버거');">햄버거</button></div> 
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=일식');">돈까스/일식</button></div>
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=피자');">피자</button></div>
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=족발');">족발</button></div>
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=회');">회/초밥</button></div>
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=고기');">고기/구이</button></div>
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=아시안');">아시안</button></div>
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=중식');">중식</button></div>
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=카페');">카페/디저트</button></div>
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=프랜차이즈');">프랜차이즈</button></div>
+			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenuAll.do?value=랭킹');">랭킹</button></div>
 		</div>
 
 	</div>
