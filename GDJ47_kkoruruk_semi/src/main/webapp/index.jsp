@@ -182,8 +182,8 @@ display:inline-block;
     <div>
       <h3 class="float-md-start mb-0">kkoruruk</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active" aria-current="page" href="#">주소를 입력해주세요.</a>
-        <a class="nav-link" href="#">로그인</a>
+        <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/location/searchAddress.do">주소를 입력해주세요.</a>
+        <a class="nav-link" href="<%=request.getContextPath()%>/member/login.do">로그인</a>
         <a class="nav-link" href="#">주문표</a>
       </nav>
     </div>
@@ -229,12 +229,19 @@ display:inline-block;
 
 
 
-<div class="search_lists">
+<%-- <div class="search_lists">
 <div class="search_list">
 	<input type="button" value="검색" onclick="location.assign('<%=request.getContextPath()%>/menu/searchMenu.do');">
 </div>
 <!-- <div class="search_list"><button>랭킹</button></div> -->
-</div>
+</div> --%>
+        	<div class="search_lists">
+        		<form class="search_list" action="<%=request.getContextPath()%>/searchMenu.do">
+        			<input type="text" name="searchMenu" size="30" 
+        			placeholder="오늘은 어떤 메뉴를 주문해 볼까요?">
+        			<button type="submit">검색</button>
+        		</form>
+        	</div>
 
 
 

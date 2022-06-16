@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.menu.model.vo.Store" %>    
+<%@ page import="com.siksin.menu.model.vo.Store" %>    
 <%@ page import="java.util.List" %>    
 <%
 	List<Store> list=(List<Store>)request.getAttribute("list");
