@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.menu.model.vo.Store" %>    
+<%@ page import="com.siksin.menu.model.vo.Store" %>    
 <%@ page import="java.util.List" %>    
 <%
 	List<Store> list=(List<Store>)request.getAttribute("list");
@@ -72,7 +72,8 @@
                 </tr>
             </thead>
             <tbody>
-       		<%if(list.isEmpty()){ %>
+            
+       		<%-- <%if(list.isEmpty()){ %>
        			<tr>
        				<td colspan="9"><h3>조회된결과가 없습니다!</h3></td>
        			</tr>
@@ -86,7 +87,8 @@
      					
        				</tr>
        		<%	} 
-       		 }%>
+       		 }%> --%>
+       		 
             </tbody>
         </table>
         <div id="pageBar">
