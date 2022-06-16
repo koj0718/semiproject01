@@ -233,6 +233,13 @@ html {
 	margin-top:60px;
 }
 
+
+/* 메뉴카테고리 글자 */
+.thumbnail{
+	color:black;
+}
+
+
     </style>
 
 
