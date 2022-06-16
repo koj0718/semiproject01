@@ -107,6 +107,7 @@ text-align: center;
 margin-left : 15px;
 margin-right : 15px;
 margin-top : 80px;
+margin-bottom : 80px;
 }
 
 .search_list {
@@ -226,6 +227,11 @@ html {
     box-sizing: border-box;
 }
  */
+ 
+ /* 캐러셀 */
+.carousel {
+	margin-top:60px;
+}
 
     </style>
 
@@ -252,7 +258,7 @@ html {
  
   <!-- 베너 -->
   
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -260,10 +266,11 @@ html {
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="http://img3.tmon.kr/cdn4/deals/2022/05/19/11050430758/original_11050430758_mobile_eecda_1652923682production.jpg" class="d-block w-100" alt="안녕">
+      <img src="images/banner.jpg" class="d-block w-100" alt="안녕">
     </div>
     <div class="carousel-item">
-      <img src="https://cdn.gamemeca.com/data_center/228/389/20210429135726.jpg" class="d-block w-100" alt="...">
+      <img src="images/banner-2.jpeg" class="d-block w-100" alt="...">
+      <!-- https://cdn.gamemeca.com/data_center/228/389/20210429135726.jpg -->
     </div>
 <!--     <div class="carousel-item">
       <img src="http://cdn.tgdaily.co.kr/news/photo/202110/311920_75255_537.png" alt="...">
@@ -309,7 +316,7 @@ html {
 <!-- 메뉴 카테고리  -->
 
 
-	<div class="menu_container">
+<%-- 	<div class="menu_container">
 
 		<!-- 리스트 --> 
 		<div class="main_lists">
@@ -327,7 +334,7 @@ html {
 			<div class="main_list"><button onclick="location.assign('<%=request.getContextPath()%>/searchMenu.do?value=랭킹');">랭킹</button></div>
 		</div>
 
-	</div>
+	</div> --%>
   
   <div class="category-list" ng-hide="$location.path() != &quot;/&quot;">
   	<div class="row"><!-- ngRepeat: banner in banner_list -->
