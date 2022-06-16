@@ -1,14 +1,15 @@
 package com.siksin.menu.model.service;
 
 
+import static com.siksin.common.JDBCTemplate.close;
+import static com.siksin.common.JDBCTemplate.getConnection;
+
 import java.sql.Connection;
 import java.util.List;
 
-import com.siksin.menu.model.dao.MenuDao;
+import com.siksin.menu.dao.MenuDao;
+import com.siksin.menu.model.vo.Menu;
 import com.siksin.store.model.vo.Store;
-
-import static com.siksin.common.JDBCTemplate.close;
-import static com.siksin.common.JDBCTemplate.getConnection;
 
 public class MenuService {
 	
@@ -28,6 +29,13 @@ public class MenuService {
 		int result=dao.searchMenuCount(conn,keyword);
 		close(conn);
 		return result;
+	}
+	
+	public List<Menu> searchStoreDeatil(String storeId,int cPage,int numPerpage){
+		Connection conn=getConnection();
+		List<Menu> menuList=dao.searchStoreDeatil(conn,storeId,cPage,numPerpage);
+		close(conn);
+		return menuList;
 	}
 }
 
