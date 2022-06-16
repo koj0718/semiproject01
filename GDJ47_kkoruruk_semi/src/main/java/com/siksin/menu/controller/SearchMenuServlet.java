@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.siksin.menu.model.service.MenuService;
-import com.siksin.menu.model.vo.Store;
+import com.siksin.store.model.vo.Store;
 
 
 
