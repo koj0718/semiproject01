@@ -1,4 +1,4 @@
-package com.siksin.menu.model.vo;
+package com.siksin.store.model.vo;
 
 
 

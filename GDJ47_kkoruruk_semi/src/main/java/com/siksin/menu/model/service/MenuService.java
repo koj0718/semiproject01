@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.siksin.menu.model.dao.MenuDao;
-import com.siksin.menu.model.vo.Store;
+import com.siksin.store.model.vo.Store;
 
 import static com.siksin.common.JDBCTemplate.close;
 import static com.siksin.common.JDBCTemplate.getConnection;

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.siksin.menu.model.vo.Store;
+import com.siksin.store.model.vo.Store;
 
 public class MenuDao {
 
