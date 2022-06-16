@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>  
+<%@ page import="com.siksin.menu.model.vo.Store" %>   
+<%
+	List<Store> list=(List<Store>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -136,6 +141,7 @@
 	
 	<main id="container">
 		<div class="row">
+			<%for(Store s : list){ %>
 			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" >
 				<div class="card" style="">
 					<div>
@@ -144,7 +150,7 @@
 					<div class="row">
 						<div class="col" style="display: flex; justify-content: space-between;">
 							<div>
-								<p>교촌 치킨</p>
+								<%=s.getStoreName() %>
 							</div>
 							<div>
 								<p>찜</p>
@@ -161,12 +167,12 @@
 								<p>거리</p>
 							</div>
 							<div>
-								<p>포장여부</p>
+								<%=s.getPickYN() %>
 							</div>
 						</div>
 						<div style="display: flex; justify-content: flex-start;">
 							<div>
-								<p>배달시간</p>
+								<%=s.getDeleveryTime() %>
 							</div>
 							<div>
 								<p>배달요금</p>
@@ -175,123 +181,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" >
-				<div class="card" style="">
-					<div>
-						<img src="https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg" class="card-img-top" alt="...">
-					</div>
-					<div class="row">
-						<div class="col" style="display: flex; justify-content: space-between;">
-							<div>
-								<p>교촌 치킨</p>
-							</div>
-							<div>
-								<p>찜</p>
-							</div>
-						</div>
-						<div style="display: flex; justify-content: space-around;" >
-							<div>
-								<p>별점</p>
-							</div>
-							<div>
-								<p>리뷰수</p>
-							</div>
-							<div>
-								<p>거리</p>
-							</div>
-							<div>
-								<p>포장여부</p>
-							</div>
-						</div>
-						<div style="display: flex; justify-content: flex-start;">
-							<div>
-								<p>배달시간</p>
-							</div>
-							<div>
-								<p>배달요금</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" >
-				<div class="card" style="">
-					<div>
-						<img src="https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg" class="card-img-top" alt="...">
-					</div>
-					<div class="row">
-						<div class="col" style="display: flex; justify-content: space-between;">
-							<div>
-								<p>교촌 치킨</p>
-							</div>
-							<div>
-								<p>찜</p>
-							</div>
-						</div>
-						<div style="display: flex; justify-content: space-around;" >
-							<div>
-								<p>별점</p>
-							</div>
-							<div>
-								<p>리뷰수</p>
-							</div>
-							<div>
-								<p>거리</p>
-							</div>
-							<div>
-								<p>포장여부</p>
-							</div>
-						</div>
-						<div style="display: flex; justify-content: flex-start;">
-							<div>
-								<p>배달시간</p>
-							</div>
-							<div>
-								<p>배달요금</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" >
-				<div class="card" style="">
-					<div>
-						<img src="https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg" class="card-img-top" alt="...">
-					</div>
-					<div class="row">
-						<div class="col" style="display: flex; justify-content: space-between;">
-							<div>
-								<p>교촌 치킨</p>
-							</div>
-							<div>
-								<p>찜</p>
-							</div>
-						</div>
-						<div style="display: flex; justify-content: space-around;" >
-							<div>
-								<p>별점</p>
-							</div>
-							<div>
-								<p>리뷰수</p>
-							</div>
-							<div>
-								<p>거리</p>
-							</div>
-							<div>
-								<p>포장여부</p>
-							</div>
-						</div>
-						<div style="display: flex; justify-content: flex-start;">
-							<div>
-								<p>배달시간</p>
-							</div>
-							<div>
-								<p>배달요금</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>		
+			<%} %>	
 		</div>
 	</main>
 	
