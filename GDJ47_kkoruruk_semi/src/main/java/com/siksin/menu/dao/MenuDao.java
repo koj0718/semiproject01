@@ -1,4 +1,4 @@
-package com.siksin.menu.model.dao;
+package com.siksin.menu.dao;
 
 
 
@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.siksin.menu.model.vo.Menu;
 import com.siksin.store.model.vo.Store;
 
 public class MenuDao {
@@ -93,4 +94,30 @@ public class MenuDao {
 		}
 		return s;
 	}
+	
+	public List<Menu> searchStoreDeatil(Connection conn, String  storeId,
+			int cPage, int numPerpage){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<Menu> menuList=new ArrayList();	
+		try {
+				
+			pstmt=conn.prepareStatement(prop.getProperty("searchStoreDetailId"));
+			pstmt.setString(1, storeId);
+			pstmt.setInt(2, (cPage-1)*numPerpage+1);
+			pstmt.setInt(3, cPage*numPerpage);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				Menu m=null;
+				m.setMenuId(numPerpage);
+				
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return menuList;
+	}
+	
 }

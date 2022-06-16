@@ -8,20 +8,6 @@
   <!-- iamport.payment.js -->
   <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
   
-  
-  <!-- 결제 테스트용 버튼 -->
-  <button onclick="requestPay()">결제 테스트용 버튼</button>
-  <script>
-  	
-/*  	  var IMP = window.IMP; // 생략 가능
-	  IMP.init("imp87022146"); // 예: imp00000000 */
-	  
-	  
-	  
-
-	    
-  </script>
-
 <html lang="ko">
   <head>
     <meta charset="utf-8">
@@ -56,15 +42,13 @@
       }
     </style>
 
-    
     <!-- Custom styles for this template -->
 <link href="form-validation.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
-    
+
 <div class="container">
-  <main>
   
     <div class="my-5 pt-5 text-muted text-center text-small">
         <h1 class="mb-1">&copy;header</h1>
@@ -259,14 +243,66 @@
 			  	<label class="form-check-label" for="same-address">만나서 현금결제</label>
 			</div> -->
 	
-	        <button class="w-100 btn btn-primary btn-lg" type="submit">결제하기</button>
-	    </form>
+			<!-- <button onclick="requestPay()" class="w-100 btn btn-primary btn-lg" type="submit">결제하기</button> -->
+
+	    	</form>
+		</div>
 	</div>
+						  <!-- 결제 테스트용 버튼 -->
+<!-- <button onclick="requestPay()">결제 테스트용 버튼</button> -->
+	
+	<div>
+		<button onclick="requestPay()" class="w-100 btn btn-primary btn-lg" type="submit">결제하기</button>
 	</div>
-	</main>
-	
-	
-	<footer class="my-5 pt-5 text-muted text-center text-small">
+  <script>
+  	
+/* 		var IMP = window.IMP; // 생략 가능
+		IMP.init("imp87022146"); // 예: imp00000000 */
+	  
+	    function requestPay() {
+			
+			var IMP = window.IMP; // 생략 가능
+			IMP.init("imp87022146"); // 예: imp00000000 */
+			
+	        // IMP.request_pay(param, callback) 결제창 호출
+	        IMP.request_pay({ // param
+	            pg: "html5_inicis",
+	            pay_method: "card",
+/* 	            merchant_uid: "ORD20180131-0000011", */
+ 	            merchant_uid: 'merchant'+new Date().getTime(),
+	            name: "결제테스트",
+	            amount: 100,
+	            buyer_email: "gildong@gmail.com",
+	            buyer_name: "홍길동",
+	            buyer_tel: "010-4242-4242",
+	            buyer_addr: "서울특별시 강남구 신사동",
+	            buyer_postcode: "01181"
+	            /* m_redirect_url : 모바일결제만 설정 -> 랜딩URL */
+	            
+	        }, function (rsp) { // callback
+	        	
+	            if (rsp.success) {
+					
+	            	var msg="주문완료";
+	            	msg+='고유ID : '+rsp.imp+uid;
+	            	msg+='상점거래ID : '+rsp.merchang_uid;
+	            	msg+='결제금액 : '+rsp.paid_amount;
+	            	msg+='카드승인번호 : '+rsp.apply_num;
+	            	
+	            } else {
+					
+	            	var msg='결제실패!!!!';
+	            	msg+='(에러 : '+rsp.error_msg+')';
+	            	
+	            }
+	        	alert(msg);
+	        	console.log(rsp); /* 콘솔 확인용 */
+	        });
+	      }
+	  
+  </script>
+  
+  	<footer class="my-5 pt-5 text-muted text-center text-small">
 	    <h1 class="mb-1">&copy;♥footer♥</h1>
 	    <ul class="list-inline">
 	      <li class="list-inline-item"><a href="#">배고파</a></li>

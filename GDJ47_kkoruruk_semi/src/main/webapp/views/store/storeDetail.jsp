@@ -5,6 +5,7 @@
 <%@ page import="com.siksin.store.model.vo.Store" %>
 <%
 	List<Store> list=(List<Store>)request.getAttribute("list");
+	List<Menu> menuList=(List<Menu>)request.getAttribute("menuList");
 %>  
 <!doctype html>
 <html lang="ko">
@@ -155,18 +156,18 @@
 		
       <article class="blog-post">
       <button onclick="chch();">ddd</button>
-     <%--  <%for(Menu s : list){ %> --%>
+      
+     <%for(Menu s : menuList){ %> 	
       	<div >
-	        <h2 class="blog-post-title">오리지널 한마리</h2>
 	        <div  class="row g-5">
 		        <div class="col-md-10">
-		        	<div >교촌라이스 세트</div>
-		        	<div>쌀가루로 만들어 더욱 바삭한 치킨을 다양한 소스</div>
+		        	<div ><%=s.getMenuName() %></div>
+		        	<div><%=s.getMenuDec() %></div>
 		        </div>
-		        <div class="col-md-2">사진</div>
+		        <div class="col-md-2"><%=s.getMenuImg() %></div>
 	        </div>
         </div>
-      <%--  <%} %> --%>
+   <%} %>
       </article>
     
       <script>
