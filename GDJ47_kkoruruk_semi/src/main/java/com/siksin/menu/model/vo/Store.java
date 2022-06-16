@@ -82,5 +82,3 @@ public class Store {
 	
 }
 
-
->>>>>>> branch 'siksin' of https://github.com/koj0718/semiproject01.git
