@@ -5,26 +5,21 @@
 
   <!-- jQuery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-  <!-- iamport.payment.js -->
-  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{SDK-Version 1.2.0}.js"></script>
   
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+  
+  
+  <!-- 결제 테스트용 버튼 -->
+  <button onclick="requestPay()">결제 테스트용 버튼</button>
   <script>
   	
-/* 	  var IMP = window.IMP; // 생략 가능
-	  IMP.init("{imp87022146}"); // 예: imp00000000 */
+ 	  var IMP = window.IMP; // 생략 가능
+	  IMP.init("imp87022146"); // 예: imp00000000
 	  
-	  	function payment() {
-		  
-	  	}
-	  	
-	    function payment() {
-	    	
-	    	const pathName=location.pathname;
-	    	const href=location.href;
-	    	const m_redirect=href.replaceAll(pathName, "");
-	    	
-	    	IMP.init("{imp87022146}");
-	    	
+
+	  <script>
+	    function requestPay() {
 	      // IMP.request_pay(param, callback) 결제창 호출
 	      IMP.request_pay({ // param
 	          pg: "html5_inicis",
@@ -49,15 +44,7 @@
 	          }
 	      });
 	    }
-	  
-	  function payment() {
-		  
-		  
-		  
-	  }
-  
-  
-  
+	    
   </script>
 
 <html lang="ko">
