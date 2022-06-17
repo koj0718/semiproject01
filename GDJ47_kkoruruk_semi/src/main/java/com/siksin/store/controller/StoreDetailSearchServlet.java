@@ -1,6 +1,7 @@
 package com.siksin.store.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.siksin.menu.model.vo.Menu;
+import com.siksin.menu.service.MenuService;
 import com.siksin.store.model.vo.Store;
 import com.siksin.store.service.StoreService;
 
@@ -32,15 +35,18 @@ public class StoreDetailSearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String storeId=request.getParameter("id");
-		System.out.println(storeId);
-		
 		Store s=new StoreService().selectStoreId(storeId);
-		System.out.println(s);
+		List<Menu> menuList=new MenuService().searchStoreDeatil(storeId);
 		
-		request.setAttribute("storeId", s);
+//		List<MenuOption> menuOption=new MenuService().MenuOption(menuId);		
 		
-		request.getRequestDispatcher("/views/store/storeDetail.jsp")
-		.forward(request, response);
+	
+		
+		request.setAttribute("store", s);	
+//		request.setAttribute("storeId", storeId);
+		request.setAttribute("menuList", menuList);	
+		
+		request.getRequestDispatcher("/views/store/storeDetail.jsp").forward(request, response);
 		
 	}
 

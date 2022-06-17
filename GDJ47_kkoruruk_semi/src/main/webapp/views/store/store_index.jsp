@@ -6,10 +6,6 @@
 	<script>
 	
 	</script>
-	
-	<style>
-
-	</style>
 
 		<div class="container">
 		  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3" style="cursor:pointer; text-align:center;">
@@ -20,7 +16,7 @@
 		      <div onclick="location.href='';" class="p-3 border bg-light">내 가게 정보</div>
 		    </div>
 		    <div class="col">
-		      <div onclick="location.href='';" class="p-3 border bg-light">품질 메뉴 관리</div>
+		      <div onclick="location.href='';" class="p-3 border bg-light">메뉴 관리</div>
 		    </div>
 		    <div class="col">
 		      <div onclick="location.href='';" class="p-3 border bg-light">영업일 관리</div>
