@@ -48,7 +48,7 @@ h1 {
 	
 		
 		
-		  <input type="file" id="inputImage">
+	<input type="file" id="inputImage">
 
   <button id="sendButton">보내기</button>
 
