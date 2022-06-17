@@ -216,49 +216,51 @@
     		
     		<br>
 	
-<!--			<div>온라인결제<br>
-			    <input type="checkbox" class="form-check-input" id="same-address">
-			  	<label class="form-check-label" for="same-address">신용카드</label>
-			  	<input type="checkbox" class="form-check-input" id="same-address">
-			  	<label class="form-check-label" for="same-address">네이버페이</label>
-			  	<input type="checkbox" class="form-check-input" id="same-address">
-			  	<label class="form-check-label" for="same-address">카카오페이</label>
-			  	<input type="checkbox" class="form-check-input" id="same-address">
-			  	<label class="form-check-label" for="same-address">PAYCO</label>
-			  	<br>
-			  	<input type="checkbox" class="form-check-input" id="same-address">
-			  	<label class="form-check-label" for="same-address">휴대폰</label>
-			  	<input type="checkbox" class="form-check-input" id="same-address">
-			  	<label class="form-check-label" for="same-address">페이코인</label>
-			  	<input type="checkbox" class="form-check-input" id="same-address">
-			  	<label class="form-check-label" for="same-address">Smilypay</label>
-			  	<input type="checkbox" class="form-check-input" id="same-address">
-			  	<label class="form-check-label" for="same-address">LPAY</label>
-			</div>
-	        <br>
-			<div>만나서 결제<br>
-			    <input type="checkbox" class="form-check-input" id="same-address">
-			  	<label class="form-check-label" for="same-address">만나서 카드결제</label>
-			  	<input type="checkbox" class="form-check-input" id="same-address">
-			  	<label class="form-check-label" for="same-address">만나서 현금결제</label>
-			</div> -->
-	
-			<!-- <button onclick="requestPay()" class="w-100 btn btn-primary btn-lg" type="submit">결제하기</button> -->
+<!-- 				<div>온라인결제<br>
+				    <input type="checkbox" class="form-check-input" id="same-address">
+				  	<label class="form-check-label" for="same-address">신용카드</label>
+				  	<input type="checkbox" class="form-check-input" id="same-address">
+				  	<label class="form-check-label" for="same-address">네이버페이</label>
+				  	<input type="checkbox" class="form-check-input" id="same-address">
+				  	<label class="form-check-label" for="same-address">카카오페이</label>
+				  	<input type="checkbox" class="form-check-input" id="same-address">
+				  	<label class="form-check-label" for="same-address">PAYCO</label>
+				  	<br>
+				  	<input type="checkbox" class="form-check-input" id="same-address">
+				  	<label class="form-check-label" for="same-address">휴대폰</label>
+				  	<input type="checkbox" class="form-check-input" id="same-address">
+				  	<label class="form-check-label" for="same-address">페이코인</label>
+				  	<input type="checkbox" class="form-check-input" id="same-address">
+				  	<label class="form-check-label" for="same-address">Smilypay</label>
+				  	<input type="checkbox" class="form-check-input" id="same-address">
+				  	<label class="form-check-label" for="same-address">LPAY</label>
+				</div>
+		        <br>
+				<div>만나서 결제<br>
+				    <input type="checkbox" class="form-check-input" id="same-address">
+				  	<label class="form-check-label" for="same-address">만나서 카드결제</label>
+				  	<input type="checkbox" class="form-check-input" id="same-address">
+				  	<label class="form-check-label" for="same-address">만나서 현금결제</label>
+				</div> -->
 
 	    	</form>
+	    	
+ 	    	<label><input type="radio" name="paymentType" value="온라인결제">온라인결제</label>
+        	<label><input type="radio" name="paymentType" value="만나서결제" checked="checked">만나서결제</label>
+        	
+        	
+        	
+        	<hr>
+	    	
+			<div>
+				<button onclick="requestPay()" class="w-100 btn btn-primary btn-lg" type="submit">결제하기</button>
+			</div>
 		</div>
 	</div>
-						  <!-- 결제 테스트용 버튼 -->
-<!-- <button onclick="requestPay()">결제 테스트용 버튼</button> -->
 	
-	<div>
-		<button onclick="requestPay()" class="w-100 btn btn-primary btn-lg" type="submit">결제하기</button>
-	</div>
   <script>
-  	
-/* 		var IMP = window.IMP; // 생략 가능
-		IMP.init("imp87022146"); // 예: imp00000000 */
 	  
+  		/* import */
 	    function requestPay() {
 			
 			var IMP = window.IMP; // 생략 가능
