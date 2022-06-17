@@ -4,7 +4,7 @@
 <%@ page import="com.siksin.menu.model.vo.Menu" %>
 <%@ page import="com.siksin.store.model.vo.Store" %>
 <%
-	/* Store s=(Store)request.getAttribute("storeId"); */
+	Store s=(Store)request.getAttribute("store");
 	List<Menu> menuList=(List<Menu>)request.getAttribute("menuList");
 %>  
 <!doctype html>
@@ -55,7 +55,7 @@
     
 	    <div class="restaurant-info">
 	      <div class="restaurant-title">
-	        <span class="restaurant-name ng-binding" ng-bind="restaurant.name">교촌</span>
+	        <span class="restaurant-name ng-binding" ng-bind="restaurant.name"><%=s.getStoreName() %></span>
 	      </div>
 	      <hr>
 	      <div class="restaurant-content">
@@ -78,10 +78,10 @@
 		          4.9</span>
 	           </li>
 	          
-	           <li>영업시간 : <span>시간입력해</span></li>
+	           <li>영업시간 : <span><%=s.getOpeningTime() %>~<%=s.getClosingTime() %></span></li>
 	           <!-- <li ng-show="show_discount_description()" class="discount-desc ng-hide"><span class="ng-binding"></span></li> -->
 	           
-	           <li>최소주문금액 <span class="ng-binding">10,900원</span></li>
+	           <li>최소주문금액 <span class="ng-binding"><%=s.getMinDelevery() %></span></li>
 	           <!--li class="restaurant-address">위치 : <span>{{restaurant.address|trim_address|normalize_address}}</span></li-->
 	
 		       <li class="">결제
@@ -91,7 +91,7 @@
 		       </li>
 		       
 	           <li class="delivery-time-tooltip" ng-show="restaurant.estimated_delivery_time">배달시간
-	            <span class="ng-binding">55~65분</span>
+	            <span class="ng-binding"><%=s.getDeleveryTime() %></span>
 	          </li>
 	                            
 	        </ul>
@@ -154,11 +154,9 @@
 		
 		
 		
-      <article class="blog-post">
-      <button onclick="chch();">ddd</button>
-      
+      <article class="blog-post">     
      <%for(Menu m : menuList){ %> 	
-      	<div >
+      	<div onclick="chch();">
 	        <div  class="row g-5">
 		        <div class="col-md-10">
 		        	<div ><%=m.getMenuName() %></div>
@@ -169,6 +167,8 @@
         </div>
    <%} %>
       </article>
+  
+  
     
       <script>
       const chch=()=>{
@@ -177,12 +177,11 @@
     	  const p=document.createElement("p");
     	  p.innerText="dddd";
     	  document.getElementById("cart").appendChild(div);
-    	  document.getElementById("cart").appendChild(div);
     	  document.getElementById("cart").appendChild(div).appendChild(p);
     	  
+    	  
     	  document.getElementById("cart").appendChild(hr);
-    	 
-    }
+      }
       
       
       </script>
