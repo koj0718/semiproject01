@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.siksin.menu.model.service.MenuService;
 import com.siksin.menu.model.vo.Menu;
+import com.siksin.menu.service.MenuService;
 
 /**
  * Servlet implementation class StoreDetailServlet

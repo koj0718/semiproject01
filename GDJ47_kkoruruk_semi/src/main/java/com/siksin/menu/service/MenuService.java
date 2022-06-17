@@ -1,4 +1,4 @@
-package com.siksin.menu.model.service;
+package com.siksin.menu.service;
 
 
 import static com.siksin.common.JDBCTemplate.close;

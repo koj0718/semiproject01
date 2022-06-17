@@ -1,4 +1,4 @@
-package com.siksin.store.model.dao;
+package com.siksin.store.dao;
 
 public class StoreDao {
 
