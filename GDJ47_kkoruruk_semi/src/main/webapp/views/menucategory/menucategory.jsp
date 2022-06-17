@@ -157,7 +157,7 @@
 		<div class="row">
 			<%for(Store s : list){ %>
 			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-				<a href="<%=request.getContextPath()%>/storedetailsearch.do?name=<%=s.getStoreName()%>" class="store-card">
+				<a href="<%=request.getContextPath()%>/storedetailsearch.do?id=<%=s.getStoreId()%>" class="store-card">
 				<div class="card" style="">
 					<div>
 						<img src="https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg" class="card-img-top" alt="...">
