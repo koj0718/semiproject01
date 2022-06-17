@@ -43,7 +43,7 @@
 
 
 
-<div id='board-container'>
+<div id='banner-container'>
 	
 		<form action='<%=request.getContextPath()%>/bannerManage.do'
 		method="post" enctype="multipart/form-data" >

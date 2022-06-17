@@ -82,12 +82,28 @@ public class MenuDao {
 		Store s=null;
 		try {
 			s=new Store();
+			s.setStoreId(rs.getString("STORE_ID"));
+			s.setStoreCategory(rs.getString("STORE_CATEGORY"));
 			s.setStoreName(rs.getString("STORE_NAME"));
+			s.setStoreAddress1(rs.getString("STORE_ADDRESS1"));
+			s.setStoreAddress2(rs.getString("STORE_ADDRESS2"));
+			s.setStoreAddress3(rs.getString("STORE_ADDRESS3"));
+			s.setStorePhone(rs.getString("STORE_PHONE"));
+			s.setStoreImg(rs.getString("STORE_IMG"));
 			s.setStoreThumb(rs.getString("STORE_THUMB"));
-//			s.setDistance(rs.getString("50"));
+			s.setOpeningTime(rs.getInt("OPENING_TIME"));
+			s.setClosingTime(rs.getInt("CLOSING_TIME"));
+			s.setMinDelevery(rs.getInt("MIN_DELEVERY"));
 			s.setDeleveryTime(rs.getInt("DELEVERY_TIME"));
 			s.setDeleveryTip(rs.getInt("DELEVERY_TIP"));
+			s.setStoreDec(rs.getString("STORE_DEC"));
 			s.setPickYN(rs.getInt("PICK_YN"));
+			s.setCeoName(rs.getString("CEO_NAME"));
+			s.setBusinessNum(rs.getString("BUSINESS_NUM"));
+			s.setCeoPhone(rs.getString("CEO_PHONE"));
+			s.setCeoAddress1(rs.getString("CEO_ADDRESS1"));
+			s.setCeoAddress2(rs.getString("CEO_ADDRESS2"));
+			s.setCeoAddress3(rs.getString("CEO_ADDRESS3"));
 	
 		}catch(SQLException e) {
 			e.printStackTrace();
