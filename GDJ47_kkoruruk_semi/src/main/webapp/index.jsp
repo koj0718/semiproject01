@@ -14,7 +14,10 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="images/banner.jpg" class="d-block w-100" alt="안녕">
+      <img id="banner" src="images/banner.jpg" class="d-block w-100" alt="안녕">
+      <script>document.getElementById('banner').src=logo_info()</script>
+      
+      
     </div>
     <div class="carousel-item">
       <img src="images/banner-2.jpeg" class="d-block w-100" alt="...">
@@ -23,6 +26,8 @@
 <!--     <div class="carousel-item">
       <img src="http://cdn.tgdaily.co.kr/news/photo/202110/311920_75255_537.png" alt="...">
     </div> -->
+    
+    
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -63,6 +68,26 @@
 			</table>
 		</form>
 	</div>
+	
+	
+	
+	<script>
+		function banner_img {
+            for(var i=1; i<=5; i++) {
+                if(user_area == i) {
+                img_src = '../public/img/'+ i + '_logo.png';
+                }
+            }
+            return img_src;
+		}
+	
+	</script>	
+	
+	<script>document.getElementById('banner').src=logo_info()</script>
+	
+
+	
+	
 
 <!-- 검색, 랭킹 -->
 
@@ -81,6 +106,11 @@
         			<button type="submit">검색</button>
         		</form>
         	</div>
+
+
+
+
+
 
 
 
