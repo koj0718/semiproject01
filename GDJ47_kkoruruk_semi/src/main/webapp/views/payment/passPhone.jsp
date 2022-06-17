@@ -138,8 +138,6 @@
     <div class="my-5 pt-5 text-muted text-center text-small">
         <h1 class="mb-1">&copy;header</h1>
     </div>
-	
-	
     
 	<footer class="my-5 pt-5 text-muted text-center text-small">
 		<h1 class="mb-1">&copy;footer</h1>

@@ -36,7 +36,8 @@ public class StoreDetailServlet extends HttpServlet {
 		String storeId="A";
 //		Store s=new MenuService().searchStoreId(storeId);
 		List<Menu> menuList=new MenuService().searchStoreDeatil(storeId);
-//		List<MenuOption> menuOption=new MenuService().MenuOption();
+//		Menu menuId=new
+//		List<MenuOption> menuOption=new MenuService().MenuOption(menuId);
 		
 		System.out.println(menuList);
 		request.setAttribute("storeId", storeId);

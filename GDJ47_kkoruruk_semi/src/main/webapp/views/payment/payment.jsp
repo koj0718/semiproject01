@@ -10,39 +10,16 @@
   
 <html lang="ko">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
-    <meta name="generator" content="Hugo 0.88.1">
+
     <title>결제</title>
 
     <link rel="canonical" href="https://getbootstrap.kr/docs/5.1/examples/checkout/">
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/payment/payment.css">
 
     <!-- Bootstrap core CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-      
-      div {
-      	border : 1px solid darkgray; 
-      }
-    </style>
-
-    <!-- Custom styles for this template -->
 <link href="form-validation.css" rel="stylesheet">
 </head>
 
@@ -94,9 +71,8 @@
 	            	<p style="color:green">환경보호를 위해 꼭 필요할 때만 선택해주세요!</p>
 	            </select>
 	        </div>
-	        <hr class="my-4">
-	        <br>
-	          
+	        
+	        <h4>주문 메뉴 정보</h4>
 	        <div class="container">
 	            <div><img src="https://pelicana.co.kr/resources/images/menu/original_menu01_200529.png" style="width:200px; height:200px;">사진</div>
         		<div class="row">
@@ -140,16 +116,6 @@
     		<div class="container">
         		<div class="row">
             		<div class="col">
-                		사용가능한 포인트
-            		</div>
-            		<div class="col">
-						n
-            		</div>
-        		</div>
-    		</div>
-    		<div class="container">
-        		<div class="row">
-            		<div class="col">
                 		선택한 포인트
             		</div>
             		<div class="col">
@@ -158,7 +124,7 @@
         		</div>
         		<div class="row">
             		<div class="col">
-                		총 보유 포인트
+                		사용 후 포인트
             		</div>
             		<div class="col">
                 		n
@@ -242,23 +208,39 @@
 				  	<input type="checkbox" class="form-check-input" id="same-address">
 				  	<label class="form-check-label" for="same-address">만나서 현금결제</label>
 				</div> -->
+				
+				<label><input type="radio" id="onlinePay" name="paymentType" value="온라인결제" checked="checked">온라인결제</label>
+	        	<label><input type="radio" id="directPay" name="paymentType" value="만나서결제">만나서결제</label>
 
 	    	</form>
 	    	
- 	    	<label><input type="radio" name="paymentType" value="온라인결제">온라인결제</label>
-        	<label><input type="radio" name="paymentType" value="만나서결제" checked="checked">만나서결제</label>
-        	
-        	
-        	
         	<hr>
 	    	
 			<div>
-				<button onclick="requestPay()" class="w-100 btn btn-primary btn-lg" type="submit">결제하기</button>
+
+				<button onclick="requestPay()" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit">온라인 결제하기</button>
+				<button onclick="requestPay()" id="diPayBtn" class="w-100 btn btn-primary btn-lg" type="submit">만나서 결제하기</button>
+
+			
 			</div>
 		</div>
 	</div>
 	
-  <script>
+   <script>
+
+  		/* 온라인결제 */
+  		$("#onlinePay").click(function(){
+  			$("#onPayBtn").show();
+  			$("#diPayBtn").hide();
+  			$("input:radio[name='paymentType'][value='온라인결제']").prop("checked", true);	
+  		});
+  		/* 만나서결제 */
+  		$('#diPayBtn').hide(); /* 기본 숨겨두기 */
+  		$("#directPay").click(function(){
+  			$("#diPayBtn").show();
+  			$("#onPayBtn").hide();
+  			$("input:radio[name='paymentType'][value='만나서결제']").prop("checked", true);
+  		});
 	  
   		/* import */
 	    function requestPay() {

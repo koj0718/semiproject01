@@ -1,4 +1,4 @@
-package com.siksin.store.controller;
+package com.siksin.order.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class CheckOrderServlet
  */
 @WebServlet("/checkOrder.do")
-public class CheckOrderServlet extends HttpServlet {
+public class OrderCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckOrderServlet() {
+    public OrderCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -4,7 +4,7 @@
 <%@ page import="com.siksin.menu.model.vo.Menu" %>
 <%@ page import="com.siksin.store.model.vo.Store" %>
 <%
-	Store s=(Store)request.getAttribute("storeId");
+	/* Store s=(Store)request.getAttribute("storeId"); */
 	List<Menu> menuList=(List<Menu>)request.getAttribute("menuList");
 %>  
 <!doctype html>
