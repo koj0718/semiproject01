@@ -31,9 +31,9 @@ public class MenuService {
 		return result;
 	}
 	
-	public List<Menu> searchStoreDeatil(String storeId,int cPage,int numPerpage){
+	public List<Menu> searchStoreDeatil(String storeId){
 		Connection conn=getConnection();
-		List<Menu> menuList=dao.searchStoreDeatil(conn,storeId,cPage,numPerpage);
+		List<Menu> menuList=dao.searchStoreDeatil(conn,storeId);
 		close(conn);
 		return menuList;
 	}
