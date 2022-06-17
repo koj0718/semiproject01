@@ -41,6 +41,29 @@
 
 
 
+
+
+<div id='board-container'>
+	
+		<form action='<%=request.getContextPath()%>/bannerManage.do'
+		method="post" enctype="multipart/form-data" >
+			<table id='tbl-board'>
+
+				<tr>
+					<th>첨부파일</th>
+					<td><input type="file" name="upfile"></td>
+				</tr>
+
+				<tr>
+					<th colspan="2">
+						<input type="submit" value="등록">
+						<input type="reset" value="취소">
+					</th>
+				</tr>
+			</table>
+		</form>
+	</div>
+
 <!-- 검색, 랭킹 -->
 
 

@@ -4,7 +4,7 @@
 <%@ page import="com.siksin.menu.model.vo.Menu" %>
 <%@ page import="com.siksin.store.model.vo.Store" %>
 <%
-	List<Store> list=(List<Store>)request.getAttribute("list");
+	/* Store s=(Store)request.getAttribute("storeId"); */
 	List<Menu> menuList=(List<Menu>)request.getAttribute("menuList");
 %>  
 <!doctype html>
@@ -55,7 +55,7 @@
     
 	    <div class="restaurant-info">
 	      <div class="restaurant-title">
-	        <span class="restaurant-name ng-binding" ng-bind="restaurant.name">교촌치킨</span>
+	        <span class="restaurant-name ng-binding" ng-bind="restaurant.name">교촌</span>
 	      </div>
 	      <hr>
 	      <div class="restaurant-content">
@@ -157,14 +157,14 @@
       <article class="blog-post">
       <button onclick="chch();">ddd</button>
       
-     <%for(Menu s : menuList){ %> 	
+     <%for(Menu m : menuList){ %> 	
       	<div >
 	        <div  class="row g-5">
 		        <div class="col-md-10">
-		        	<div ><%=s.getMenuName() %></div>
-		        	<div><%=s.getMenuDec() %></div>
+		        	<div ><%=m.getMenuName() %></div>
+		        	<div><%=m.getMenuDec() %></div>
 		        </div>
-		        <div class="col-md-2"><%=s.getMenuImg() %></div>
+		        <div class="col-md-2"><%=m.getMenuImg() %></div>
 	        </div>
         </div>
    <%} %>

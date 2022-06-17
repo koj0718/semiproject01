@@ -95,22 +95,17 @@ public class MenuDao {
 		return s;
 	}
 	
-	public List<Menu> searchStoreDeatil(Connection conn, String  storeId,
-			int cPage, int numPerpage){
+	public List<Menu> searchStoreDeatil(Connection conn, String  storeId){
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		List<Menu> menuList=new ArrayList();	
 		try {
 				
 			pstmt=conn.prepareStatement(prop.getProperty("searchStoreDetailId"));
-			pstmt.setString(1, storeId);
-			pstmt.setInt(2, (cPage-1)*numPerpage+1);
-			pstmt.setInt(3, cPage*numPerpage);
+			pstmt.setString(1, storeId);			
 			rs=pstmt.executeQuery();
-			while(rs.next()) {
-				Menu m=null;
-				m.setMenuId(numPerpage);
-				
+			while(rs.next()) {				
+				menuList.add(getMenu(rs));							
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -118,6 +113,17 @@ public class MenuDao {
 			close(rs);
 			close(pstmt);
 		}return menuList;
+	}
+	
+	private Menu getMenu(ResultSet rs) throws SQLException{
+		return Menu.builder()
+				.menuId(rs.getInt("menu_id"))
+				.storeId(rs.getString("store_id"))
+				.menuName(rs.getString("menu_name"))
+				.menuPrice(rs.getInt("menu_price"))
+				.menuDec(rs.getString("menu_dec"))
+				.menuThumb(rs.getString("menu_thumb"))
+				.build();
 	}
 	
 }

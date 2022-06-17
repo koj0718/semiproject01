@@ -11,6 +11,7 @@ public class Menu {
 	private int menuId;
 	private String storeId;
 	private String menuName;
+	private int menuPrice;
 	private String menuDec;
 	private String menuImg;
 	private String menuThumb;
