@@ -9,7 +9,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Go Go</title>
+	<title>Menu Category</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <style>
@@ -21,13 +21,16 @@
 	padding-left:120px;
 	padding-right:120px;
 	}
+	
 	.row{
 	padding-left:10px;
 	padding-right:10px;
 	}
+	
 	div>img{
 	height : 180px;
 	}
+	
 	p{
 	font-size:16px;
 	}
@@ -36,13 +39,13 @@
     display: flex;
     height: 50px;
 	}
+	
 	section>ul>li{
     list-style-type: none;
-    margin-left: 1.2rem;
-    padding-left:10px;
-    padding-right:10px;
+    padding-left: 10px;
+    padding-right: 10px;
     
-  
+    
 	}
 	section>ul>li>a{
     text-decoration: none;
@@ -53,19 +56,36 @@
 	}
 	section>ul>li>a:hover{
     border-bottom: 2px solid red;
+    
     }
+
     
     .nav-item>a{
 	color:gray;    
     }
+    
     .nav-item>a:hover{
     color:black;
     }
     
-    section>div{
-    padding:15px;
+    section{
+    padding-top: 40px;
     }
     
+    section>div{
+    padding:15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    }
+    
+    .store-card{
+    text-decoration: none;
+    color:black;
+    }
+    
+    .choic-box{
+   	
+    }
 </style>
 
 
@@ -82,58 +102,52 @@
   
 		<ul class="nav justify-content-center" >
 			<li class="nav-item" >
-				<a class="nav-link" href="#">전체</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=전체">전체</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">양식</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=치킨">치킨</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">일식</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=돈까스/일식">돈까스/일식</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">중식</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=피자">피자/양식</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">한식</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=중국집">중국집</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">돈까스</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=한식">한식</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">피자</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=프랜차이즈">프랜차이즈</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">치킨</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=족발/보쌈">족발/보쌈</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">족발 보쌈</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=야식">야식</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">찌개</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=분식">분식</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">고기</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=카페/디저트">카페/디저트</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">패스트푸드</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">카페</a>
+				<a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=편의점/마트">편의점/마트</a>
 			</li>
 		</ul>
 		
 		<div>
-			<div>
-				<select name="choicType">
+			<div class="choice-box">
+				<select name="choiceType">
 					<option value="">기본정렬순</option>
 					<option value="">별점순</option>
 					<option value="">리뷰 많은순</option>
 					<option value="">최소 주문 금액순</option>
 					<option value="">최소 배달 금액순</option>
 				</select>
-			</div>
-			<div>
-				
 			</div>
 		</div>
   
@@ -142,7 +156,8 @@
 	<main id="container">
 		<div class="row">
 			<%for(Store s : list){ %>
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" >
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+				<a href="<%=request.getContextPath()%>/storedetailsearch.do?name=<%=s.getStoreName()%>" class="store-card">
 				<div class="card" style="">
 					<div>
 						<img src="https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg" class="card-img-top" alt="...">
@@ -153,18 +168,18 @@
 								<%=s.getStoreName() %>
 							</div>
 							<div>
-								<p>찜</p>
+								찜
 							</div>
 						</div>
 						<div style="display: flex; justify-content: space-around;" >
 							<div>
-								<p>별점</p>
+								별점
 							</div>
 							<div>
-								<p>리뷰수</p>
+								리뷰수
 							</div>
 							<div>
-								<p>거리</p>
+								거리
 							</div>
 							<div>
 								<%=s.getPickYN() %>
@@ -175,11 +190,12 @@
 								<%=s.getDeleveryTime() %>
 							</div>
 							<div>
-								<p>배달요금</p>
+								배달요금
 							</div>
 						</div>
 					</div>
 				</div>
+				</a>
 			</div>
 			<%} %>	
 		</div>
