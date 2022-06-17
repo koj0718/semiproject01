@@ -216,7 +216,7 @@
     		
     		<br>
 	
-<!-- 				<div>온라인결제<br>
+<!-- 			<div>온라인결제<br>
 				    <input type="checkbox" class="form-check-input" id="same-address">
 				  	<label class="form-check-label" for="same-address">신용카드</label>
 				  	<input type="checkbox" class="form-check-input" id="same-address">
