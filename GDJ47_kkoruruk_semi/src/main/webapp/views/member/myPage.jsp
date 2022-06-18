@@ -5,8 +5,8 @@
 
 
 	<!-- 마이페이지 사이드바 -->
-	<div id="bodyContainer">
-		<div id="myPageSidebars"class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; float:left;">
+	<div id="bodyContainer" class="col-12">
+		<div id="myPageSidebars"class="col-4 row d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:430px; float:left;">
 		    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 		      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
 		      <span class="fs-4">#####</span>
@@ -45,11 +45,31 @@
 		      </li>
 		    </ul>
 		</div>
+		<!-- 사이드바 끝나는 부분 -->
 		
-		<div style="float:right;">
-			dddddd
+		<div id="myPageContent" class="row col-8">
+			<div class="row">
+		      <div class="col-8 col-sm-6">
+		      	<div><img src="#">프로필 사진</div>
+		      	<div>@@@님 안녕하세요.</div>
+		      </div>
+		      <div class="col-4 col-sm-6">
+		        nnnnnnnn 포인트
+		      </div>
+		    </div>
+		    <hr>
+		    <div style="height:80px;">
+		    	@@@님은 @@@등급 입니다.
+		    </div>
 		</div>
 		
+	<ul id="list" class="list-group ">
+	  <li class="list-group-item">An active item</li>
+	  <li class="list-group-item">A second item</li>
+	  <li class="list-group-item">A third item</li>
+	  <li class="list-group-item">A fourth item</li>
+	  <li class="list-group-item">And a fifth one</li>
+	</ul>		
 		
 	</div>
 

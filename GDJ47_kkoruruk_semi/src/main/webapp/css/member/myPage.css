@@ -2,8 +2,20 @@
 
 /* .myPageSidebars {
 	float: left;
+} */
+
+#bodyContainer {
+ 	height: auto;
+	width: 100%;
+	display: block;
 }
 
-.bodyContent {
-	float: right;
-} */
+#myPageContent {
+	height: auto;
+	width: 70%;
+	display: block;
+	background-color: tomato;
+	padding : 6px;
+	margin: 0 auto;	
+	margin-left: 350px;
+}
