@@ -45,6 +45,7 @@ public class SearchMenuServlet extends HttpServlet {
 		}catch(NumberFormatException e) {
 			cPage=1;
 		}
+
 		
 		
 //		Map<String,Object> param=Map.of("searchMenu",searchMenu,

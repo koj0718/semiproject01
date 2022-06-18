@@ -62,7 +62,8 @@
       <h3 class="float-md-start mb-0">kkoruruk</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
       	<div>
-      		<a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/location/searchAddress.do">주소를 입력해주세요.</a>
+      		<%-- <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/location/searchAddress.do">현재 위치로 주소찾기</a> --%>
+      		<a class="nav-link active" aria-current="page" href="#" onclick="corrent_location();">현재 위치로 주소찾기</a>
       	</div>
       <%if(loginMember==null) {%>
         <div>
@@ -91,6 +92,11 @@
       </nav>
     </div>
     <script>
+    	const corrent_location=()=>{
+    		const url="<%=request.getContextPath()%>/correntAddress.do";
+			const title="correntLocation";
+    		open(url,title,"width=500,height=500");
+    	}
 	    const fn_logout=()=>{
 			location.replace("<%=request.getContextPath()%>/logout.do");
 		}			
