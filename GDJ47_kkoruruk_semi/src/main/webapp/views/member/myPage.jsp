@@ -5,7 +5,8 @@
 
 
 	<!-- 마이페이지 사이드바 -->
-	<div id="bodyContainer" class="col-12">
+	<div id="bodyContainer" class="row">
+	
 		<div id="myPageSidebars"class="col-4 row d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:430px; float:left;">
 		    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 		      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
@@ -47,10 +48,12 @@
 		    </ul>
 		</div>
 		<!-- 사이드바 끝나는 부분 -->
-		<div class="">
-			<div>
+		<div class="col">
+		
+			<section class="title">
 				<h1>마이페이지</h1>
-			</div><br>
+			</section>
+			<br>
 			
 			<div id="myPageContent" class="row col-8">
 				<div class="row">

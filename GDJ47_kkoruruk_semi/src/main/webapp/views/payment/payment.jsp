@@ -54,7 +54,6 @@
 	                    <input type="checkbox" class="form-check-input" id="same-address">
 		            	<label class="form-check-label" for="same-address">안심번호 체크</label>
 	                </div>
-	            
 	        </div>
 	        <br> 
 	        <div class="col-md-5">
