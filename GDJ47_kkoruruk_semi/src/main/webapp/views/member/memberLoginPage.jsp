@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.siksin.member.model.vo.Member" %>    
+<%
+	Member loginMember=(Member)session.getAttribute("loginMember");
+	Cookie[] cookies=request.getCookies();
+	String saveId=null;
+	if(cookies!=null){
+		for(Cookie c : cookies){
+			if(c.getName().equals("saveId")){
+				saveId=c.getValue();
+			}
+		}
+	}
 
+
+%> 
 <!doctype html>
 <html lang="ko">
   <head>
@@ -27,23 +41,23 @@
   </head>
   <body class="text-center">
     
-	<main class="form-signin">
-	  <form>
+	<main class="form-signin">ogin.do
+	  <form action="<%=request.getContextPath() %>/login.do" method="post">
 	    <!-- <img class="mb-4" src="https://pbs.twimg.com/media/CUEhP09U8AAi9JD.png" alt="" width="72" height="57"> -->
 	    <h1 class="h3 mb-3 fw-normal">반갑습니다.<br>로그인 하고 더 큰 혜택을 즐기세요!</h1>
 	
 	    <div class="form-floating">
-	      <input type="text" class="form-control" id="floatingInput" placeholder="아디를 입력해 주세요.">
-	      <label for="floatingInput">아이디</label>
+	      <input type="text" class="form-control" id="floatingInput" name="userId" placeholder="아디를 입력해 주세요." value="<%=saveId!=null?saveId:""%>">
+	      
 	    </div>
 	    <div class="form-floating">
-	      <input type="password" class="form-control" id="floatingPassword" placeholder="비밀번호를 입력해 주세요.">
-	      <label for="floatingPassword">비밀번호</label>
+	      <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="비밀번호를 입력해 주세요.">	      
 	    </div>
 	
 	    <div class="checkbox mb-3">
 	      <label>
-	        <input type="checkbox" value="remember-me"> 아이디기억
+	        <input type="checkbox" name="saveId" id="saveId" <%=saveId!=null?"checked":"" %>>
+				<label for="saveId">아이디저장</label>
 	      </label>
 	    </div>
 	    <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
