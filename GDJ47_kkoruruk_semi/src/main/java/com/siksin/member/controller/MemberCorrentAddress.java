@@ -27,8 +27,6 @@ public class MemberCorrentAddress extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("접근");
-		
 		request.getRequestDispatcher("/views/common/correntAddress.jsp").forward(request, response);
 		
 	}
