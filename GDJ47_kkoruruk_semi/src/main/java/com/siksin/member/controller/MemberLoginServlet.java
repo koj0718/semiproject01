@@ -36,9 +36,8 @@ public class MemberLoginServlet extends HttpServlet {
 		String password=request.getParameter("password");
 		String saveId=request.getParameter("saveId");
 		
-		System.out.println(userId);
-		System.out.println(password);
-		System.out.println(saveId);
+		System.out.println("saveId"+saveId);
+		
 		if(saveId!=null) {
 			Cookie c=new Cookie("saveId",userId);
 			c.setMaxAge(24*60*60*7);
@@ -50,6 +49,8 @@ public class MemberLoginServlet extends HttpServlet {
 		}
 		
 		Member mem=new MemberService().searchMember(userId,password);
+		
+		System.out.println("mem"+mem);
 		
 		if(mem!=null) {
 			HttpSession session=request.getSession();

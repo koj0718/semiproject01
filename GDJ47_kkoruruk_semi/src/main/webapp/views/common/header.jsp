@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.siksin.member.model.vo.Member" %>    
+<%
+	Member loginMember=(Member)session.getAttribute("loginMember");
+	Cookie[] cookies=request.getCookies();
+	String saveId=null;
+	if(cookies!=null){
+		for(Cookie c : cookies){
+			if(c.getName().equals("saveId")){
+				saveId=c.getValue();
+			}
+		}
+	}
 
+
+%> 	
 <!doctype html>
 
 	<!-- jQuery -->
@@ -52,12 +66,13 @@
       	<div>
       		<a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/location/searchAddress.do">주소를 입력해주세요.</a>
       	</div>
+      <%if(loginMember==null) {%>
         <div>
         	<a class="nav-link" href="<%=request.getContextPath()%>/memberloginpage.do">로그인</a>
         </div>
     
     <!-- 로그인 시 노출 -->
-<%--     <% if(!loginMember==null) { %> --%>
+ 	<%} else{%>
 	<div id="loginHidden" class="dropdown">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
@@ -70,8 +85,7 @@
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#">로그아웃</a></li>
       </ul>
-    </div>
-<%--     <% } %> --%>
+	<% } %>
     
         <a class="nav-link" href="#">주문표</a>
       </nav>
