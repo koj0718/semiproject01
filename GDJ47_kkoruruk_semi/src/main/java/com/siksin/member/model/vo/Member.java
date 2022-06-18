@@ -14,6 +14,6 @@ public class Member {
 	private int memPoint;
 	private String memPhone;
 	private String memRank;
-	private String memRole;
+	private String role;
 
 }
