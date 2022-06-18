@@ -53,6 +53,7 @@ public class MenuDao {
 		}finally {
 			close(rs);
 			close(pstmt);
+			
 		}return result;
 	}
 	
@@ -60,7 +61,7 @@ public class MenuDao {
 	public int searchMenuCount(Connection conn, String keyword) {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql=prop.getProperty("searchMemberCount");
+		String sql=prop.getProperty("searchMenuCount");
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(sql);
