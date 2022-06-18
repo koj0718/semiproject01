@@ -39,7 +39,7 @@ public class SearchMenuServlet extends HttpServlet {
 		
 		
 		int cPage;
-		int numPerpage=5;
+		int numPerpage=5; 
 		try {
 			cPage=Integer.parseInt(request.getParameter("cPage"));
 		}catch(NumberFormatException e) {

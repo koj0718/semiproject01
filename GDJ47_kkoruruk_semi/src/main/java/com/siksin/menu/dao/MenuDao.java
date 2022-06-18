@@ -46,7 +46,7 @@ public class MenuDao {
 			pstmt.setInt(3, cPage*numPerpage);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
-				result.add(getMember(rs));
+				result.add(getStore(rs));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -78,7 +78,7 @@ public class MenuDao {
 	}
 	
 	
-	public static Store getMember(ResultSet rs) {
+	public static Store getStore(ResultSet rs) {
 		Store s=null;
 		try {
 			s=new Store();
