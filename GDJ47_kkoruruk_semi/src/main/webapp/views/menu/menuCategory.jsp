@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>  
-<%@ page import="com.siksin.store.model.vo.Store" %>   
+<%@ page import="com.siksin.store.model.vo.Store" %>
+
+<%@ include file="/views/common/header.jsp" %> 
+
 <%
    List<Store> list=(List<Store>)request.getAttribute("list");
 %>
@@ -11,7 +14,7 @@
    <meta charset="UTF-8">
    <title>Menu Category</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+	
 <style>
    /* *{
    border:1px solid red;
@@ -91,13 +94,7 @@
 </head>
 <body>
 
-   <header>
-      <h2>
-         여기는 헤더임
-      </h2>
-   </header>
-
-   <section class="">
+     <section class="">
 
       <ul class="nav justify-content-center" >
          <li class="nav-item" >
@@ -200,8 +197,8 @@
       </div>
    </main>
 
-
-
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html> 
+
+<%@ include file="/views/common/footer.jsp" %>
