@@ -82,6 +82,10 @@ public class SearchMenuServlet extends HttpServlet {
 			pageBar+="<a href='"+request.getRequestURL()
 			+"?cPage="+(pageNo)+"&searchMenu="+searchMenu+"'>[다음]</a>";
 		}
+		
+		
+		System.out.println(cPage);
+		
 		request.setAttribute("pageBar", pageBar);
 		request.setAttribute("list", result);
 		

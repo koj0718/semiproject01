@@ -199,6 +199,10 @@
          <%} %>   
       </div>
    </main>
+   
+           <div id="pageBar">
+        	<%=request.getAttribute("pageBar") %>
+        </div>
 
 
 
