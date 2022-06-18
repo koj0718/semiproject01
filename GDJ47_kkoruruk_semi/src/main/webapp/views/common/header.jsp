@@ -12,8 +12,6 @@
 			}
 		}
 	}
-
-
 %> 	
 <!doctype html>
 
@@ -69,26 +67,32 @@
       <%if(loginMember==null) {%>
         <div>
         	<a class="nav-link" href="<%=request.getContextPath()%>/memberloginpage.do">로그인</a>
-        </div>
+        </div>	
     
     <!-- 로그인 시 노출 -->
  	<%} else{%>
 	<div id="loginHidden" class="dropdown">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>맞있으면짖음</strong>
+        <strong><%=loginMember.getMemNick() %></strong>
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-        <li><a class="dropdown-item" href="#">프로필</a></li>
-        <li><a class="dropdown-item" href="#">########</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">마이페이지</a></li>
+        <li><a class="dropdown-item" href="#">찜한가게</a></li>
+        <li><a class="dropdown-item" href="#">리뷰관리</a></li>
+        <li><a class="dropdown-item" href="#">주문내역</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">로그아웃</a></li>
+        <li><a class="dropdown-item" onclick="fn_logout();">로그아웃</a></li>
       </ul>
 	<% } %>
-    
+    <div class=>
         <a class="nav-link" href="#">주문표</a>
+    </div>
       </nav>
     </div>
-    <!--  -->
+    <script>
+	    const fn_logout=()=>{
+			location.replace("<%=request.getContextPath()%>/logout.do");
+		}			
+	</script>
   </header>

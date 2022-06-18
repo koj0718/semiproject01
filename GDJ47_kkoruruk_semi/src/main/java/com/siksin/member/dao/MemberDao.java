@@ -49,13 +49,14 @@ public class MemberDao {
 		ResultSet rs=null;
 		Member m=null;
 		try {
-			pstmt=conn.prepareStatement(prop.getProperty("selectMember"));
+			pstmt=conn.prepareStatement(prop.getProperty("selectMember"));			
 			pstmt.setString(1,userId);
 			pstmt.setString(2, password);	
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				m=getMember(rs);
 			}
+			System.out.println(m);
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -75,7 +76,7 @@ public class MemberDao {
 				.memPoint(rs.getInt("mem_point"))
 				.memPhone(rs.getString("mem_phone"))
 				.memRank(rs.getString("mem_rank"))
-				.memRole(rs.getString("mem_role"))
+				.role(rs.getString("role"))
 				.build();
 	}
 
