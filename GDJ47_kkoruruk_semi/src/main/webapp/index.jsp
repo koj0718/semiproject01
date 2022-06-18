@@ -39,7 +39,7 @@
   </button>
 </div>
 
-
+<%-- 
 <div class="admin_banner_enroll">
 	<input type="button" value="베너관리" onclick="location.assign('<%=request.getContextPath()%>/bannerManage.do');">
 </div>
@@ -69,8 +69,12 @@
 		</form>
 	</div>
 	
+	<button id="ajaxPostParam">post방식으로 데이터 전송</button>
+	
+	<div id="result"></div>	
 	
 	
+	<!-- 베너 for문   -->
 	<script>
 		function banner_img {
             for(var i=1; i<=5; i++) {
@@ -80,12 +84,40 @@
             }
             return img_src;
 		}
+		
+		
+		
+		/* 수업자료 */		
+		document.querySelector("#ajaxGetParam").addEventListener("click",e=>{
+			const xhr=new XMLHttpRequest();
+			//get방식으로 데이터 전송시 쿼리스트링 방식으로 전송함.
+			xhr.open("get","<%=request.getContextPath()%>/getparam.do?data=test용");
+			xhr.onreadystatechange=()=>{
+				if(xhr.readyState==4){
+					if(xhr.status==200){
+						document.getElementById("result").innerHTML=xhr.responseText;
+					}
+				}
+			}
+			xhr.send();
+			document.getElementById("result").innerHTML="가즈아";
+		});	
+		
+		
 	
 	</script>	
 	
 	<script>document.getElementById('banner').src=logo_info()</script>
+	 --%>
+<!--  -->
 	
-
+	
+	
+	
+	
+	
+	
+	
 	
 	
 

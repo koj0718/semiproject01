@@ -30,7 +30,7 @@ public class MemberEnrollendServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
+		request.setCharacterEncoding("utf-8");	
 		String userId=request.getParameter("userId");
 		String password=request.getParameter("password");
 		String userName=request.getParameter("name");
@@ -42,7 +42,7 @@ public class MemberEnrollendServlet extends HttpServlet {
 				.memId(userId)
 				.memPwd(password)
 				.memName(userName)
-				.email(email)
+				.memEmail(email)
 				.memNick(nickName)
 				.memPhone(phone)
 				.build();
@@ -56,7 +56,7 @@ public class MemberEnrollendServlet extends HttpServlet {
 			loc="/";
 		}else{
 			msg="회원가입에 실패했습니다. 다시 시도하세요!";
-			loc="/memberEnrollEnd.do";
+			loc="/memberloginpage.do";
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("loc",loc);

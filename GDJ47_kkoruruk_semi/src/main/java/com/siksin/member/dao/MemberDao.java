@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -32,7 +33,7 @@ public class MemberDao {
 			pstmt.setString(1, m.getMemId());
 			pstmt.setString(2, m.getMemName());
 			pstmt.setString(3, m.getMemPwd());			
-			pstmt.setString(4, m.getEmail());
+			pstmt.setString(4, m.getMemEmail());
 			pstmt.setString(5, m.getMemNick());
 			pstmt.setString(6, m.getMemPhone());
 			result=pstmt.executeUpdate();
@@ -41,6 +42,41 @@ public class MemberDao {
 		}finally {
 			close(pstmt);
 		}return result;
+	}
+	
+	public Member searchMember(Connection conn, String userId, String password) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		Member m=null;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("selectMember"));
+			pstmt.setString(1,userId);
+			pstmt.setString(2, password);	
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				m=getMember(rs);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return m;
+		
+	}
+	
+	public static Member getMember(ResultSet rs) throws SQLException {		
+		return Member.builder()
+				.memId(rs.getString("mem_id"))
+				.memName(rs.getString("mem_name"))
+				.memPwd(rs.getString("mem_pwd"))
+				.memEmail(rs.getString("mem_email"))
+				.memNick(rs.getString("mem_nick"))
+				.memPoint(rs.getInt("mem_point"))
+				.memPhone(rs.getString("mem_phone"))
+				.memRank(rs.getString("mem_rank"))
+				.memRole(rs.getString("mem_role"))
+				.build();
 	}
 
 }

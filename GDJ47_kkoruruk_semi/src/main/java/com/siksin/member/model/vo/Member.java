@@ -9,10 +9,11 @@ public class Member {
 	private String memId;
 	private String memName;
 	private String memPwd;
-	private String email;
+	private String memEmail;
 	private String memNick;
 	private int memPoint;
 	private String memPhone;
 	private String memRank;
+	private String memRole;
 
 }

@@ -22,5 +22,12 @@ public class MemberService {
 		close(conn);
 		return result;	
 	}
+	
+	public Member searchMember(String userId, String password) {
+		Connection conn=getConnection();
+		Member m=dao.searchMember(conn,userId,password);
+		close(conn);
+		return m;
+	}
 
 }
