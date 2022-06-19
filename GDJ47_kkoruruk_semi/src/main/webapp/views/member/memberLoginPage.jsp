@@ -41,7 +41,7 @@
   </head>
   <body class="text-center">
     
-	<main class="form-signin">ogin.do
+	<main class="form-signin">
 	  <form action="<%=request.getContextPath() %>/login.do" method="post">
 	    <!-- <img class="mb-4" src="https://pbs.twimg.com/media/CUEhP09U8AAi9JD.png" alt="" width="72" height="57"> -->
 	    <h1 class="h3 mb-3 fw-normal">반갑습니다.<br>로그인 하고 더 큰 혜택을 즐기세요!</h1>
