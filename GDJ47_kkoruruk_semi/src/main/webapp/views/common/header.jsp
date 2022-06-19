@@ -61,12 +61,12 @@
     <div>
       <h3 class="float-md-start mb-0">kkoruruk</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-      	<div>
+      	<div class="navLocation">
       		<%-- <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/location/searchAddress.do">현재 위치로 주소찾기</a> --%>
       		<a class="nav-link active" aria-current="page" href="#" onclick="corrent_location();">현재 위치로 주소찾기</a>
       	</div>
       <%if(loginMember==null) {%>
-        <div>
+        <div class="logContainer">
         	<a class="nav-link" href="<%=request.getContextPath()%>/memberloginpage.do">로그인</a>
         </div>	
     
@@ -86,7 +86,7 @@
         <li><a class="dropdown-item" onclick="fn_logout();">로그아웃</a></li>
       </ul>
 	<% } %>
-    <div class=>
+    <div class="orderList">
         <a class="nav-link" href="#">주문표</a>
     </div>
       </nav>
