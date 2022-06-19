@@ -43,7 +43,7 @@
 		        </a>
 		      </li>
 		      <li>
-		        <a href="<%=request.getContextPath() %>/.do" class="nav-link link-dark">
+		        <a href="<%=request.getContextPath()%>/checkOrder.do" class="nav-link link-dark">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
 		          주문내역
 		        </a>

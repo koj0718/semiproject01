@@ -27,7 +27,7 @@ public class OrderCheckServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		System.out.println("주문들어옴");
 		
 	}
 
