@@ -23,9 +23,6 @@
 <html lang="ko" class="h-100">
 <head>
 
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/member/myPage.css">
-
     <title>꼬르륵</title>
 
     <link rel="canonical" href="https://getbootstrap.kr/docs/5.1/examples/cover/">
