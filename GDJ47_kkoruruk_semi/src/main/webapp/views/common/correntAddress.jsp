@@ -6,13 +6,28 @@
 <meta charset="UTF-8">
 <title>주소입력창</title>
 <style>
+
 h4{
 text-align: center;
 margin: 4px;
 }
+
 .Addr{
 font-size: 14px;
 }
+
+#mapAddress{
+margin-top: 5px;
+
+width: 372px; 
+height: 22px;
+
+border-top-left-radius:5px;
+border-bottom-left-radius:5px;
+border-top-right-radius:5px;
+border-bottom-right-radius:5px;
+}
+
 #addinfo{
 margin-top: 5px;
 
@@ -23,7 +38,6 @@ border-top-left-radius:5px;
 border-bottom-left-radius:5px;
 border-top-right-radius:5px;
 border-bottom-right-radius:5px;
-
 }
 
 #addbutton{	
@@ -40,10 +54,10 @@ border-bottom-left-radius:5px;
 border-top-right-radius:5px;
 border-bottom-right-radius:5px;
 cursor: pointer;
-
 }
 
 </style>
+<script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <!-- 지도를 표시할 div 입니다 -->
@@ -51,15 +65,17 @@ cursor: pointer;
 <div id="map" style="width:380px;height:380px;"></div>
 
 <div class="map_wrap">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-    <div class="Addr">
-        <span class="title" font>지도중심기준 행정동 주소정보</span>
-    	<div id="mapAddress"></div>
-    </div>
-    <div id="">
-		<input type="text" id="addinfo" placeholder="상세주소를 입력하세요(건물명, 동/호수 등)">
-		<button type="submit" id="addbutton">주소 저장</button>
-	</div>
+	<form action="<%=request.getContextPath() %>/deladdress.do">
+	    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>   
+	    <div class="Addr">
+	        <span class="title" font>지도중심기준 행정동 주소정보</span><br>
+	    	<input type="text" value="" id="mapAddress"></div>
+	    </div>
+	    <div id="">
+			<input type="text" id="detAddress" placeholder="상세주소를 입력하세요(건물명, 동/호수 등)">
+			<button type="submit" id="addbutton">주소 저장</button>
+		</div>
+	</form>
 </div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c7fed37bf5a28c91c2f899bb4b9338c9&libraries=services"></script>
 
@@ -139,8 +155,8 @@ function displayMarker(locPosition, message) {
 					console.log(status);
 					
 		/* document.write(result[0].address.address_name);	 */
-		document.getElementById("mapAddress").innerHTML=(result[0].address.address_name);
-	
+		let inputadd=document.getElementById("mapAddress").innerHTML=(result[0].address.address_name);
+		$('input[id=mapAddress]').attr('value',inputadd);
 		});
 	}, (err)=>{
 		
