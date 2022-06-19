@@ -17,7 +17,7 @@ public class StoreDao {
 	private Properties prop=new Properties();
 	
 	public StoreDao() {
-		String path=StoreDao.class.getResource("/sql/menu_sql.properties").getPath();
+		String path=StoreDao.class.getResource("/sql/sql.properties").getPath();
 		try {
 			prop.load(new FileReader(path));
 		}catch(IOException e) {

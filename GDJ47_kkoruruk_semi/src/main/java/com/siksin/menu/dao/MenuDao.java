@@ -24,7 +24,7 @@ public class MenuDao {
 	private Properties prop=new Properties();
 	
 	public MenuDao() {
-		String path=MenuDao.class.getResource("/sql/menu_sql.properties").getPath();
+		String path=MenuDao.class.getResource("/sql/sql.properties").getPath();
 		try {
 			prop.load(new FileReader(path));
 		}catch(IOException e) {

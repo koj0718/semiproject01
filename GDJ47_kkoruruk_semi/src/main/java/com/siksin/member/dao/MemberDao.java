@@ -17,7 +17,7 @@ public class MemberDao {
 	private Properties prop=new Properties();
 	
 	public MemberDao() {
-		String path=MemberDao.class.getResource("/member/member_sql.properties").getPath();
+		String path=MemberDao.class.getResource("/sql/sql.properties").getPath();
 		try {
 			prop.load(new FileReader(path));
 		}catch(IOException e) {
@@ -29,7 +29,7 @@ public class MemberDao {
 		PreparedStatement pstmt=null;
 		int result=0;
 		try {
-			pstmt=conn.prepareStatement(prop.getProperty("insertMember"));
+			pstmt=conn.prepareStatement(prop.getProperty("insertMemberEnroll"));
 			pstmt.setString(1, m.getMemId());
 			pstmt.setString(2, m.getMemName());
 			pstmt.setString(3, m.getMemPwd());			
@@ -49,7 +49,7 @@ public class MemberDao {
 		ResultSet rs=null;
 		Member m=null;
 		try {
-			pstmt=conn.prepareStatement(prop.getProperty("selectMember"));			
+			pstmt=conn.prepareStatement(prop.getProperty("selectMemberLogin"));			
 			pstmt.setString(1,userId);
 			pstmt.setString(2, password);	
 			rs=pstmt.executeQuery();
