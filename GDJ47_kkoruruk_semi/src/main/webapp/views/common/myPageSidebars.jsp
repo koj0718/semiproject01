@@ -13,37 +13,37 @@
 		    <hr>
 		    <ul class="nav nav-pills flex-column mb-auto">
 		      <li class="nav-item">
-		        <a href="#" class="nav-link active" aria-current="page">
+		        <a href="<%=request.getContextPath() %>/.do" class="nav-link active" aria-current="page">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
 		          마이페이지
 		        </a>
 		      </li>
 		      <li>
-		        <a href="#" class="nav-link link-dark">
+		        <a href="<%=request.getContextPath() %>/.do" class="nav-link link-dark">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
 		          내 정보 수정
 		        </a>
 		      </li>
 		      <li>
-		        <a href="#" class="nav-link link-dark">
+		        <a href="<%=request.getContextPath() %>/.do" class="nav-link link-dark">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
 		          포인트
 		        </a>
 		      </li>
 		      <li>
-		        <a href="#" class="nav-link link-dark">
+		        <a href="<%=request.getContextPath() %>/.do" class="nav-link link-dark">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
 		          찜 한 가게
 		        </a>
 		      </li>
 		      <li>
-		        <a href="#" class="nav-link link-dark">
+		        <a href="<%=request.getContextPath() %>/.do" class="nav-link link-dark">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
 		          리뷰관리
 		        </a>
 		      </li>
 		      <li>
-		        <a href="#" class="nav-link link-dark">
+		        <a href="<%=request.getContextPath() %>/.do" class="nav-link link-dark">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
 		          주문내역
 		        </a>
@@ -51,3 +51,5 @@
 		    </ul>
 		</div>
 		<!-- 사이드바 끝나는 부분 -->
+		
+		
