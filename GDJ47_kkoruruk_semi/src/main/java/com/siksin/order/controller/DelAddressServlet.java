@@ -38,7 +38,7 @@ public class DelAddressServlet extends HttpServlet {
 		request.setAttribute("detAddress",detAddress);
 		
 		request.getRequestDispatcher("/")
-		.forward(request,response);
+		.forward(request,response);  
 	}
 
 	/**

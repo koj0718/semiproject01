@@ -29,5 +29,16 @@ public class MemberService {
 		close(conn);
 		return m;
 	}
+	
+	public int updateMember(Member m) {
+		
+		Connection conn=getConnection();
+		int result=dao.updateMember(conn, m);
+		if(result>0) commit(conn);
+		else rollback(conn);
+		close(conn);
+		return result;
+		
+	}
 
 }

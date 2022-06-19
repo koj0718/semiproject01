@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ page import="com.siksin.member.model.vo.Member"%>
-
 <%@ include file="/views/common/header.jsp" %>
 <!-- 사이드바 include -->
 <%@ include file="/views/common/myPageSidebars.jsp" %>
@@ -21,16 +19,15 @@
 				<div class="row">
 			      <div class="col-8 col-sm-6">
 			      	<div><img src="#">프로필 사진</div>
-			      	<%-- <div><%=loginMember.getMemName() %>님 안녕하세요.</div> --%>
-			      	<div>@@@@님 안녕하세요.</div>
+			      		<div><%=loginMember.getMemNick() %>님 안녕하세요.</div>
 			      </div>
 			      <div class="col-4 col-sm-6">
-			        nnnnnnnn 포인트
+			        <%=loginMember.getMemPoint() %> 포인트
 			      </div>
 			    </div>
 			    <hr>
 			    <div style="height:40px;">
-			    	@@@님은 @@@등급 입니다.
+			    	<%=loginMember.getMemNick() %>님은 <%=loginMember.getRole() %>등급 입니다.
 			    </div>
 			</div>
 			

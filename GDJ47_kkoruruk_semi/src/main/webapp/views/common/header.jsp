@@ -75,7 +75,7 @@
         <strong><%=loginMember.getMemNick() %></strong>
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-        <li><a class="dropdown-item" href="#">마이페이지</a></li>
+        <li><a class="dropdown-item" href="<%=request.getContextPath() %>/mypage.do">마이페이지</a></li>
         <li><a class="dropdown-item" href="#">찜한가게</a></li>
         <li><a class="dropdown-item" href="#">리뷰관리</a></li>
         <li><a class="dropdown-item" href="#">주문내역</a></li>

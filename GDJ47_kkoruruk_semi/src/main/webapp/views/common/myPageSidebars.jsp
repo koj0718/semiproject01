@@ -13,13 +13,13 @@
 		    <hr>
 		    <ul class="nav nav-pills flex-column mb-auto">
 		      <li class="nav-item">
-		        <a href="<%=request.getContextPath() %>/.do" class="nav-link active" aria-current="page">
+		        <a href="<%=request.getContextPath() %>/mypage.do" class="nav-link active" aria-current="page">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
 		          마이페이지
 		        </a>
 		      </li>
 		      <li>
-		        <a href="<%=request.getContextPath() %>/.do" class="nav-link link-dark">
+		        <a href="<%=request.getContextPath() %>/mypageupdate.do" class="nav-link link-dark">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
 		          내 정보 수정
 		        </a>
