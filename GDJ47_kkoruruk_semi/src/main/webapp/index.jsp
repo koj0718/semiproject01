@@ -131,6 +131,8 @@
 </div>
 <!-- <div class="search_list"><button>랭킹</button></div> -->
 </div> --%>
+
+			<!-- 원본 -->
         	<div class="search_lists">
         		<form class="search_list" action="<%=request.getContextPath()%>/searchMenu.do">
         			<input type="text" name="searchMenu" size="30" 
@@ -140,11 +142,21 @@
         	</div>
 
 
+		
 
 
+<!-- 
+			<div class="fileContainer">
+                <div class="fileInput">
+                    <p>FILE NAME: </p>
+                    <p id="fileName"></p>
+                </div>
+                <div class="buttonContainer">
+                    <div class="submitButton" id="submitButton">SUBMIT</div>
+                </div>
+            </div>
 
-
-
+ -->
 
 
 

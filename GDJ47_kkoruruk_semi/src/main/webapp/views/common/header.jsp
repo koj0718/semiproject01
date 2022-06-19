@@ -47,7 +47,7 @@
     <link href="cover.css" rel="stylesheet">
     
 </head>
-<body class="d-flex h-100 text-center text-black ">
+<!-- <body class="d-flex h-100 text-center text-black "> -->
 
 <script>
 	
