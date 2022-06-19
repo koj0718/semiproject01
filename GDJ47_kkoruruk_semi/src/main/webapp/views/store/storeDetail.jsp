@@ -70,21 +70,10 @@
 	      <div class="clearfix"></div>
 	    </div>
 	    
-	    <div class="owner_intro_message" ng-show="restaurant_info.introduction_by_owner" ng-click="toggle_tab(&quot;info&quot;, &quot;owner_alarm&quot;)" id="ccc">
+	    <div class="owner_intro_message" ng-show="restaurant_info.introduction_by_owner" ng-click="toggle_tab(&quot;info&quot;, &quot;owner_alarm&quot;)" id="">
 	      <strong>사장님알림</strong>
 	      <span class="tc ng-binding">문의사항 및 불편사항은 언제든지 매장으로 연락주세용! </span>
-	    </div>
-	    
-	    <script>
-	    document.getElementById("ccc").onclick = coco;
-	    
-	    function coco() {
-	    	
-	    }
-	    
-	   
-	    </script>
-	    
+	    </div> 
 	        
 	    <ul class="nav nav-tabs restaurant-tab">
 	      <li class="active"><a data-toggle="tab">메뉴 <span class="ng-binding">34</span></a></li>
@@ -125,9 +114,9 @@
 		
 		
       <article class="blog-post">     
-     <%for(Menu m : menuList){ %>
-     <form  action="<%=request.getContextPath() %>/menuoption.do?<%=m.getMenuId() %>" method="post" id="menuoption1"> 	
-      	<div onclick="chch();">
+     <%for(Menu m : menuList){ %>   	
+      	<div onclick="window.open('<%=request.getContextPath() %>/menuoption.do?menuId=<%=m.getMenuId() %>',
+      	'메뉴옵션','width=300, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=yes');return false;">
 	        <div  class="row g-5">
 		        <div class="col-md-10">
 		        	<div ><%=m.getMenuName() %></div>
@@ -135,29 +124,9 @@
 		        </div>
 		        <div class="col-md-2"><%=m.getMenuImg() %></div>
 	        </div>
-        </div>	
-       </form>
+        </div>	   
    <%} %>
       </article>
-  
-  
-    
-      <script>
-      const chch=()=>{
-    	  const div=document.createElement("div");
-    	  const hr=document.createElement("hr");
-    	  const p=document.createElement("p");
-    	  p.innerText="dddd";
-    	  document.getElementById("cart").appendChild(div);
-    	  document.getElementById("cart").appendChild(div).appendChild(p);
-    	  
-    	  
-    	  document.getElementById("cart").appendChild(hr);
-    	  document.getElementById('menuoption1').submit();
-      }
-      
-      
-      </script>
 
     </div>
     
@@ -170,8 +139,8 @@
           <span>주문표</span>         
         </div>
         
-        <div class="p-4" id="cart">       
-          <div class="row g-5">
+        <div class="p-4" id="cart" name="cart">       
+          <div class="row g-5" name="aaa" id="aaa">
 	          <div class="col-md-9">레드콤보</div>
 	          <div class="col-md-1">X</div>
           </div>
