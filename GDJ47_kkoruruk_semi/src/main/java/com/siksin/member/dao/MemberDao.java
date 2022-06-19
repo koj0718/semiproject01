@@ -66,6 +66,28 @@ public class MemberDao {
 		
 	}
 	
+	public int updateMember(Connection conn, Member m) {
+		
+		PreparedStatement pstmt=null;
+		int result=0;
+		
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("updateMember"));
+			pstmt.setString(1, m.getMemId());
+			pstmt.setString(2, m.getMemName());
+			pstmt.setString(3, m.getMemPwd());			
+			pstmt.setString(4, m.getMemEmail());
+			pstmt.setString(5, m.getMemNick());
+			pstmt.setString(6, m.getMemPhone());
+			result=pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
 	public static Member getMember(ResultSet rs) throws SQLException {		
 		return Member.builder()
 				.memId(rs.getString("mem_id"))
