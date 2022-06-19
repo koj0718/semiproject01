@@ -34,16 +34,11 @@ public class DelAddressServlet extends HttpServlet {
 		String mapAddress=request.getParameter("Address");
 		String detAddress=request.getParameter("detAddress");
 		
-		Order o=Order.builder()
-				.deleveryAddress2(mapAddress)
-				.deleveryAddress3(detAddress)
-				.build();
+		request.setAttribute("mapAddress",mapAddress);
+		request.setAttribute("detAddress",detAddress);
 		
-		/* int result=new OrderService().insertAddress(o); */
-		
-				
-		
-		
+		request.getRequestDispatcher("/")
+		.forward(request,response);
 	}
 
 	/**

@@ -1,45 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/views/common/header.jsp" %>   
 <%@ page import="java.util.List" %>  
 <%@ page import="com.siksin.menu.model.vo.Menu" %>
 <%@ page import="com.siksin.store.model.vo.Store" %>
 <%
 	Store s=(Store)request.getAttribute("store");
 	List<Menu> menuList=(List<Menu>)request.getAttribute("menuList");
-%>  
-<!doctype html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
-    <meta name="generator" content="Hugo 0.88.1">	
-    <title>Blog Template · Bootstrap v5.1</title>
+%>
 
-    <link rel="canonical" href="https://getbootstrap.kr/docs/5.1/examples/blog/">	
-	
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/store/storeDetail.css">    
-
-    <!-- Bootstrap core CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- Favicons -->
-<link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
-<meta name="theme-color" content="#7952b3">
-
-
-  </head>
-  <body>
-    
-<div class="container">
-
-
-</div>
 
 <main class="container">
   <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
@@ -156,7 +126,7 @@
 		
       <article class="blog-post">     
      <%for(Menu m : menuList){ %>
-     <form action="<%=request.getContextPath() %>/menuoption.do" method="post" > 	
+     <form  action="<%=request.getContextPath() %>/menuoption.do?<%=m.getMenuId() %>" method="post" id="menuoption1"> 	
       	<div onclick="chch();">
 	        <div  class="row g-5">
 		        <div class="col-md-10">
@@ -165,7 +135,7 @@
 		        </div>
 		        <div class="col-md-2"><%=m.getMenuImg() %></div>
 	        </div>
-        </div>
+        </div>	
        </form>
    <%} %>
       </article>
@@ -183,6 +153,7 @@
     	  
     	  
     	  document.getElementById("cart").appendChild(hr);
+    	  document.getElementById('menuoption1').submit();
       }
       
       
