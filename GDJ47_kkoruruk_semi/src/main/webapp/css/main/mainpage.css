@@ -67,6 +67,12 @@
   border-bottom-color: #fff;
 }
 
+/*  nav css 추가  */
+
+.navLocation{
+	margin-right : 400px;
+	
+}
 
 
 
@@ -153,7 +159,32 @@ display:inline-block;
 	color:black;
 }
 
+.row{
+	/* padding-left:230px;
+	padding-right:230px; */
+	padding-top:20px;
+	position : relative;
+	max-width:1020px;
+	margin: 0 auto;
+}
 
+.row div{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+
+.logContainer{
+	margin-right:20px;
+}
+
+.dropdown{
+	margin-right:20px;
+}
+
+.orderList{
+	margin-right:30px;
+}
 
 
 

@@ -7,6 +7,9 @@
 <!-- 사이드바 include -->
 <%@ include file="/views/common/myPageSidebars.jsp" %>
 
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/member/myPage.css">
+
 		<div class="col">
 		
 			<section class="title">
