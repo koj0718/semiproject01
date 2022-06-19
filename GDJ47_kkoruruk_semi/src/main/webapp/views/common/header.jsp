@@ -95,7 +95,7 @@
     	const corrent_location=()=>{
     		const url="<%=request.getContextPath()%>/correntAddress.do";
 			const title="correntLocation";
-    		open(url,title,"width=500,height=500");
+    		open(url,title,"width=395,height=520");
     	}
 	    const fn_logout=()=>{
 			location.replace("<%=request.getContextPath()%>/logout.do");
