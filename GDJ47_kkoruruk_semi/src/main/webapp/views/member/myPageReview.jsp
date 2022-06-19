@@ -6,7 +6,7 @@
 <%@ include file="/views/common/myPageSidebars.jsp" %>
 
 		<section class="title">
-			<h1>주문내역</h1>
+			<h1>리뷰관리</h1>
 		</section>
 		<br>
 		
