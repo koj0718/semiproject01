@@ -44,7 +44,7 @@
     <link href="cover.css" rel="stylesheet">
     
 </head>
-<body class="d-flex h-100 text-center text-black ">
+<!-- <body class="d-flex h-100 text-center text-black "> -->
 
 <script>
 	
@@ -92,7 +92,7 @@
     	const corrent_location=()=>{
     		const url="<%=request.getContextPath()%>/correntAddress.do";
 			const title="correntLocation";
-    		open(url,title,"width=395,height=520");
+    		open(url,title,"width=395,height=530");
     	}
 	    const fn_logout=()=>{
 			location.replace("<%=request.getContextPath()%>/logout.do");
