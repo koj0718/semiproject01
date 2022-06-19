@@ -26,6 +26,12 @@
 		      </li>
 		      <li>
 		        <a href="#" class="nav-link link-dark">
+		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+		          포인트
+		        </a>
+		      </li>
+		      <li>
+		        <a href="#" class="nav-link link-dark">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
 		          찜 한 가게
 		        </a>

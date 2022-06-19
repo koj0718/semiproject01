@@ -6,14 +6,20 @@
 <%@ include file="/views/common/myPageSidebars.jsp" %>
 
 		<section class="title">
-			<h1>리뷰관리</h1>
+			<h1>주문내역</h1>
 		</section>
 		<br>
 		
 		<div class="col">
 			
 			<div id="myPageContent" class="row col-8">
-
+				<thead>
+					<tr>
+						<th>가게정보</th>
+						<th>주문번호</th>
+						<th>주문일시</th>
+					</tr>
+				</thead>
 			</div>
 			
 			<br>
