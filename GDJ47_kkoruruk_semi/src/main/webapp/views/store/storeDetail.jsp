@@ -155,7 +155,8 @@
 		
 		
       <article class="blog-post">     
-     <%for(Menu m : menuList){ %> 	
+     <%for(Menu m : menuList){ %>
+     <form action="<%=request.getContextPath() %>/menuoption.do" method="post" > 	
       	<div onclick="chch();">
 	        <div  class="row g-5">
 		        <div class="col-md-10">
@@ -165,6 +166,7 @@
 		        <div class="col-md-2"><%=m.getMenuImg() %></div>
 	        </div>
         </div>
+       </form>
    <%} %>
       </article>
   
