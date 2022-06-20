@@ -43,7 +43,7 @@
 		        </a>
 		      </li>
 		      <li>
-		        <a href="<%=request.getContextPath()%>/checkOrder.do" class="nav-link link-dark">
+		        <a href="<%=request.getContextPath()%>/checkOrder.do %>" class="nav-link link-dark">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
 		          주문내역
 		        </a>
@@ -52,4 +52,6 @@
 		</div>
 		<!-- 사이드바 끝나는 부분 -->
 		
+		<%-- <%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %> --%>
+		<!-- 주문내역 해당 아이디의 주문내역이 필요하니 loginId가 필요한데 LoginMember를 못 불러옴 import를 이 곳에 할 순 없음.-->
 		

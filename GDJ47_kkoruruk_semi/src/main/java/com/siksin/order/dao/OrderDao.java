@@ -8,10 +8,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import com.siksin.member.model.vo.Member;
 import com.siksin.order.model.vo.Order;
+import com.siksin.store.model.vo.Store;
 
 
 public class OrderDao {
@@ -35,6 +38,61 @@ public class OrderDao {
 	 * o.getDeleveryAddress3()); result=pstmt.executeUpdate(); }catch(SQLException
 	 * e) { e.printStackTrace(); }finally { close(pstmt); }return result; }
 	 */
+	
+	
+	
+	
+	public List<Order> searchOrderList(Connection conn, String  loginId,
+			int cPage, int numPerpage){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<Order> result=new ArrayList();
+		String sql=prop.getProperty("searchMenu");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+loginId+"%");
+			pstmt.setInt(2, (cPage-1)*numPerpage+1);
+			pstmt.setInt(3, cPage*numPerpage);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+//				result.add(getOrder(rs));  getOrder 만들거나 직접입력하기.
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+			
+		}return result;
+	}
+	
+	
+	public int searchOrderCount(Connection conn, String loginId) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql=prop.getProperty("searchMenuCount");
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+loginId+"%");
+			rs=pstmt.executeQuery();
+			if(rs.next()) result=rs.getInt(1);
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	public static Order getMember(ResultSet rs) throws SQLException {		
 		return Order.builder()
