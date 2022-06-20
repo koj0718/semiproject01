@@ -12,9 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.siksin.member.model.vo.Member;
 import com.siksin.order.model.vo.Order;
-import com.siksin.store.model.vo.Store;
+import com.siksin.order.model.vo.OrderList;
 
 
 public class OrderDao {
@@ -42,20 +41,26 @@ public class OrderDao {
 	
 	
 	
-	public List<Order> searchOrderList(Connection conn, String  loginId,
+	public List<OrderList> searchOrderList(Connection conn, String  loginId,
 			int cPage, int numPerpage){
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		List<Order> result=new ArrayList();
-		String sql=prop.getProperty("searchMenu");
+		
+		List<OrderList> result=new ArrayList();
+		
+		
+		
+		String sql=prop.getProperty("orderList");
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+loginId+"%");
+			pstmt.setString(1, loginId);
 			pstmt.setInt(2, (cPage-1)*numPerpage+1);
 			pstmt.setInt(3, cPage*numPerpage);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
-//				result.add(getOrder(rs));  getOrder 만들거나 직접입력하기.
+				
+				result.add(OrderDao.getOrderList(rs));
+				
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -87,14 +92,10 @@ public class OrderDao {
 		
 	}
 	
+
 	
 	
-	
-	
-	
-	
-	
-	public static Order getMember(ResultSet rs) throws SQLException {		
+	public static Order getOrder(ResultSet rs) throws SQLException {		
 		return Order.builder()
 				.orderNum(rs.getInt("order_num"))
 				.storeId(rs.getString("store_id"))
@@ -111,5 +112,22 @@ public class OrderDao {
 				.request(rs.getString("request"))
 				.impUid(rs.getString("imp_uid"))
 				.build();
+	}
+	
+	public static OrderList getOrderList(ResultSet rs) {
+		OrderList ol=null;
+		try {
+			ol=new OrderList();
+			ol.setOrderNum(rs.getInt("ORDER_NUM"));
+			ol.setOrderDate(rs.getDate("ORDER_DATE"));
+			ol.setTotalPrice(rs.getInt("ORDER_PRICE"));
+			ol.setStoreThumb(rs.getString("STORE_THUMB"));
+			ol.setStoreName(rs.getString("STORE_NAME"));
+			
+	
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return ol;
 	}
 }

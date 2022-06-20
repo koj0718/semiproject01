@@ -3,16 +3,13 @@ package com.siksin.order.service;
 
 
 import static com.siksin.common.JDBCTemplate.close;
-import static com.siksin.common.JDBCTemplate.commit;
 import static com.siksin.common.JDBCTemplate.getConnection;
-import static com.siksin.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
 
 import com.siksin.order.dao.OrderDao;
-import com.siksin.order.model.vo.Order;
-import com.siksin.store.model.vo.Store;
+import com.siksin.order.model.vo.OrderList;
 
 public class OrderService {
 	
@@ -27,9 +24,9 @@ public class OrderService {
 	 */
 	
 	
-	public List<Order> searchOrderList(String loginId,int cPage,int numPerpage){
+	public List<OrderList> searchOrderList(String loginId,int cPage,int numPerpage){
 		Connection conn=getConnection();
-		List<Order> result=dao.searchOrderList(conn,loginId,cPage,numPerpage);
+		List<OrderList> result=dao.searchOrderList(conn,loginId,cPage,numPerpage);
 		close(conn);
 		return result;
 	}

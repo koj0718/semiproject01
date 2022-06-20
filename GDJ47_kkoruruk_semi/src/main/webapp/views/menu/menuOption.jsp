@@ -18,33 +18,41 @@
 <body>
 
     <article class="blog-post">
-    <form action="<%=request.getContextPath() %>/storedetailsearch.do" method="post">
+    <form action="<%=request.getContextPath() %>/storedetailsearch.do">
      <%=menuName %> 
      <%=menuPrice %> 
-     <%for(MenuOption mop : mopList){ %>   	
+     <%for(MenuOption mop : mopList){ %>   		
       	<div onclick="">
 	        <div  class="row g-5">
 		        <div class="col-md-10">		        
-		        	<input type="checkbox" name="menuop" id="menuOpId<%=mop.getMenuOpId() %>" value="<%=mop.getMenuOpName() %> <%=mop.getMenuOpPrice() %> "><label for="menuOpId<%=mop.getMenuOpId() %>"><%=mop.getMenuOpName() %></label>			        	
+		        	<input type="checkbox" name="menuop" id="menuOpId<%=mop.getMenuOpId() %>" value="<%=mop.getMenuOpName() %> "><label for="menuOpId<%=mop.getMenuOpId() %>"><%=mop.getMenuOpName() %></label>			        	
 		        	<div><%=mop.getMenuOpPrice() %> 원</div>
 		        </div>		       
 	        </div>
         </div>	   
    	<%} %>
    </form>
-   <input type="submit" value="주문표에 추가">
+   <input type="submit" id="cartAdd" value="주문표에 추가">	
    <input type="submit" value="주문">
    
-  <!--  <button id="menuListAdd">주문표에 추가</button>
-   <button >주문하기</button> -->
+ 
       </article>
     
     <script>
-		const btn=document.querySelector("[type=submit]");
-		console.log(btn);
+		const btn=document.getElementById("cartAdd");
 		btn.addEventListener("click",(e)=>{
-			/* opener.cart. */
-			close();	
+			const table=document.createElement("table")
+			const tr=document.createElement("tr");
+			tr.innerHTML="<%=menuName%>"+<%=menuPrice%>+"<button id=del>X</button>"
+			const td=document.createElement("td");
+		
+			console.log($("input[name=menuop]:checked"));
+			const qwe=$("input[name=menuop]:checked");
+
+					
+			console.log($(opener.document.getElementById("cart").appendChild(table).appendChild(tr).appendChild(td)));			
+	
+			//close();	
 		});
 	</script> 
 

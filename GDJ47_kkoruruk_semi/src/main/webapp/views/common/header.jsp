@@ -42,7 +42,7 @@
     
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
-    
+
 </head>
 <!-- <body class="d-flex h-100 text-center text-black "> -->
 
@@ -56,7 +56,9 @@
 	<header class="mb-auto">
   	<!-- 로그인 전 노출 버튼 -->
     <div>
-      <h3 class="float-md-start mb-0">kkoruruk</h3>
+   	 <a href="<%=request.getContextPath() %>/">
+      <h3 class="float-md-start mb-0" id="hommebtn" style=color:black;">kkoruruk</h3>
+     </a>
       <nav class="nav nav-masthead justify-content-center float-md-end">
       	<div class="navLocation">
       		<%-- <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/location/searchAddress.do">현재 위치로 주소찾기</a> --%>

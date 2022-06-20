@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.siksin.order.model.vo.Order;
+import com.siksin.order.model.vo.OrderList;
 import com.siksin.order.service.OrderService;
 
 /**
@@ -49,7 +49,7 @@ public class OrderCheckServlet extends HttpServlet {
 	
 		
 		
-		List<Order> result=new OrderService().searchOrderList(loginId,cPage,numPerpage);
+		List<OrderList> result=new OrderService().searchOrderList(loginId,cPage,numPerpage);
 		int totalData=new OrderService().searchOrderCount(loginId);
 		int totalPage=(int)Math.ceil((double)totalData/numPerpage);
 		int pageBarSize=5;

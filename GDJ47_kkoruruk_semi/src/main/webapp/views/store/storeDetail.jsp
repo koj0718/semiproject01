@@ -143,7 +143,7 @@
         </div>
         
         <div class="p-4" id="cart" name="cart">       
-          <div class="row g-5" name="menuName" id=""menuName"">
+          <div class="row g-5" name="menuName" id="menuName">
 	          <div class="col-md-9">레드콤보</div>
 	          <div class="col-md-1">X</div>
           </div>
