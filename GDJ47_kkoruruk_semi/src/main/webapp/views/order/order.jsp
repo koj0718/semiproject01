@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%@ page import="java.util.List" %>  
+<%@ page import="com.siksin.order.model.vo.OrderList" %>
+
+<%@ include file="/views/common/header.jsp" %> 
+
+<%
+   List<OrderList> list=(List<OrderList>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
