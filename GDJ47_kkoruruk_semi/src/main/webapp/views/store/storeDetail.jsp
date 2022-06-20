@@ -114,17 +114,20 @@
 		
 		
       <article class="blog-post">     
-     <%for(Menu m : menuList){ %>   	
-      	<div onclick="window.open('<%=request.getContextPath() %>/menuoption.do?menuId=<%=m.getMenuId() %>',
+     <%for(Menu m : menuList){ %> 
+     <form>  	
+      	<div onclick="window.open('<%=request.getContextPath() %>/menuoption.do?menuId=<%=m.getMenuId() %>&menuName=<%=m.getMenuName() %>&menuPrice=<%=m.getMenuPrice() %>',
       	'메뉴옵션','width=300, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=yes');return false;">
 	        <div  class="row g-5">
 		        <div class="col-md-10">
 		        	<div ><%=m.getMenuName() %></div>
 		        	<div><%=m.getMenuDec() %></div>
+		        	<div><%=m.getMenuPrice() %>원 </div>
 		        </div>
 		        <div class="col-md-2"><%=m.getMenuImg() %></div>
 	        </div>
-        </div>	   
+        </div>
+     </form>	   
    <%} %>
       </article>
 
@@ -140,7 +143,7 @@
         </div>
         
         <div class="p-4" id="cart" name="cart">       
-          <div class="row g-5" name="aaa" id="aaa">
+          <div class="row g-5" name="menuName" id=""menuName"">
 	          <div class="col-md-9">레드콤보</div>
 	          <div class="col-md-1">X</div>
           </div>
