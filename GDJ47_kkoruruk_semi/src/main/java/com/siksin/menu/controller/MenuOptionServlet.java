@@ -37,9 +37,6 @@ public class MenuOptionServlet extends HttpServlet {
 		String menuName=request.getParameter("menuName");
 		String menuPrice=request.getParameter("menuPrice");
 		
-		System.out.println(menuName);
-		System.out.println(menuPrice);
-		
 		List<MenuOption> mopList=new MenuOptionService().menuOptionSearch(menuId);
 		request.setAttribute("mopList", mopList);
 		request.setAttribute("menuName", menuName);
