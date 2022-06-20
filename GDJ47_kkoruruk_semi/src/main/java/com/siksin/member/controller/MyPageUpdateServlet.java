@@ -34,7 +34,7 @@ public class MyPageUpdateServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String userId=request.getParameter("userId");
-		String password=request.getParameter("password");
+		/* String password=request.getParameter("password"); */
 		String userName=request.getParameter("name");
 		String email=request.getParameter("email");		
 		String nickName=request.getParameter("nickname");
@@ -42,7 +42,7 @@ public class MyPageUpdateServlet extends HttpServlet {
 
 		Member m=Member.builder()
 				.memId(userId)
-				.memPwd(password)
+				/* .memPwd(password) */
 				.memName(userName)
 				.memEmail(email)
 				.memNick(nickName)
@@ -55,6 +55,7 @@ public class MyPageUpdateServlet extends HttpServlet {
 		String loc="";
 		
 		System.out.println(result);
+		System.out.println(m);
 		
 		if(result>0) {
 			msg="정보수정이 완료되었습니다.";

@@ -13,41 +13,55 @@
 		<form id="myPageUpdate" action="<%=request.getContextPath() %>/mypageupdate.do" method="post">
 			<div class="col">
 				<div id="myPageContent" class="row col-8">
-		            	<div class="col-8">
+		            	<div class="col-8">아이디<br>
 		                    <input type="text" id="userId" name="userId" value="<%=loginMember.getMemId() %>" readonly>
 		                </div>  
-		                <br>
-		                <div class="col-8">
-		                    <input type="text" id="newPassword" name="newPassword" placeholder="새 비밀번호" required>
+		                &nbsp;
+ 		                <div class="col-8">비밀번호<br>
+		                    <input type="password" id="password" name="password" placeholder="********" readonly>
 		                </div>
-		                <br>
+		                &nbsp;
 		                <div class="col-8">
-		                    <input type="text" id="newPassword2" name="newPassword2" placeholder="새비밀번호확인" required>
+		                    <button type="button" onclick="updatePassword();" id="updateBtn" class="w-100 btn btn-primary btn-lg" value="정보수정">비밀번호 변경</button>
 		                </div>
-		                <br>
-		                <div class="col-8">
-		                    <input type="text" id="userName" name="userName" value="<%=loginMember.getMemName() %>" readonly>
+		                &nbsp;
+		                <div class="col-8">이　름<br>
+		                    <input type="text" id="name" name="name" value="<%=loginMember.getMemName() %>" readonly>
 		                </div>
-		                <br>
-		                <div class="col-8">
+		                &nbsp;
+		                <div class="col-8">이메일<br>
 		                    <input type="text" id="email" name="email" value="<%=loginMember.getMemEmail() %>">
 		                </div>
-		                <div class="col-8">
-		                    <input type="text" id="nickname" name="name" value="<%=loginMember.getMemNick() %>">
+		                <div class="col-8">닉네임<br>
+		                    <input type="text" id="nickname" name="nickname" value="<%=loginMember.getMemNick() %>">
 		                </div>
-		                <br>
-		          	    <div class="col-8">
+		                &nbsp;
+		          	    <div class="col-8">연락처<br>
 		                    <input type="text" id="phone" name="phone" value="<%=loginMember.getMemPhone() %>">
 		                </div>
-		                <br>
-				<button onclick="memUpdate()" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="정보수정">수정하기</button>
-				<hr>
-				<button onclick="" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" style="background-color:tomato;">회원탈퇴</button>
+		                <div class="col-8"> <!-- hidden / null 방지 -->
+		                    <input type="hidden" id="point" name="point" value="<%=loginMember.getMemPoint() %>" readonly>
+		                    <input type="hidden" id="rank" name="rank" value="<%=loginMember.getMemRank() %>" readonly>
+		                    <input type="hidden" id="role" name="role" value="<%=loginMember.getRole() %>" readonly>
+		                </div>
+		                &nbsp;
+				<button type="submit" onclick="memUpdate()" id="updateBtn" class="w-100 btn btn-primary btn-lg" value="정보수정">수정하기</button>
+				&nbsp;
+<%-- 				<button type="button" onclick="window.open('<%=request.getContextPath() %>/views/member/updatePassword.jsp');" id="updateBtn" class="w-100 btn btn-primary btn-lg" value="정보수정">비밀번호 변경</button>
+				<hr> --%>
+				<button type="submit" onclick="" id="updateBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="회원탈퇴" style="background-color:tomato;">회원탈퇴</button>
 				</div>
 			</div>
 		</form>
 		
 		<script>
+		
+		const updatePassword=()=> {
+			
+			open("<%=request.getContextPath() %>/member/updatepassword.do?userId=<%=loginMember.getMemId() %>",
+					"_blank", "width=400, height=400, left=800, top=200");
+			
+		}
 		
 		/* 정보수정 후 단순제출 로직 */
 		const memUpdate=()=> {
@@ -55,13 +69,6 @@
 			$("#memberFrm").submit();
 			
 		}
-		
-		/* 비밀번호 변경 */
-<%-- 		const fn_updatePassword=()=> {
-			
-			open("<%=request.getContextPath() %>/member/updatePassword.do?userId=<%=m.getUserId() %>", "_blank", "width=400, height=210");
-			
-		} --%>
 		
 		</script>
 
