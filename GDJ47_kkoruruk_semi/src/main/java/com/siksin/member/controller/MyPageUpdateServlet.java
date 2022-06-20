@@ -31,6 +31,7 @@ public class MyPageUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		
 		String userId=request.getParameter("userId");
 		String password=request.getParameter("password");
@@ -48,13 +49,12 @@ public class MyPageUpdateServlet extends HttpServlet {
 				.memPhone(phone)
 				.build();
 		
-		System.out.println(m);
-		
 		int result=new MemberService().updateMember(m);
 		
-		System.out.println(result);
+		String msg="";
+		String loc="";
 		
-		String msg="",loc="";
+		System.out.println(result);
 		
 		if(result>0) {
 			msg="정보수정이 완료되었습니다.";
@@ -62,8 +62,7 @@ public class MyPageUpdateServlet extends HttpServlet {
 			HttpSession session=request.getSession();
 			session.setAttribute("loginMember", m);
 		}else {
-			msg="실패했습니다. 다시 시도하세요!";
-			/* loc="/mypageupdate.do"; */
+			msg="정보수정에 실패했습니다.";
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("loc",loc);
