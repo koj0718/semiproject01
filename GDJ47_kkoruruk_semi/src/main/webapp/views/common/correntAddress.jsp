@@ -73,7 +73,7 @@ cursor: pointer;
 	    </div>
 	    <div id="">
 			<input type="text" id="detAddress" placeholder="상세주소를 입력하세요(건물명, 동/호수 등)">
-			<button type="submit" id="addbutton">주소 저장</button>
+			<button name="btn" type="submit" id="addbutton">주소 저장</button>
 		</div>
 	</form>
 </div>
@@ -161,7 +161,10 @@ function displayMarker(locPosition, message) {
 	}, (err)=>{
 		
 	});
-  
+
+	
+	
+	
 </script>
 </body>
 </html>

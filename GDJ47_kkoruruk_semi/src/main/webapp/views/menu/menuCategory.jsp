@@ -156,7 +156,7 @@
             <a href="<%=request.getContextPath()%>/storedetailsearch.do?id=<%=s.getStoreId()%>" class="store-card">
             <div class="card" style="">
                <div>
-                  <img src="https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg" class="card-img-top" alt="...">
+                  <img src="<%=s.getStoreImg() %>" class="card-img-top" alt="...">
                </div>
                <div class="row">
                   <div class="col" style="display: flex; justify-content: space-between;">
@@ -186,7 +186,7 @@
                         <%=s.getDeleveryTime() %>
                      </div>
                      <div>
-                        배달요금
+                        <%=s.getDeleveryTip() %>
                      </div>
                   </div>
                </div>

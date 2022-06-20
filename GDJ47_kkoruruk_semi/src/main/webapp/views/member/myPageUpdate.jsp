@@ -10,16 +10,12 @@
 		</section>
 		<br>
 		
-		<form id="myPageUpdate" action="<%=request.getContextPath() %>/member.myPageUpdate.do" method="post">
+		<form id="myPageUpdate" action="<%=request.getContextPath() %>/mypageupdate.do" method="post">
 			<div class="col">
 				<div id="myPageContent" class="row col-8">
 		            	<div class="col-8">
-		                    <input type="text" id="userId" name="userId" placeholder="아이디고정" value="" readonly>
-		                </div>
-		                <br>
-		                <div class="col-8">
-		                    <input type="text" id="password" name="password" placeholder="********" readonly>
-		                </div>
+		                    <input type="text" id="userId" name="userId" value="<%=loginMember.getMemId() %>" readonly>
+		                </div>  
 		                <br>
 		                <div class="col-8">
 		                    <input type="text" id="newPassword" name="newPassword" placeholder="새 비밀번호" required>
@@ -30,23 +26,23 @@
 		                </div>
 		                <br>
 		                <div class="col-8">
-		                    <input type="text" id="nickname" name="name" placeholder="이름" readonly>
+		                    <input type="text" id="userName" name="userName" value="<%=loginMember.getMemName() %>" readonly>
 		                </div>
 		                <br>
 		                <div class="col-8">
-		                    <input type="text" id="email" name="email" placeholder="이메일주소를 입력하세요">
+		                    <input type="text" id="email" name="email" value="<%=loginMember.getMemEmail() %>">
 		                </div>
 		                <div class="col-8">
-		                    <input type="text" id="nickname" name="nickname" placeholder="닉네임">
+		                    <input type="text" id="nickname" name="name" value="<%=loginMember.getMemNick() %>">
 		                </div>
 		                <br>
 		          	    <div class="col-8">
-		                    <input type="text" id="phone" name="phone" placeholder="전화번호를 입력하세요.">
+		                    <input type="text" id="phone" name="phone" value="<%=loginMember.getMemPhone() %>">
 		                </div>
 		                <br>
 				<button onclick="memUpdate()" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="정보수정">수정하기</button>
 				<hr>
-				<button onclick="()" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" style="background-color:tomato;">회원탈퇴</button>
+				<button onclick="" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" style="background-color:tomato;">회원탈퇴</button>
 				</div>
 			</div>
 		</form>

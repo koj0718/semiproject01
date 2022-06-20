@@ -37,8 +37,12 @@ public class DelAddressServlet extends HttpServlet {
 		request.setAttribute("mapAddress",mapAddress);
 		request.setAttribute("detAddress",detAddress);
 		
-		request.getRequestDispatcher("/")
-		.forward(request,response);  
+		String script="opener.location.replace('"+request.getContextPath()+"/');close();";
+		request.setAttribute("script",script);
+		
+		request.getRequestDispatcher("/views/common/msg.jsp")
+		.forward(request,response);
+		
 	}
 
 	/**

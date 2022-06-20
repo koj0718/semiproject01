@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.siksin.menu.model.vo.Menu;
 import com.siksin.menu.model.vo.MenuOption;
 import com.siksin.menu.service.MenuOptionService;
+import com.siksin.menu.service.MenuService;
 
 /**
  * Servlet implementation class MenuOptionServlet
@@ -32,9 +34,16 @@ public class MenuOptionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int menuId=Integer.parseInt(request.getParameter("menuId"));
-				
+		String menuName=request.getParameter("menuName");
+		String menuPrice=request.getParameter("menuPrice");
+		
+		System.out.println(menuName);
+		System.out.println(menuPrice);
+		
 		List<MenuOption> mopList=new MenuOptionService().menuOptionSearch(menuId);
 		request.setAttribute("mopList", mopList);
+		request.setAttribute("menuName", menuName);
+		request.setAttribute("menuPrice", menuPrice);
 		request.getRequestDispatcher("/views/menu/menuOption.jsp").forward(request, response);
 	}
 
