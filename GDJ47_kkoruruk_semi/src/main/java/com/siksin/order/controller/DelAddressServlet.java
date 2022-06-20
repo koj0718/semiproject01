@@ -7,9 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.siksin.order.model.vo.Order;
-import com.siksin.order.service.OrderService;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class DelAddressServlet
@@ -34,8 +32,12 @@ public class DelAddressServlet extends HttpServlet {
 		String mapAddress=request.getParameter("Address");
 		String detAddress=request.getParameter("detAddress");
 		
-		request.setAttribute("mapAddress",mapAddress);
-		request.setAttribute("detAddress",detAddress);
+		HttpSession session=null;
+		
+		session=request.getSession();
+		
+		session.setAttribute("mapAddress",mapAddress);
+		session.setAttribute("detAddress",detAddress);
 		
 		String script="opener.location.replace('"+request.getContextPath()+"/');close();";
 		request.setAttribute("script",script);

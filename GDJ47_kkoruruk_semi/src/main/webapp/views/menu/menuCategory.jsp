@@ -39,55 +39,52 @@
    }
    
    section>ul{
-    display: flex;
-    height: 50px;
+   display: flex;
+   height: 50px;
    }
    
    section>ul>li{
-    list-style-type: none;
-    padding-left: 10px;
-    padding-right: 10px;
+   list-style-type: none;
+   padding-left: 10px;
+   padding-right: 10px;
     
     
    }
    section>ul>li>a{
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 800;
-    padding-bottom: 1px;
+   text-decoration: none;
+   font-size: 1rem;
+   font-weight: 800;
+   padding-bottom: 1px;
     
    }
    section>ul>li>a:hover{
-    border-bottom: 2px solid red;
+   border-bottom: 2px solid red;
     
-    }
+   }
     
-    .nav-item>a{
+   .nav-item>a{
    color:gray;    
-    }
+   }
     
-    .nav-item>a:hover{
-    color:black;
-    }
+   .nav-item>a:hover{
+   color:black;
+   }
     
-    section{
-    padding-top: 40px;
-    }
+   section{
+   padding-top: 40px;
+   }
     
-    section>div{
-    padding:15px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    }
+   section>div{
+   padding:15px;
+   margin-top: 40px;
+   margin-bottom: 40px;
+   }    
+   
+   .store-card{
+   text-decoration: none;
+   color:black;
+   }
     
-    .store-card{
-    text-decoration: none;
-    color:black;
-    }
-    
-    .choic-box{
-      
-    }
 </style>
 
 
@@ -167,7 +164,7 @@
                         찜
                      </div>
                   </div>
-                  <div style="display: flex; justify-content: space-around;" >
+                  <div style="display: flex;" >
                      <div>
                         별점
                      </div>
