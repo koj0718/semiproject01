@@ -132,18 +132,23 @@
 <!-- <div class="search_list"><button>랭킹</button></div> -->
 </div> --%>
 
-			<!-- 원본 -->
-        	<div class="search_lists">
+			<!-- 원본이었던것 -->
+ <%--        	<div class="search_lists">
         		<form class="search_list" action="<%=request.getContextPath()%>/searchMenu.do">
         			<input type="text" name="searchMenu" size="30" 
         			placeholder="오늘은 어떤 메뉴를 주문해 볼까요?">
         			<button type="submit">검색</button>
         		</form>
-        	</div>
+        	</div>   --%>
 
-
-		
-
+			<div class="search_lists">
+			<form action="<%=request.getContextPath()%>/searchMenu.do">
+				<img src="images/search-01.png" width="35" height="35"> 
+				<input id="input1" type="text" name="searchMenu" placeholder="오늘은 어떤 메뉴를 주문해 볼까요?" size="30">
+				<button id="input2" type="submit" >검색 </button>
+	
+			</form>
+			</div>
 
 <!-- 
 			<div class="fileContainer">

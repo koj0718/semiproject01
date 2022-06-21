@@ -29,50 +29,7 @@
 }
 
 
-/*
- * Base structure
- */
 
-
-
-/* .cover-container {
-  max-width: 42em;
-} */
-
-
-/*
- * Header
- */
-
-.nav-masthead .nav-link {
-  padding: .25rem 0;
-  font-weight: 700;
-  color: black;
-  background-color: transparent;
-  border-bottom: .25rem solid transparent;
-}
-
-.nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
-  border-bottom-color: black;
-}
-
-.nav-masthead .nav-link + .nav-link {
-  margin-left: 1rem;
-  border-bottom-color: black;
-}
-
-.nav-masthead .active {
-  color: black;
-  border-bottom-color: #fff;
-}
-
-/*  nav css 추가  */
-
-.navLocation{
-	margin-right : 280px;
-	
-}
 
 
 
@@ -93,6 +50,39 @@ display:inline-block;
 
 
 }
+
+
+#input1{
+	width: 350px;
+	height:45px;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 3px solid black;
+	text-align: center;
+	font-size:18px; 
+}
+#input2{
+	width: 70px;
+	height:45px;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom : none;
+	background-color: black;
+	color : white;
+	border-radius: 10px;
+	
+}
+
+
+
+
+
+
+
+
+
 
 /* 메뉴카테고리 */
 
@@ -120,13 +110,13 @@ display:inline-block;
 
 /*  */
 
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
 
 @media (min-width: 768px) {
         .bd-placeholder-img-lg {
@@ -167,6 +157,7 @@ display:inline-block;
 	position : relative;
 	max-width:1020px;
 	margin: 0 auto;
+	
 }
 
 .row div{
@@ -189,45 +180,73 @@ display:inline-block;
 
 
 
+/* nav && 검색 추가 */
 
 
-
-/* 검색 추가*/
-
-
-
-.fileContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
-.fileInput {
-    display: flex;
-    align-items: center;
-    border-bottom: solid 2px black;
-    width: 60%;
-    height: 30px;
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+      
+      
+      
+      
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
 }
 
-#fileName {
-    margin-left: 5px;
+.form-control-dark {
+  color: #fff;
+  background-color: var(--bs-dark);
+  border-color: var(--bs-gray);
+}
+.form-control-dark:focus {
+  color: #fff;
+  background-color: var(--bs-dark);
+  border-color: #fff;
+  box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
 }
 
-.buttonContainer {
-    width: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-    background-color: black;
-    color: white;
-    border-radius: 30px;
-    padding: 10px;
-    font-size: 0.8em;
-
-    cursor: pointer;
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
 }
+
+.text-small {
+  font-size: 85%;
+}
+
+.dropdown-toggle {
+  outline: 0;
+}
+
+/* 위치 css */
+
+#headerLocation{
+	color:black;
+	font-size : 18px;
+}
+
+
+
+
+
+
+
+
 
 
 

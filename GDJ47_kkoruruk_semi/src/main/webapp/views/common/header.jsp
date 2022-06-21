@@ -52,7 +52,7 @@
 	
 </script>
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<%-- <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 	<header class="mb-auto">
   	<!-- 로그인 전 노출 버튼 -->
     <div>
@@ -61,34 +61,102 @@
      </a>
       <nav class="nav nav-masthead justify-content-center float-md-end">
       	<div class="navLocation">
-      		<%-- <a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/location/searchAddress.do">현재 위치로 주소찾기</a> --%>
+      		<a class="nav-link active" aria-current="page" href="<%=request.getContextPath()%>/location/searchAddress.do">현재 위치로 주소찾기</a>
       		<a class="nav-link active" aria-current="page" href="#" onclick="corrent_location();">현재 위치로 주소찾기</a>
       	</div>
       <%if(loginMember==null) {%>
         <div class="logContainer">
         	<a class="nav-link" href="<%=request.getContextPath()%>/memberloginpage.do">로그인</a>
-        </div>	
+        </div>	 --%>
+        
+        
+        
+   <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="<%=request.getContextPath() %>/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      </a>
+      
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary" onclick="corrent_location();" id="headerLocation"> <img src="images/location-01.png" width="35" height="35"> &nbsp 현재 위치로 주소찾기&nbsp&nbsp&nbsp  <img src="images/locationDown-01.png" width="15" height="15"></a></li>
+        <!-- <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">About</a></li> -->
+      </ul>
+	<%if(loginMember==null) {%>
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/memberloginpage.do');">로그인</button>
+        <button type="button" class="btn btn-dark">주문표</button>
+      </div>
+    </header>
+  </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
     <!-- 로그인 시 노출 -->
  	<%} else{%>
-	<div id="loginHidden" class="dropdown">
+<%-- 	<div id="loginHidden" class="dropdown">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
         <strong><%=loginMember.getMemNick() %></strong>
       </a>
-      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+      <button type="button" class="btn btn-dark">주문표</button> --%>
+      
+      
+      <div class="col-md-2 text-end" >
+	      <div id="loginHidden" class="dropdown">
+	      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+	        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+	        <strong><%=loginMember.getMemNick() %></strong>
+	      </a>
+	      <button type="button" class="btn btn-dark">주문표</button>
+	      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+	        <li><a class="dropdown-item" href="<%=request.getContextPath() %>/mypage.do">마이페이지</a></li>
+	        <li><a class="dropdown-item" href="<%=request.getContextPath() %>/mypageupdate.do">내정보수정</a></li>
+	        <li><a class="dropdown-item" href="#">찜한가게</a></li>
+	        <li><a class="dropdown-item" href="#">리뷰관리</a></li>
+	        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>">주문내역</a></li>
+	        <li><hr class="dropdown-divider"></li>
+	        <li><a class="dropdown-item" onclick="fn_logout();">로그아웃</a></li>
+	      </ul>
+	      
+      </div>
+     </div>
+      
+      
+      
+<%--       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
         <li><a class="dropdown-item" href="<%=request.getContextPath() %>/mypage.do">마이페이지</a></li>
+        <li><a class="dropdown-item" href="#">내정보수정</a></li>
         <li><a class="dropdown-item" href="#">찜한가게</a></li>
         <li><a class="dropdown-item" href="#">리뷰관리</a></li>
         <li><a class="dropdown-item" href="#">주문내역</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" onclick="fn_logout();">로그아웃</a></li>
-      </ul>
+      </ul> --%>
+      
 	<% } %>
-    <div class="orderList">
-        <a class="nav-link" href="#">주문표</a>
-    </div>
-      </nav>
+
+    
     </div>
     <script>
     	const corrent_location=()=>{

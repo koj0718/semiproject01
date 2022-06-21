@@ -9,11 +9,7 @@
 <%
    List<OrderList> list=(List<OrderList>)request.getAttribute("list");
 %>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>order</title>
+
 <style>
 	/* *{
 	border:1px solid red;
@@ -89,17 +85,14 @@
 	}
 </style>
 
-</head>
-<body>
-	<header>
-		
-	</header>
+
 		<h2>
 			주문 내역
 		</h2>
 	<section class="">
     	<nav class="nav-button">
-    		<button>1주일</button>
+    		<button onclick="location.assign('<%=request.getContextPath()%>/orderFilter.do?loginId=<%=loginMember.getMemId() %>');">1주일</button>
+    		<%-- <%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %> --%>
     		<button>1개월	</button>
     		<button>3개월</button>
     		<button>전체시기</button>
@@ -220,6 +213,6 @@
         </div>
 	
 
-</body>
-</html>
+
+<%@ include file="/views/common/footer.jsp" %>
 
