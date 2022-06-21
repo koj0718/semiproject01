@@ -48,7 +48,7 @@
 		                &nbsp;
 				<button onclick="" id="updateBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="정보수정">비밀번호 변경</button>
 				&nbsp;
-				<button onclick="" id="updateBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="창닫기">창 닫기</button>
+				<button onclick="" id="updateBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="닫기">닫기</button>
 				</div>
 			</div>
 		</form>

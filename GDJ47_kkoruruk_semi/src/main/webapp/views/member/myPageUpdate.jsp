@@ -47,9 +47,7 @@
 		                &nbsp;
 				<button type="submit" onclick="memUpdate()" id="updateBtn" class="w-100 btn btn-primary btn-lg" value="정보수정">수정하기</button>
 				&nbsp;
-<%-- 				<button type="button" onclick="window.open('<%=request.getContextPath() %>/views/member/updatePassword.jsp');" id="updateBtn" class="w-100 btn btn-primary btn-lg" value="정보수정">비밀번호 변경</button>
-				<hr> --%>
-				<button type="submit" onclick="" id="updateBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="회원탈퇴" style="background-color:tomato;">회원탈퇴</button>
+				<button type="submit" onclick="" id="leaveBtn" class="w-100 btn btn-primary btn-lg" value="회원탈퇴" style="background-color:tomato;">회원탈퇴</button>
 				</div>
 			</div>
 		</form>

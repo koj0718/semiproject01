@@ -217,8 +217,8 @@
 	    	
 			<div>
 
-				<button onclick="requestPay()" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit">온라인 결제하기</button>
-				<button onclick="requestPay()" id="diPayBtn" class="w-100 btn btn-primary btn-lg" type="submit">만나서 결제하기</button>
+				<button onclick="requestPay()" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="온라인결제">온라인 결제하기</button>
+				<button onclick="requestPay()" id="diPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="만나서결제">만나서 결제하기</button>
 
 			
 			</div>
@@ -241,7 +241,7 @@
   			$("input:radio[name='paymentType'][value='만나서결제']").prop("checked", true);
   		});
 	  
-  		/* import */
+  		/* 온라인결제 */
 	    function requestPay() {
 			
 			var IMP = window.IMP; // 생략 가능
@@ -282,6 +282,9 @@
 	        	console.log(rsp); /* 콘솔 확인용 */
 	        });
 	      }
+  		
+  		/* 만나서결제 */
+  		
 	  
   </script>
   
