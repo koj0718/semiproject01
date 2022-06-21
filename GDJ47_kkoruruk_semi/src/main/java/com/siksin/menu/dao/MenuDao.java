@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Properties;
 
 import com.siksin.menu.model.vo.Menu;
+import com.siksin.store.dao.StoreDao;
 import com.siksin.store.model.vo.Store;
 
 public class MenuDao {
@@ -76,6 +77,27 @@ public class MenuDao {
 			close(pstmt);
 		}return result;
 		
+	}
+	
+	public List<Store> searchStoreList(Connection conn, String selectval, String searchMenu){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<Store> result=new ArrayList();
+		String sql=prop.getProperty("searchStore");
+		sql=sql.replace("$COL2",selectval);
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty(sql));
+			pstmt.setString(1, selectval);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				result.add(getStore(rs));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;	
 	}
 	
 	

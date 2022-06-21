@@ -7,7 +7,6 @@
 
 <%
 	List<Store> list=(List<Store>)request.getAttribute("list");
-	String v=(String)request.getAttribute("searchMenu");
 %>
 <!DOCTYPE html>
 <html>
@@ -136,11 +135,11 @@
       <div>
          <div class="choice-box">
             <select id="choiceType" onchange="fn_change();">
-               <option value="rank">기본정렬순</option>
-               <option value="reviewavg">별점순</option>
-               <option value="reviewcount">리뷰 많은순</option>
-               <option value="minorder">최소 주문 금액순</option>
-               <option value="minprice">최소 배달 금액순</option>
+               <option name="" value="rank">기본정렬순</option>
+               <option name="" value="reviewavg">별점순</option>
+               <option name="" value="reviewcount">리뷰 많은순</option>
+               <option name="" value="minorder">최소 주문 금액순</option>
+               <option name="" value="minprice">최소 배달 금액순</option>
             </select>
          </div>
       </div>
@@ -204,8 +203,9 @@
 	const fn_change=()=>{
 		const select=$('#choiceType');
 		const selectvalue=select.val();
+		console.log(selectvalue);
 		console.log(select,selectvalue);
-		location.assign("<%=request.getContextPath()%>/storeListSort.do?selectval=selectvalue&searchMenu=<%=v%>");
+		location.assign("<%=request.getContextPath()%>/storeListSort.do?selectval="+selectvalue+"&searchMenu=<%=request.getParameter("searchMenu")%>");
 	}
 
 </script>
