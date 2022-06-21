@@ -1,45 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<!doctype html>
-
-  <!-- jQuery -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-  <!-- iamport.payment.js -->
-  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
-  
-<html lang="ko">
-  <head>
-
-    <title>결제</title>
-
-    <link rel="canonical" href="https://getbootstrap.kr/docs/5.1/examples/checkout/">
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/payment/payment.css">
-
-    <!-- Bootstrap core CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-<link href="form-validation.css" rel="stylesheet">
-</head>
-
-<body class="bg-light">
+<%@ include file="/views/common/header.jsp" %> 
 
 <div class="container">
-  
-    <div class="my-5 pt-5 text-muted text-center text-small">
-        <h1 class="mb-1">&copy;header</h1>
-    </div>
-        
         
     <div class="py-5 text-center">
 	    <h2>주문하기</h2>
-	    <p class="lead">설명란@@@@@@@@@@@@???????????? 필요???????</p>
 	</div>
+	
+	<input type="hidden" value="${mem.id }" id="mem_id">
   
 	<div class="col-md-7 col-lg-8"> <!-- 주문자정보 -->
 	    <h4 class="mb-3">1. 주문자 정보</h4>
 	    <form class="needs-validation" novalidate>
+	    
 	        <div class="col-md-7 col-lg-8 center">
 	            <label for="address" class="form-label">주소</label>
 	          	    <div class="col-8 text-center">
@@ -62,8 +37,6 @@
 	                <option value="">주문요청사항을 선택해주세요.</option>
 	                <option>배송전연락바람</option>
 	                <option>벨x 등등</option>
-	                <option>@@@@@@</option>
-	                <option>@@@@@@</option>
 	                <option>(직접입력)</option>
 	                <input type="checkbox" class="form-check-input" id="same-address">
 	            	<label class="form-check-label" for="same-address">일회용 수저, 포크가 필요해용</label>
@@ -240,6 +213,20 @@
   			$("#onPayBtn").hide();
   			$("input:radio[name='paymentType'][value='만나서결제']").prop("checked", true);
   		});
+  		
+  		/* 결제 */
+/*   		function payment() {
+  			
+  			const data={
+  					
+  					payMethod: $("button[type='submit']:checked").val(),
+  					
+  					
+  					
+  			}
+  			
+  		} */
+  		
 	  
   		/* 온라인결제 */
 	    function requestPay() {

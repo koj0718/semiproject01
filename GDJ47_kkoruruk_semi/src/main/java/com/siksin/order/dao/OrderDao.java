@@ -79,7 +79,7 @@ public class OrderDao {
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+loginId+"%");
+			pstmt.setString(1, loginId);
 			rs=pstmt.executeQuery();
 			if(rs.next()) result=rs.getInt(1);
 			
