@@ -112,17 +112,44 @@
         
       </article>
       
+	<%-- <article>
+		<ul class="sub-list">		
+			<%for(Menu m : menuList){ %>
+			 <li onclick="asd();">
+			 <form id="qwe" action="<%=request.getContextPath() %>/menuoption.do'" method="post">
+			 	<table>
+			 		<tr>
+			 			<td class="menu-text">
+				 			<div class="menu-name"><%=m.getMenuName() %><input type="hidden" name="menuname" value="<%=m.getMenuName() %>"></div>
+				 			<div class="menu-dec"><%=m.getMenuDec() %></div>
+				 			<div class="menu-price"><%=m.getMenuPrice() %>원 </div>
+			 			</td>
+			 			<td class="poto-area">
+			 				<div class="menu-img"><%=m.getMenuImg() %></div>
+			 			</td>
+			 		</tr>
+			 	</table>
+			 	</form> 
+			</li>
+			<%} %>			
+		</ul>
+	</article>
+	<script>
+	 function asd(){
+		window.open('<%=request.getContextPath() %>/menuoption.do','menuoplist1','width=300, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=yes');	
+	 	document.getElementById("qwe").submit();
+	 
+	</script> --%>
 		
 		
-		
-      <article class="blog-post">     
+     <article class="blog-post">     
      <%for(Menu m : menuList){ %> 
      <form>  	
       	<div onclick="window.open('<%=request.getContextPath() %>/menuoption.do?menuId=<%=m.getMenuId() %>&menuName=<%=m.getMenuName() %>&menuPrice=<%=m.getMenuPrice() %>',
-      	'메뉴옵션','width=300, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=yes');return false;">
+      	'menuoplist1','width=300, height=400, toolbar=no, menubar=no, scrollbars=no, resizable=yes');return false;">
 	        <div  class="row g-5">
 		        <div class="col-md-10">
-		        	<div ><%=m.getMenuName() %></div>
+		        	<div><%=m.getMenuName() %></div>
 		        	<div><%=m.getMenuDec() %></div>
 		        	<div><%=m.getMenuPrice() %>원 </div>
 		        </div>
@@ -156,7 +183,7 @@
 		          <div class="col-md-1">40000</div>
 	        </div>
 	          
-	        <div class="row g-5">
+	        <div class="row">
 		          <div class="col-md-8">배달요금</div>
 		          <div class="col-md-1">4000</div>
 		    </div>
@@ -165,7 +192,7 @@
           
         <div class="p-4">
         
-	        <div class="row g-5">
+	        <div class="row">
 		          <div class="col-md-8">총금액</div>
 		          <div class="col-md-1">44000</div>
 		    </div>

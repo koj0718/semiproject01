@@ -33,6 +33,7 @@ public class MenuOptionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		int menuId=Integer.parseInt(request.getParameter("menuId"));
 		String menuName=request.getParameter("menuName");
 		String menuPrice=request.getParameter("menuPrice");
