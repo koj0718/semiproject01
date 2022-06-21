@@ -23,7 +23,7 @@
      <%for(MenuOption mop : mopList){ %>   		
       	<div onclick="">
 	        <div  class="row g-5">
-		        <div class="col-md-10">		   	            
+		        <div class="col-md-10" id="sss">		   	            
 		        	<input type="checkbox" name="menuop" id="menuOpId<%=mop.getMenuOpId() %>" value="<%=mop.getMenuOpName() %> <%=mop.getMenuOpPrice() %> ">
 		        	<input type="hidden" name="menuop" value="<%=mop.getMenuId() %> ">
 		        	<input type="hidden" name="menuop" value="<%=mop.getMenuOpPrice() %> ">
@@ -42,7 +42,7 @@
     
     <script>
     const btn=document.getElementById("cartAdd");
-    
+    const aaa=document.getElementById("sss");
     btn.addEventListener("click",(e)=>{
     	console.log($("input[name=menuop]:checked"));
     	console.log($("input[name=menuop]:checked")[0]);  
@@ -50,12 +50,15 @@
     	const table=document.createElement("table")
     	const tr=document.createElement("tr");
     	
-    	
+    	console.log(aaa.children);
+    	console.log(aaa.children);
     	/* $(opener.document.getElementById("cart").append(qwe)); */
     	
     	for(let i=0;i<qwe.length;i++){
     		const td=document.createElement("td");
-    		td.innerText=qwe[i].value;
+    		/* td.innerText=qwe[i].value; */
+    		td.innerHTML=aaa.children;
+    		
     		tr.appendChild(td);
     		/* $(opener.document.getElementById("cart").append(table).append(qwe[i].value)); */
     	}
