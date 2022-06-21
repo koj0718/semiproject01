@@ -37,6 +37,13 @@ public class MenuService {
 		close(conn);
 		return menuList;
 	}
+	
+	public List<Store> searchStoreList(String selectval, String searchMenu){
+		Connection conn=getConnection();
+		List<Store> result=dao.searchStoreList(conn,selectval,searchMenu); 
+		close(conn);
+		return result;
+	}
 }
 
 

@@ -1,11 +1,16 @@
 package com.siksin.store.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.siksin.menu.service.MenuService;
+import com.siksin.store.model.vo.Store;
 
 /**
  * Servlet implementation class StoreListSortServlet
@@ -31,6 +36,14 @@ public class StoreListSortServlet extends HttpServlet {
 		String searchMenu=request.getParameter("searchMenu");
 		System.out.println(selectval);
 		System.out.println(searchMenu);
+		
+		List<Store> result=new MenuService().searchStoreList(selectval,searchMenu);
+		
+		request.setAttribute("list",result);
+		
+		request.getRequestDispatcher("/views/menu/menuCategory.jsp")
+		.forward(request, response);
+		
 		
 		
 	}
