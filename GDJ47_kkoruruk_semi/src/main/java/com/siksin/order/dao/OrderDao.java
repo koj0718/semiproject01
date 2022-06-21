@@ -75,7 +75,7 @@ public class OrderDao {
 	public int searchOrderCount(Connection conn, String loginId) {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql=prop.getProperty("searchMenuCount");
+		String sql=prop.getProperty("orderListCount");
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -120,7 +120,7 @@ public class OrderDao {
 			ol=new OrderList();
 			ol.setOrderNum(rs.getInt("ORDER_NUM"));
 			ol.setOrderDate(rs.getDate("ORDER_DATE"));
-			ol.setTotalPrice(rs.getInt("ORDER_PRICE"));
+			ol.setTotalPrice(rs.getInt("TOTAL_PRICE"));
 			ol.setStoreThumb(rs.getString("STORE_THUMB"));
 			ol.setStoreName(rs.getString("STORE_NAME"));
 			
