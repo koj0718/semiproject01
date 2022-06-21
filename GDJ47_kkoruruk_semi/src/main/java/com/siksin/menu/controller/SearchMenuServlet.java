@@ -89,6 +89,7 @@ public class SearchMenuServlet extends HttpServlet {
 		
 		request.setAttribute("pageBar", pageBar);
 		request.setAttribute("list", result);
+		request.setAttribute("searchMenu", searchMenu);
 		
 		request.getRequestDispatcher("/views/menu/menuCategory.jsp")
 		.forward(request, response);

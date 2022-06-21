@@ -6,7 +6,8 @@
 <%@ include file="/views/common/header.jsp" %> 
 
 <%
-   List<Store> list=(List<Store>)request.getAttribute("list");
+	List<Store> list=(List<Store>)request.getAttribute("list");
+	String v=(String)request.getAttribute("searchMenu");
 %>
 <!DOCTYPE html>
 <html>
@@ -202,9 +203,9 @@
 <script>
 	const fn_change=()=>{
 		const select=$('#choiceType');
-		selectval=select.val();
-		console.log(select,selectval);
-		location.assign("<%=request.getContextPath()%>/storeListSort.do");
+		const selectvalue=select.val();
+		console.log(select,selectvalue);
+		location.assign("<%=request.getContextPath()%>/storeListSort.do?selectval=selectvalue&searchMenu=<%=v%>");
 	}
 
 </script>
