@@ -82,7 +82,9 @@
 	    </ul>
 	    
 	       <article class="blog-post">    
-        <h2 class="blog-post-title">대표메뉴</h2>   
+        <h2 class="blog-post-title">대표메뉴</h2>
+        
+        
         <div class="row g-5">
 	        <div class="col-md-3">
 	        	<div>사진</div>
@@ -142,23 +144,14 @@
           <span>주문표</span>         
         </div>
         
-        <div class="p-4" id="cart" name="cart">       
-          <div class="row g-5" name="menuName" id="menuName">
-	          <div class="col-md-9">레드콤보</div>
-	          <div class="col-md-1">X</div>
-          </div>
-          <div class="row g-5">
-	          <div class="col-md-6">20000</div>
-	          <div class="col-md-1">-</div>
-	          <div class="col-md-1">수량</div>
-	          <div class="col-md-1">+</div>
-          </div>
+        <div class="row p-4" id="cart" name="cart">       
+          
           <hr>  
         </div>
         
-        <div class="p-4">
+        <div class="p-4" id="price" name="price">
         
-	        <div class="row g-5">
+	        <div class="row">
 		          <div class="col-md-8">상품금액</div>
 		          <div class="col-md-1">40000</div>
 	        </div>

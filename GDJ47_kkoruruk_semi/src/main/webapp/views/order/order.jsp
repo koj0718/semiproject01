@@ -83,6 +83,10 @@
 	.div3>p{
 	
 	}
+
+	#pageBar{
+	text-align: center;
+	}
 </style>
 
 </head>
@@ -125,7 +129,8 @@
 	</section>
 	
 	<main id="mainbox">
-		<div class="container2">
+	
+<!-- 		<div class="container2">
 			<div class="div0">
 			<img src=https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg width="150px;" height="150px;" >
 				<div class="div1">
@@ -162,8 +167,57 @@
 			<div class="div3">
 				<p>2022.06.14</p>
 			</div>
-		</div>
+		</div> -->
+		<%if(list.isEmpty()){ %>
+			<div class="container2">
+				<div class="div0">
+				<img src="" width="150px;" height="150px;" >
+					<div class="div1">
+						<div>
+							<h4></h>
+						</div>
+						<div>
+							<p></p>
+						</div>
+					</div>
+				</div>	
+				<div class="div2">
+					<p></p>
+				</div>
+				<div class="div3">
+					<p></p>
+				</div>
+			</div>
+   		<%}else{
+   			for(OrderList ol : list){%>
+   				<div class="container2">
+					<div class="div0">
+					<img src="<%=ol.getStoreThumb() %>" width="150px;" height="150px;" >
+						<div class="div1">
+							<div>
+								<h4><%=ol.getStoreName() %></h>
+							</div>
+							<div>
+								<p><%=ol.getTotalPrice() %>원</p>
+							</div>
+						</div>
+					</div>	
+					<div class="div2">
+						<p><%=ol.getOrderNum() %></p>
+					</div>
+					<div class="div3">
+						<p><%=ol.getOrderDate() %></p>
+					</div>
+				</div>
+		<%	} 
+       		 }%>
+				
+		
 	</main>
+	
+		<div id="pageBar">
+        	<%=request.getAttribute("pageBar") %>
+        </div>
 	
 
 </body>
