@@ -134,12 +134,12 @@
 
       <div>
          <div class="choice-box">
-            <select name="choiceType">
-               <option value="">기본정렬순</option>
-               <option value="">별점순</option>
-               <option value="">리뷰 많은순</option>
-               <option value="">최소 주문 금액순</option>
-               <option value="">최소 배달 금액순</option>
+            <select id="choiceType" onchange="fn_change();">
+               <option value="rank">기본정렬순</option>
+               <option value="reviewavg">별점순</option>
+               <option value="reviewcount">리뷰 많은순</option>
+               <option value="minorder">최소 주문 금액순</option>
+               <option value="minprice">최소 배달 금액순</option>
             </select>
          </div>
       </div>
@@ -199,6 +199,15 @@
         </div>
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+	const fn_change=()=>{
+		const select=$('#choiceType');
+		selectval=select.val();
+		console.log(select,selectval);
+		location.assign("<%=request.getContextPath()%>/storeListSort.do");
+	}
+
+</script>
 </body>
 </html> 
 
