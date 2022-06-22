@@ -39,4 +39,51 @@ public class OrderService {
 	}
 	
 	
+	
+	
+	public List<OrderList> searchOrderListWeek(String loginId,int cPage,int numPerpage){
+		Connection conn=getConnection();
+		List<OrderList> result=dao.searchOrderListWeek(conn,loginId,cPage,numPerpage);
+		close(conn);
+		return result;
+	}
+	
+	public int searchOrderCountWeek(String loginId) {
+		Connection conn=getConnection();
+		int result=dao.searchOrderCountWeek(conn,loginId);
+		close(conn);
+		return result;
+	}
+	
+	
+	public List<OrderList> searchOrderListMonth(String loginId,int cPage,int numPerpage){
+		Connection conn=getConnection();
+		List<OrderList> result=dao.searchOrderListMonth(conn,loginId,cPage,numPerpage);
+		close(conn);
+		return result;
+	}
+
+	public int searchOrderCountMonth(String loginId) {
+		Connection conn=getConnection();
+		int result=dao.searchOrderCountMonth(conn,loginId);
+		close(conn);
+		return result;
+	}
+	
+	public List<OrderList> searchOrderList3Month(String loginId,int cPage,int numPerpage){
+		Connection conn=getConnection();
+		List<OrderList> result=dao.searchOrderList3Month(conn,loginId,cPage,numPerpage);
+		close(conn);
+		return result;
+	}
+
+	public int searchOrderCount3Month(String loginId) {
+		Connection conn=getConnection();
+		int result=dao.searchOrderCount3Month(conn,loginId);
+		close(conn);
+		return result;
+	}
+
+	
+	
 }

@@ -91,11 +91,12 @@
 		</h2>
 	<section class="">
     	<nav class="nav-button">
-    		<button onclick="location.assign('<%=request.getContextPath()%>/orderFilter.do?loginId=<%=loginMember.getMemId() %>');">1주일</button>
+    		<button onclick="location.assign('<%=request.getContextPath()%>/orderWeek.do?loginId=<%=loginMember.getMemId() %>');">1주일</button>
     		<%-- <%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %> --%>
-    		<button>1개월	</button>
-    		<button>3개월</button>
-    		<button>전체시기</button>
+    		<button onclick="location.assign('<%=request.getContextPath()%>/orderMonth.do?loginId=<%=loginMember.getMemId() %>');" >1개월	</button>
+    		<button onclick="location.assign('<%=request.getContextPath()%>/order3Month.do?loginId=<%=loginMember.getMemId() %>');">3개월</button>
+    		<button onclick="location.assign('<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>');">전체시기</button>
+    		
 			&nbsp;
 			&nbsp;
 			&nbsp;
@@ -104,9 +105,30 @@
     		&nbsp;
     		&nbsp;
     		<button>조회</button>
+    		
+     		<form action="<%=request.getContextPath()%>/order.do?loginId=<%=loginMember.getMemId() %>">
+				
+				<input  type="date" name=""  >
+				<input  type="date" name=""  >
+				<button  type="submit" >조회 </button>
+	
+			</form>  		
+    		
+    		
     	</nav>
     	 <hr size="2px;" width = "95%" color = "black"></hr>
-    	
+    	 
+    	 
+    	 
+<%--     		<form action="<%=request.getContextPath()%>/searchMenu.do">
+				<img src="images/search-01.png" width="35" height="35"> 
+				<input id="input1" type="text" name="searchMenu" placeholder="오늘은 어떤 메뉴를 주문해 볼까요?" size="30">
+				<button id="input2" type="submit" >검색 </button>
+	
+			</form> --%>
+			
+			
+			
     	<div class="container">
     		<div>
     			<p>가게정보</p>
