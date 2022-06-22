@@ -46,8 +46,6 @@ public class StoreListSortServlet extends HttpServlet {
 			cPage=1;
 		}
 		
-		
-		
 		List<Store> result=new MenuService().searchStoreList(selectval,searchMenu,cPage,numPerpage);
 		int totalData=new MenuService().searchMenuCount(searchMenu);
 		int totalPage=(int)Math.ceil((double)totalData/numPerpage);
