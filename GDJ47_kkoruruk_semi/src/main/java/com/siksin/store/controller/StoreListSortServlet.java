@@ -37,8 +37,54 @@ public class StoreListSortServlet extends HttpServlet {
 		System.out.println(selectval);
 		System.out.println(searchMenu);
 		
-		List<Store> result=new MenuService().searchStoreList(selectval,searchMenu);
 		
+		int cPage;
+		int numPerpage=8; 
+		try {
+			cPage=Integer.parseInt(request.getParameter("cPage"));
+		}catch(NumberFormatException e) {
+			cPage=1;
+		}
+		
+		
+		
+		List<Store> result=new MenuService().searchStoreList(selectval,searchMenu,cPage,numPerpage);
+		int totalData=new MenuService().searchMenuCount(searchMenu);
+		int totalPage=(int)Math.ceil((double)totalData/numPerpage);
+		int pageBarSize=5;
+		int pageNo=((cPage-1)/pageBarSize)*pageBarSize+1;
+		int pageEnd=pageNo+pageBarSize-1;
+		
+		String pageBar="";
+		if(pageNo==1) {
+			pageBar+="<span>[이전]</span>";
+		}else {
+			pageBar+="<a href='"+request.getRequestURL()
+				+"?cPage="+(pageNo-1)+"&searchMenu="+searchMenu+"'>[이전]</a>";
+		}
+		
+		while(!(pageNo>pageEnd||pageNo>totalPage)) {
+			if(pageNo==cPage) {
+				pageBar+="<span>"+pageNo+"</span>";
+			}else {
+				pageBar+="<a href='"+request.getRequestURL()
+						+"?cPage="+(pageNo)+"&searchMenu="+searchMenu+"'>"+pageNo+"</a>";
+			}
+			pageNo++;
+		}
+		
+		if(pageNo>totalPage) {
+			pageBar+="<span>[다음]</span>";
+		}else {
+			pageBar+="<a href='"+request.getRequestURL()
+			+"?cPage="+(pageNo)+"&searchMenu="+searchMenu+"'>[다음]</a>";
+		}
+		
+		
+		System.out.println(cPage);
+		
+		
+		request.setAttribute("pageBar", pageBar);
 		request.setAttribute("list",result);
 		
 		request.getRequestDispatcher("/views/menu/menuCategory.jsp")

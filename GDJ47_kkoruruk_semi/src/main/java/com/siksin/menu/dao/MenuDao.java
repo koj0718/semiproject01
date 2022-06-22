@@ -79,15 +79,17 @@ public class MenuDao {
 		
 	}
 	
-	public List<Store> searchStoreList(Connection conn, String selectval, String searchMenu){
+	public List<Store> searchStoreList(Connection conn, String selectval, String searchMenu, int cPage, int numPerpage){
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		List<Store> result=new ArrayList();
 		String sql=prop.getProperty("searchStore");
-		sql=sql.replace("$COL2",selectval);
+		sql=sql.replace("$COL2",selectval+" "+(selectval.equals("REVIEW_COUNT")||selectval.equals("STAR_POINT")?"DESC":"ASC"));
 		try {
-			pstmt=conn.prepareStatement(prop.getProperty(sql));
-			pstmt.setString(1, selectval);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, searchMenu);
+			pstmt.setInt(2, (cPage-1)*numPerpage+1);
+			pstmt.setInt(3, cPage*numPerpage);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				result.add(getStore(rs));
