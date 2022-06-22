@@ -135,11 +135,11 @@
       <div>
          <div class="choice-box">
             <select id="choiceType" onchange="fn_change();">
-               <option name="" value="rank">기본정렬순</option>
-               <option name="" value="reviewavg">별점순</option>
-               <option name="" value="reviewcount">리뷰 많은순</option>
-               <option name="" value="minorder">최소 주문 금액순</option>
-               <option name="" value="minprice">최소 배달 금액순</option>
+               <option name="" value="RANK">기본정렬순</option>
+               <option name="" value="STAR_POINT">별점순</option>
+               <option name="" value="REVIEW_COUNT">리뷰 많은순</option>
+               <option name="" value="MIN_DELEVERY">최소 주문 금액순</option>
+               <option name="" value="DELEVERY_TIP">최소 배달 금액순</option>
             </select>
          </div>
       </div>
