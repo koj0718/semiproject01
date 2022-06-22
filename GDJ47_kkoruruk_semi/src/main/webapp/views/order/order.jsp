@@ -27,19 +27,19 @@
 	padding-left:20px;
 	padding-bottom:20px;	
 	}
-	.container{
+	.orderContainer{
 	display:flex;
 	justify-content: space-between;
 	padding-left:140px;
 	padding-right:140px;
 	}
-	.container>div{
+	.orderContainer>div{
 	height: 30px auto;
 	}
-	.container>div>p{
+	.orderContainer>div>p{
 	margin: 0px;
 	}
-	.container2{
+	.orderContainer2{
 	display:flex;
 	padding-left:15px;
 	justify-content: space-between;
@@ -75,6 +75,7 @@
 	text-align: center;
 	padding-top: 50px;
 	padding-right: 131px;
+	/* margin-right: 411px; */
 	}
 	.div3>p{
 	
@@ -83,6 +84,9 @@
 	#pageBar{
 	text-align: center;
 	}
+	
+	
+
 </style>
 
 
@@ -95,24 +99,31 @@
     		<%-- <%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %> --%>
     		<button onclick="location.assign('<%=request.getContextPath()%>/orderMonth.do?loginId=<%=loginMember.getMemId() %>');" >1개월	</button>
     		<button onclick="location.assign('<%=request.getContextPath()%>/order3Month.do?loginId=<%=loginMember.getMemId() %>');">3개월</button>
-    		<button onclick="location.assign('<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>');">전체시기</button>
+    		<button class="orderAll" onclick="location.assign('<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>');">전체시기</button>
     		
 			&nbsp;
 			&nbsp;
 			&nbsp;
-    		<input type='date' name="">&nbsp;
-    		<input type='date' name="">
-    		&nbsp;
-    		&nbsp;
-    		<button>조회</button>
+<!--     		<input type='date' name="">&nbsp;
+    		<input type='date' name=""> -->
     		
-     		<form action="<%=request.getContextPath()%>/order.do?loginId=<%=loginMember.getMemId() %>">
+    		<form class="orderPeriod" action="<%=request.getContextPath()%>/orderPeriod.do">
 				
-				<input  type="date" name=""  >
-				<input  type="date" name=""  >
+				<input  type="date" name="searchPeriod"  > &nbsp
+				<input  type="date" name="searchPeriod2"  >
+				<input type="hidden" name="loginId" value="<%=loginMember.getMemId() %>"/>
+			 	&nbsp;
+    			&nbsp;
 				<button  type="submit" >조회 </button>
 	
-			</form>  		
+			</form>  
+    		
+    		
+<!--     		&nbsp;
+    		&nbsp;
+    		<button>조회</button> -->
+    		
+		
     		
     		
     	</nav>
@@ -129,7 +140,7 @@
 			
 			
 			
-    	<div class="container">
+    	<div class="orderContainer">
     		<div>
     			<p>가게정보</p>
     		</div>
@@ -184,7 +195,7 @@
 			</div>
 		</div> -->
 		<%if(list.isEmpty()){ %>
-			<div class="container2">
+			<div class="orderContainer2">
 				<div class="div0">
 				<img src="" width="150px;" height="150px;" >
 					<div class="div1">
@@ -205,7 +216,7 @@
 			</div>
    		<%}else{
    			for(OrderList ol : list){%>
-   				<div class="container2">
+   				<div class="orderContainer2">
 					<div class="div0">
 					<img src="<%=ol.getStoreThumb() %>" width="150px;" height="150px;" >
 						<div class="div1">
@@ -233,6 +244,25 @@
 		<div id="pageBar">
         	<%=request.getAttribute("pageBar") %>
         </div>
+        
+        
+<!-- 		<nav aria-label="Page navigation example">
+		  <ul class="pagination">
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    <li class="page-item"><a class="page-link" href="#">1</a></li>
+		    <li class="page-item"><a class="page-link" href="#">2</a></li>
+		    <li class="page-item"><a class="page-link" href="#">3</a></li>
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav> -->
 	
 
 

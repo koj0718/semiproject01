@@ -13,16 +13,16 @@ import com.siksin.order.model.vo.OrderList;
 import com.siksin.order.service.OrderService;
 
 /**
- * Servlet implementation class OrderFilterServlet
+ * Servlet implementation class OrderCheckDetailServlet
  */
-@WebServlet("/orderWeek.do")
-public class OrderCheckWeekServlet extends HttpServlet {
+@WebServlet("/orderPeriod.do")
+public class OrderCheckPeriodServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OrderCheckWeekServlet() {
+    public OrderCheckPeriodServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,8 +31,16 @@ public class OrderCheckWeekServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		String loginId=request.getParameter("loginId");
+		String searchPeriod=request.getParameter("searchPeriod");
+		String searchPeriod2=request.getParameter("searchPeriod2");
+		
+		
+		System.out.println(loginId);
+		System.out.println(searchPeriod);
+		System.out.println(searchPeriod2);
+		
 		
 		int cPage;
 		int numPerpage=5; 
@@ -46,15 +54,12 @@ public class OrderCheckWeekServlet extends HttpServlet {
 	
 		
 		
-		List<OrderList> result=new OrderService().searchOrderListWeek(loginId,cPage,numPerpage);
-		int totalData=new OrderService().searchOrderCountWeek(loginId);
+		List<OrderList> result=new OrderService().searchOrderListPeriod(loginId,searchPeriod,searchPeriod2,cPage,numPerpage);
+		int totalData=new OrderService().searchOrderCountPeriod(loginId,searchPeriod,searchPeriod2);
 		int totalPage=(int)Math.ceil((double)totalData/numPerpage);
 		int pageBarSize=5;
 		int pageNo=((cPage-1)/pageBarSize)*pageBarSize+1;
 		int pageEnd=pageNo+pageBarSize-1;
-		
-		
-		
 		
 		String pageBar="";
 		if(pageNo==1) {
@@ -89,16 +94,7 @@ public class OrderCheckWeekServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("/views/order/order.jsp")
 		.forward(request, response);
-		
-		
-		// 원본//
 
-		
-		
-		
-		
-		
-		
 		
 		
 	}
