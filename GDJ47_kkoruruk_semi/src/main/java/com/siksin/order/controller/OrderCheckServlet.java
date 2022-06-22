@@ -56,6 +56,12 @@ public class OrderCheckServlet extends HttpServlet {
 		int pageNo=((cPage-1)/pageBarSize)*pageBarSize+1;
 		int pageEnd=pageNo+pageBarSize-1;
 		
+		
+		
+		
+		
+		
+		
 		String pageBar="";
 		if(pageNo==1) {
 			pageBar+="<span>[이전]</span>";
@@ -89,6 +95,73 @@ public class OrderCheckServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("/views/order/order.jsp")
 		.forward(request, response);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		<nav aria-label="Page navigation example"> <ul class="pagination">
+//		    <li class="page-item"> <a class="page-link" href= "#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
+//		    
+//		    <li class="page-item"><a class="page-link" href="#">1</a></li>
+//		    
+//		    <li class="page-item"><a class="page-link" href="#">2</a></li>
+//		    <li class="page-item"><a class="page-link" href="#">3</a></li>
+//		    
+//		    
+//		    <li class="page-item"> <a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a> </li> </ul> </nav>
+		
+		
+		
+		
+		
+		
+//		
+//		String pageBar="<nav aria-label=\"Page navigation example\"> <ul class=\"pagination\">";
+//		if(pageNo==1) {
+//			pageBar+="<li class=\"page-item\">  <span aria-hidden=\"true\">&laquo;</span> </li>";
+//		}else {
+//			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href='"+request.getRequestURL()
+//				+"?cPage="+(pageNo-1)+"&loginId="+loginId+"'aria-label=\"Previous\"> <span aria-hidden=\"true\">&laquo;</span> </a> </li>";
+//		}
+//		
+//		while(!(pageNo>pageEnd||pageNo>totalPage)) {
+//			if(pageNo==cPage) {
+//				pageBar+="<li class=\"page-item\">"+pageNo+"</li>";
+//			}else {
+//				pageBar+="<li class=\"page-item\"><a class=\"page-link\" href='"+request.getRequestURL()
+//						+"?cPage="+(pageNo)+"&loginId="+loginId+"'>"+pageNo+"</a></li>";
+//			}
+//			pageNo++;
+//		}
+//		
+//		if(pageNo>totalPage) {
+//			pageBar+="<li class=\"page-item\">  <span aria-hidden=\"true\">&raquo;</span> </li> </ul> </nav>";
+//		}else {
+//			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href='"+request.getRequestURL()
+//			+"?cPage="+(pageNo)+"&loginId="+loginId+"'aria-label=\"Next\"> <span aria-hidden=\"true\">&raquo;</span> </a> </li> </ul> </nav>";
+//		}
+//		
+//		
+//		
+//		
+//		request.setAttribute("pageBar", pageBar);
+//		request.setAttribute("list", result);
+//		
+//		request.getRequestDispatcher("/views/order/order.jsp")
+//		.forward(request, response);
+//		
+		
+		
+		
+		
+		
+		
 		
 	}
 

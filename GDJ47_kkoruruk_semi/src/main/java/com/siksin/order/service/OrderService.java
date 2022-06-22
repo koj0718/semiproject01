@@ -83,6 +83,21 @@ public class OrderService {
 		close(conn);
 		return result;
 	}
+	
+	
+	public List<OrderList> searchOrderListPeriod(String loginId,String searchPeriod,String searchPeriod2,int cPage,int numPerpage){
+		Connection conn=getConnection();
+		List<OrderList> result=dao.searchOrderListPeriod(conn,loginId,searchPeriod,searchPeriod2,cPage,numPerpage);
+		close(conn);
+		return result;
+	}
+
+	public int searchOrderCountPeriod(String loginId, String searchPeriod, String searchPeriod2) {
+		Connection conn=getConnection();
+		int result=dao.searchOrderCountPeriod(conn,loginId,searchPeriod,searchPeriod2);
+		close(conn);
+		return result;
+	}
 
 	
 	

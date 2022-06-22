@@ -7,6 +7,7 @@
 
 <%
 	List<Store> list=(List<Store>)request.getAttribute("list");
+	String selectval=request.getParameter("selectval");
 %>
 <!DOCTYPE html>
 <html>
@@ -135,11 +136,11 @@
       <div>
          <div class="choice-box">
             <select id="choiceType" onchange="fn_change();">
-               <option name="" value="RANK">기본정렬순</option>
-               <option name="" value="STAR_POINT">별점순</option>
-               <option name="" value="REVIEW_COUNT">리뷰 많은순</option>
-               <option name="" value="MIN_DELEVERY">최소 주문 금액순</option>
-               <option name="" value="DELEVERY_TIP">최소 배달 금액순</option>
+               <option value="STORE_NAME" <%=selectval!=null&&selectval.equals("STORE_NAME")?"selected":"" %>>기본정렬순</option>
+               <option value="STAR_POINT" <%=selectval!=null&&selectval.equals("STAR_POINT")?"selected":"" %>>별점순</option>
+               <option value="REVIEW_COUNT" <%=selectval!=null&&selectval.equals("REVIEW_COUNT")?"selected":"" %>>리뷰 많은순</option>
+               <option value="MIN_DELEVERY" <%=selectval!=null&&selectval.equals("MIN_DELEVERY")?"selected":"" %>>최소 주문 금액순</option>
+               <option value="DELEVERY_TIP" <%=selectval!=null&&selectval.equals("DELEVERY_TIP")?"selected":"" %>>최소 배달 금액순</option>
             </select>
          </div>
       </div>

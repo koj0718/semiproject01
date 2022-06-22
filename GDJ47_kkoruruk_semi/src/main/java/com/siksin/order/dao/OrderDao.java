@@ -249,6 +249,65 @@ public class OrderDao {
 	}
 	
 	
+	public List<OrderList> searchOrderListPeriod(Connection conn, String  loginId,
+			String searchPeriod,String searchPeriod2,int cPage, int numPerpage){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		List<OrderList> result=new ArrayList();
+		
+		
+		
+		String sql=prop.getProperty("orderListPeriod");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, searchPeriod);
+			pstmt.setString(2, searchPeriod2);
+			pstmt.setString(3, loginId);
+			pstmt.setInt(4, (cPage-1)*numPerpage+1);
+			pstmt.setInt(5, cPage*numPerpage);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				
+				result.add(OrderDao.getOrderList(rs));
+				
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+			
+		}return result;
+	}
+	
+	
+	public int searchOrderCountPeriod(Connection conn, String loginId, String searchPeriod, String searchPeriod2) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql=prop.getProperty("orderListCountPeriod");
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, searchPeriod);
+			pstmt.setString(2, searchPeriod2);
+			pstmt.setString(3, loginId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) result=rs.getInt(1);
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+		
+	}
+	
+	
+
+	
+	
 	
 	
 	
