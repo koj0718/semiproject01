@@ -2,12 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>  
 <%@ page import="com.siksin.store.model.vo.Store" %>
+<%@ page import="com.siksin.review.model.vo.Review" %>
 
 <%@ include file="/views/common/header.jsp" %> 
 
 <%
 	List<Store> list=(List<Store>)request.getAttribute("list");
 	String selectval=request.getParameter("selectval");
+	Review r=(Review)request.getAttribute("review");
 %>
 <!DOCTYPE html>
 <html>
@@ -167,13 +169,13 @@
                   </div>
                   <div style="display: flex;" >
                      <div>
-                        별점
+                        <%-- <%=r.getStarPoint() %> --%>
                      </div>
                      <div>
                         리뷰수
                      </div>
                      <div>
-                        거리
+                       <!--  거리 -->
                      </div>
                      <div>
                         <%=s.getPickYN() %>
@@ -181,10 +183,10 @@
                   </div>
                   <div style="display: flex; justify-content: flex-start;">
                      <div>
-                        <%=s.getDeleveryTime() %>
+                        <%-- <%=s.getDeleveryTime() %> --%>
                      </div>
                      <div>
-                        <%=s.getDeleveryTip() %>
+                        <%=s.getDeleveryTip() %> 원
                      </div>
                   </div>
                </div>
