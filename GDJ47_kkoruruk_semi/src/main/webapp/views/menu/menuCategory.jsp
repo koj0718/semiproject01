@@ -195,10 +195,10 @@
       <div class="row">
          <%for(Store s : list){ %>
          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-            <a href="<%=request.getContextPath()%>/storedetailsearch.do?id=<%=s.getStoreId()%>" class="store-card">
-            <div class="card" id="store_card" style="height:350px;">
+            <a href="<%=request.getContextPath()%>/storedetailsearch.do?id=<%=s.getStoreId()%>" class="store-card" >
+            <div class="card" id="store_card" style="height:350px; text-align: center;">
                <div>
-                  <img src="<%=s.getStoreImg() %>" class="card-img-top" alt="...">
+                  <img src="<%=s.getStoreImg() %>" class="card-img-top" alt="..." style="width: 90%; ">
                </div>
                <div class="row1"  style="margin-top: 0;">
                   <div class="col" style="display: flex; justify-content: space-between; height: 30px;">
