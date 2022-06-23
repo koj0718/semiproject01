@@ -61,7 +61,7 @@
 		<div class="col">
 		
 			<section class="title">
-				<h1>마이페이지</h1>
+				<h1 style="text-align:center;">마이페이지</h1>
 			</section>
 			<br>
 			

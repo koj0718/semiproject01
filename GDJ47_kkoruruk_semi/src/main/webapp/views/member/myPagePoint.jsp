@@ -20,33 +20,30 @@
 					<div class="my_point">
 	            		<div>
 	                		<span>보유 포인트</span>
-	                		<span id="my_point" data-point="${point }"><fm:formatNumber value="${point }" /></span>
+	                		<span id="my_point"></span>
 	            		</div>
 	        		</div>
 			
 					<h2>사용내역</h2>
 					<hr>
 					<ul class="point_his">
-						<c:forEach items="${myPoint }" var="myPoint">
 							<li>
 				                <div>
-				                    <div>${myPoint.info }</div>
-				                    <div><fm:formatDate value="${myPoint.usedDate }" pattern="yyyy.MM.dd" /> </div>
+				                    <div></div>ㄴ
+				                    <div>사용내역22</div>
 				                </div>
 				
 				                <div>
-				                	<c:if test="${myPoint.point > 0 }">
-				                		<div class="plus"><fm:formatNumber value="${myPoint.point }" pattern="###,###"/></div>
-				                	</c:if>
-				                	
-				                	<c:if test="${myPoint.point < 0 }">
-				                		<div class="used"><fm:formatNumber value="${myPoint.point }" pattern="###,###"/></div>
-				                	</c:if>
+<%-- 										<%if() %> --%>
+				                		<div class="plus">적립내역</div>
+<%-- 										<% %> --%>
+<%-- 										<%if() %> --%>
+				                		<div class="used">사용내역</div>
+<%-- 										<% %> --%>
 				                	
 				                </div>
 							</li>
 							<hr>
-						</c:forEach>
 					</ul>
 				</main>
 			</div>

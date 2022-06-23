@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ include file="/views/common/header.jsp" %> 
+<%@ include file="/views/common/header.jsp" %>
+
+<% %>
+
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+  
+<style>
+
+</style>
 
 <div class="container">
         
@@ -156,7 +165,7 @@
     		
     		<br>
 	
-<!-- 			<div>온라인결제<br>
+<!--  			<div>온라인결제<br>
 				    <input type="checkbox" class="form-check-input" id="same-address">
 				  	<label class="form-check-label" for="same-address">신용카드</label>
 				  	<input type="checkbox" class="form-check-input" id="same-address">
@@ -183,7 +192,7 @@
 				  	<label class="form-check-label" for="same-address">만나서 현금결제</label>
 				</div> -->
 				
-				<label><input type="radio" id="onlinePay" name="paymentType" value="온라인결제" checked="checked">온라인결제</label>
+ 				<label><input type="radio" id="onlinePay" name="paymentType" value="온라인결제" checked="checked">온라인결제</label>
 	        	<label><input type="radio" id="directPay" name="paymentType" value="만나서결제">만나서결제</label>
 
 	    	</form>
@@ -195,14 +204,14 @@
         	<input type="hidden" value="${orderNum }" id="orderNum">
         	
 			<div>
-				<button onclick="requestPay()" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="온라인결제">온라인 결제하기</button>
-				<button onclick="requestPay()" id="diPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="만나서결제">만나서 결제하기</button>
+				<button onclick="paymentCard()" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="온라인결제">온라인 결제하기</button>
+				<button onclick="paymentCard()" id="diPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="만나서결제">만나서 결제하기</button>
 			</div>
 		</div>
 	</div>
 	
    <script>
-
+		
   		/* 온라인결제 */
   		$("#onlinePay").click(function(){
   			$("#onPayBtn").show();
@@ -233,7 +242,7 @@
 		}
   		
   		/* 결제 */
-		function payment(){
+  		function payment(){
 			
 			const data= {
 				payMethod: $("button[type='submit']:checked").val(),
@@ -263,7 +272,7 @@
 				return;
 			}
 			
-			if(data.payMethod == "현장결제") {
+			if(data.payMethod == "만나서결제") {
 				paymentCash(data);
 				return;
 			}
@@ -274,9 +283,9 @@
   		/* 온라인결제 */
 	    function paymentCard(data) {
   			
-  			const pathName=location.pathname;
+    		const pathName=location.pathname;
   			const href=location.href;
-  			const m_redirect=href.replaceAll(pathName, "");
+  			const m_redirect=href.replaceAll(pathName, ""); 
 			
 			var IMP = window.IMP;
 			IMP.init("imp87022146");
@@ -284,7 +293,7 @@
 	        // 결제창 호출
 	        IMP.request_pay({ // param
 	        	
-	            pg: "html5_inicis",
+   	            pg: "html5_inicis",
 	            pay_method: data.payMethod,
  	            merchant_uid: data.orderNum,
 	            name: data.name,
@@ -297,7 +306,7 @@
 	            m_redirect_url : m_redirect,
 	            	
 	            	/* 테스트용 */
-/* 		            pg: "html5_inicis",
+/*    		            pg: "html5_inicis",
 		            pay_method: "card",
 	 	            merchant_uid: "ORD20180131-0000011",
 	 	            merchant_uid: 'merchant'+new Date().getTime(),
@@ -307,19 +316,21 @@
 		            buyer_name: "홍길동",
 		            buyer_tel: "010-4242-4242",
 		            buyer_addr: "서울특별시 강남구 신사동",
-		            buyer_postcode: "01181"
-		            /* m_redirect_url : 모바일결제만 설정 -> 랜딩URL */ */
+		            buyer_postcode: "01181" */
+		            /* m_redirect_url : 모바일결제만 설정 -> 랜딩URL */
 	            
-	        }, function (rsp) { // callback
+	        },
+	        
+	        function (rsp) { // callback
 	        	
 	            if (rsp.success) { // 성공로직
 	            	
-	            	data.impUid=rsp.imp_uid;
+  	            	data.impUid=rsp.imp_uid;
 	            	data.merchant_uid=rsp.merchant_uid;
-	            	paymentComplete(pay);
+	            	paymentComplete(data);
 	            	
 					/* 테스트용 */
-/* 	            	var msg="주문완료";
+/*   	            	var msg="주문완료";
 	            	msg+='고유ID : '+rsp.imp+uid;
 	            	msg+='상점거래ID : '+rsp.merchang_uid;
 	            	msg+='결제금액 : '+rsp.paid_amount;
@@ -332,11 +343,38 @@
 	            	
 	            }
 	        	alert(msg);
-	        	console.log(rsp); /* 콘솔 확인용 */
+	        	console.log(rsp);
 	        });
 	      }
   		
   		/* 만나서결제 */
+  		
+  		/* 결제완료 */
+ 		function paymentComplete(data) {
+			
+			 $.ajax({
+				url: "/views/payment/paymentComplete.jsp",
+		        method: "POST",
+		        data: data,
+			})
+			
+			.done(function(result) {
+				messageSend();
+		        alert({
+					text: result,
+					closeOnClickOutside : false
+				})
+				.then(function(){
+					location.replace("/orderList"); // 장바구니 주소확인
+				})
+				
+			}) // done 
+		    .fail(function() {
+				alert("에러");
+				location.replace("/");
+			}) 
+		}
+  		
 	  
   </script>
   
