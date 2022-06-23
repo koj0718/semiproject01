@@ -117,7 +117,7 @@
 	        <li><a class="dropdown-item" href="<%=request.getContextPath() %>/mypage.do">마이페이지</a></li>
 	        <li><a class="dropdown-item" href="<%=request.getContextPath() %>/mypageupdate.do">내정보수정</a></li>
 	        <li><a class="dropdown-item" href="#">찜한가게</a></li>
-	        <li><a class="dropdown-item" href="#">리뷰관리</a></li>
+	        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/reviewManage.do?loginId=<%=loginMember.getMemId() %>">리뷰관리</a></li>
 	        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>">주문내역</a></li>
 	        <li><hr class="dropdown-divider"></li>
 	        <li><a class="dropdown-item" onclick="fn_logout();">로그아웃</a></li>
