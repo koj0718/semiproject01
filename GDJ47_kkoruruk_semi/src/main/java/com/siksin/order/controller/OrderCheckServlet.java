@@ -62,39 +62,39 @@ public class OrderCheckServlet extends HttpServlet {
 		
 		
 		
-		String pageBar="";
-		if(pageNo==1) {
-			pageBar+="<span>[이전]</span>";
-		}else {
-			pageBar+="<a href='"+request.getRequestURL()
-				+"?cPage="+(pageNo-1)+"&loginId="+loginId+"'>[이전]</a>";
-		}
-		
-		while(!(pageNo>pageEnd||pageNo>totalPage)) {
-			if(pageNo==cPage) {
-				pageBar+="<span>"+pageNo+"</span>";
-			}else {
-				pageBar+="<a href='"+request.getRequestURL()
-						+"?cPage="+(pageNo)+"&loginId="+loginId+"'>"+pageNo+"</a>";
-			}
-			pageNo++;
-		}
-		
-		if(pageNo>totalPage) {
-			pageBar+="<span>[다음]</span>";
-		}else {
-			pageBar+="<a href='"+request.getRequestURL()
-			+"?cPage="+(pageNo)+"&loginId="+loginId+"'>[다음]</a>";
-		}
-		
-		
-		
-		
-		request.setAttribute("pageBar", pageBar);
-		request.setAttribute("list", result);
-		
-		request.getRequestDispatcher("/views/order/order.jsp")
-		.forward(request, response);
+//		String pageBar="";
+//		if(pageNo==1) {
+//			pageBar+="<span>[이전]</span>";
+//		}else {
+//			pageBar+="<a href='"+request.getRequestURL()
+//				+"?cPage="+(pageNo-1)+"&loginId="+loginId+"'>[이전]</a>";
+//		}
+//		
+//		while(!(pageNo>pageEnd||pageNo>totalPage)) {
+//			if(pageNo==cPage) {
+//				pageBar+="<span>"+pageNo+"</span>";
+//			}else {
+//				pageBar+="<a href='"+request.getRequestURL()
+//						+"?cPage="+(pageNo)+"&loginId="+loginId+"'>"+pageNo+"</a>";
+//			}
+//			pageNo++;
+//		}
+//		
+//		if(pageNo>totalPage) {
+//			pageBar+="<span>[다음]</span>";
+//		}else {
+//			pageBar+="<a href='"+request.getRequestURL()
+//			+"?cPage="+(pageNo)+"&loginId="+loginId+"'>[다음]</a>";
+//		}
+//		
+//		
+//		
+//		
+//		request.setAttribute("pageBar", pageBar);
+//		request.setAttribute("list", result);
+//		
+//		request.getRequestDispatcher("/views/order/order.jsp")
+//		.forward(request, response);
 		
 		
 		
@@ -121,41 +121,41 @@ public class OrderCheckServlet extends HttpServlet {
 		
 		
 		
-//		
-//		String pageBar="<nav aria-label=\"Page navigation example\"> <ul class=\"pagination\">";
-//		if(pageNo==1) {
-//			pageBar+="<li class=\"page-item\">  <span aria-hidden=\"true\">&laquo;</span> </li>";
-//		}else {
-//			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href='"+request.getRequestURL()
-//				+"?cPage="+(pageNo-1)+"&loginId="+loginId+"'aria-label=\"Previous\"> <span aria-hidden=\"true\">&laquo;</span> </a> </li>";
-//		}
-//		
-//		while(!(pageNo>pageEnd||pageNo>totalPage)) {
-//			if(pageNo==cPage) {
-//				pageBar+="<li class=\"page-item\">"+pageNo+"</li>";
-//			}else {
-//				pageBar+="<li class=\"page-item\"><a class=\"page-link\" href='"+request.getRequestURL()
-//						+"?cPage="+(pageNo)+"&loginId="+loginId+"'>"+pageNo+"</a></li>";
-//			}
-//			pageNo++;
-//		}
-//		
-//		if(pageNo>totalPage) {
-//			pageBar+="<li class=\"page-item\">  <span aria-hidden=\"true\">&raquo;</span> </li> </ul> </nav>";
-//		}else {
-//			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href='"+request.getRequestURL()
-//			+"?cPage="+(pageNo)+"&loginId="+loginId+"'aria-label=\"Next\"> <span aria-hidden=\"true\">&raquo;</span> </a> </li> </ul> </nav>";
-//		}
-//		
-//		
-//		
-//		
-//		request.setAttribute("pageBar", pageBar);
-//		request.setAttribute("list", result);
-//		
-//		request.getRequestDispatcher("/views/order/order.jsp")
-//		.forward(request, response);
-//		
+		
+		String pageBar="<nav aria-label=\"Page navigation example\"> <ul class=\"pagination\">";
+		if(pageNo==1) {
+			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href= \"#\" aria-label=\"Previous\"> <span aria-hidden=\"true\">&laquo;</span> </a> </li>";
+		}else {
+			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href='"+request.getRequestURL()
+				+"?cPage="+(pageNo-1)+"&loginId="+loginId+"'aria-label=\"Previous\"> <span aria-hidden=\"true\">&laquo;</span> </a> </li>";
+		}
+		
+		while(!(pageNo>pageEnd||pageNo>totalPage)) {
+			if(pageNo==cPage) {
+				pageBar+="<li class=\"page-item\"><a class=\"page-link\" href=\"#\">"+pageNo+"</a></li>";
+			}else {
+				pageBar+="<li class=\"page-item\"><a class=\"page-link\" href='"+request.getRequestURL()
+						+"?cPage="+(pageNo)+"&loginId="+loginId+"'>"+pageNo+"</a></li>";
+			}
+			pageNo++;
+		}
+		
+		if(pageNo>totalPage) {
+			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href=\"#\" aria-label=\"Next\"> <span aria-hidden=\"true\">&raquo;</span> </a> </li> </ul> </nav>";
+		}else {
+			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href='"+request.getRequestURL()
+			+"?cPage="+(pageNo)+"&loginId="+loginId+"'aria-label=\"Next\"> <span aria-hidden=\"true\">&raquo;</span> </a> </li> </ul> </nav>";
+		}
+		
+		
+		
+		
+		request.setAttribute("pageBar", pageBar);
+		request.setAttribute("list", result);
+		
+		request.getRequestDispatcher("/views/order/order.jsp")
+		.forward(request, response);
+		
 		
 		
 		

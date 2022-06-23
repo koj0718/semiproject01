@@ -16,7 +16,7 @@
 <!doctype html>
 
 	<!-- jQuery -->
-<!-- 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script> -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script> 
 	<!-- Bootstrap core CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -45,7 +45,7 @@
 
 </head>
 <!-- <body class="d-flex h-100 text-center text-black "> -->
-
+<body>
 <script>
 	
 	$("#loginHidden").hide();
@@ -90,28 +90,12 @@
         <button type="button" class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/memberloginpage.do');">로그인</button>
         <button type="button" class="btn btn-dark">주문표</button>
       </div>
-    </header>
-  </div>
+<!--     </header>
+  </div> -->
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
+
     <!-- 로그인 시 노출 -->
  	<%} else{%>
 <%-- 	<div id="loginHidden" class="dropdown">
@@ -141,7 +125,7 @@
 	      
       </div>
      </div>
-      
+
       
       
 <%--       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
@@ -157,7 +141,9 @@
 	<% } %>
 
     
-    </div>
+   <!--  </div> -->
+        </header>
+  </div> 
     <script>
     	const corrent_location=()=>{
     		const url="<%=request.getContextPath()%>/correntAddress.do";
@@ -168,4 +154,4 @@
 			location.replace("<%=request.getContextPath()%>/logout.do");
 		}			
 	</script>
-  </header>
+  

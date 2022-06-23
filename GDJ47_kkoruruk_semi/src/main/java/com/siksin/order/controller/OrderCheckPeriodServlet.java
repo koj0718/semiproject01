@@ -61,29 +61,29 @@ public class OrderCheckPeriodServlet extends HttpServlet {
 		int pageNo=((cPage-1)/pageBarSize)*pageBarSize+1;
 		int pageEnd=pageNo+pageBarSize-1;
 		
-		String pageBar="";
+		String pageBar="<nav aria-label=\"Page navigation example\"> <ul class=\"pagination\">";
 		if(pageNo==1) {
-			pageBar+="<span>[이전]</span>";
+			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href= \"#\" aria-label=\"Previous\"> <span aria-hidden=\"true\">&laquo;</span> </a> </li>";
 		}else {
-			pageBar+="<a href='"+request.getRequestURL()
-				+"?cPage="+(pageNo-1)+"&loginId="+loginId+"'>[이전]</a>";
+			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href='"+request.getRequestURL()
+				+"?cPage="+(pageNo-1)+"&loginId="+loginId+"'aria-label=\"Previous\"> <span aria-hidden=\"true\">&laquo;</span> </a> </li>";
 		}
 		
 		while(!(pageNo>pageEnd||pageNo>totalPage)) {
 			if(pageNo==cPage) {
-				pageBar+="<span>"+pageNo+"</span>";
+				pageBar+="<li class=\"page-item\"><a class=\"page-link\" href=\"#\">"+pageNo+"</a></li>";
 			}else {
-				pageBar+="<a href='"+request.getRequestURL()
-						+"?cPage="+(pageNo)+"&loginId="+loginId+"'>"+pageNo+"</a>";
+				pageBar+="<li class=\"page-item\"><a class=\"page-link\" href='"+request.getRequestURL()
+						+"?cPage="+(pageNo)+"&loginId="+loginId+"'>"+pageNo+"</a></li>";
 			}
 			pageNo++;
 		}
 		
 		if(pageNo>totalPage) {
-			pageBar+="<span>[다음]</span>";
+			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href=\"#\" aria-label=\"Next\"> <span aria-hidden=\"true\">&raquo;</span> </a> </li> </ul> </nav>";
 		}else {
-			pageBar+="<a href='"+request.getRequestURL()
-			+"?cPage="+(pageNo)+"&loginId="+loginId+"'>[다음]</a>";
+			pageBar+="<li class=\"page-item\"> <a class=\"page-link\" href='"+request.getRequestURL()
+			+"?cPage="+(pageNo)+"&loginId="+loginId+"'aria-label=\"Next\"> <span aria-hidden=\"true\">&raquo;</span> </a> </li> </ul> </nav>";
 		}
 		
 		

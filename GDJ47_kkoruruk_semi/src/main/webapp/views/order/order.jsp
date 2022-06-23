@@ -82,8 +82,34 @@
 	}
 
 	#pageBar{
-	text-align: center;
+	  display: flex;
+  	  justify-content: center;
+  	  margin-top:50px;
+	
 	}
+	
+
+	/* 페이징처리 css */
+
+	.page-link {
+	  color: black; 
+	  /* background-color: #000; */
+		  border-color: #444;
+		}
+	.page-item.active .page-link {
+	 z-index: 1;
+	 color: #ccc;
+	 font-weight:bold;
+	 background-color: #333;
+	  border-color: #444;
+	 
+	}
+	.page-link:focus, .page-link:hover {
+	  color: #ccc;
+	  background-color: #222; 
+	  border-color: #444;
+	}
+	
 	
 	
 
@@ -246,24 +272,7 @@
         </div>
         
         
-<!-- 		<nav aria-label="Page navigation example">
-		  <ul class="pagination">
-		    <li class="page-item">
-		      <a class="page-link" href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-		    <li class="page-item"><a class="page-link" href="#">1</a></li>
-		    <li class="page-item"><a class="page-link" href="#">2</a></li>
-		    <li class="page-item"><a class="page-link" href="#">3</a></li>
-		    <li class="page-item">
-		      <a class="page-link" href="#" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</nav> -->
-	
+
 
 
 <%@ include file="/views/common/footer.jsp" %>

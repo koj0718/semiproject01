@@ -9,12 +9,12 @@
 	List<Store> list=(List<Store>)request.getAttribute("list");
 	String selectval=request.getParameter("selectval");
 %>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
    <meta charset="UTF-8">
-   <title>Menu Category</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <title>Menu Category</title> -->
+   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
 	
 <style>
    /* *{
@@ -24,6 +24,8 @@
    padding:20px;
    padding-left:120px;
    padding-right:120px;
+  	  display: flex;
+  	  justify-content: center;
    }
    
    .row{
@@ -85,11 +87,44 @@
    text-decoration: none;
    color:black;
    }
+   
+   
+ 
+	
+
+	/* 페이징처리 css */
+	
+	
+	#pageBar{
+	  display: flex;
+  	  justify-content: center;
+  	  margin-top:50px;
+	
+	}
+
+	.page-link {
+	  color: black; 
+	  /* background-color: #000; */
+		  border-color: #444;
+		}
+	.page-item.active .page-link {
+	 z-index: 1;
+	 color: #ccc;
+	 font-weight:bold;
+	 background-color: #333;
+	  border-color: #444;
+	 
+	}
+	.page-link:focus, .page-link:hover {
+	  color: #ccc;
+	  background-color: #222; 
+	  border-color: #444;
+	}
     
 </style>
 
 
-</head>
+<!-- </head> -->
 <body>
 
      <section class="">
