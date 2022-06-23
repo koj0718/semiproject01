@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 
 <%@ page import="java.util.List" %>  
-<%@ page import="com.siksin.order.model.vo.OrderList" %>
+<%@ page import="com.siksin.review.model.vo.ReviewManage" %>
 
 <%@ include file="/views/common/header.jsp" %> 
 
 <%
-   List<OrderList> list=(List<OrderList>)request.getAttribute("list");
+   List<ReviewManage> list=(List<ReviewManage>)request.getAttribute("list");
 %>
 
 <style>
@@ -168,10 +168,10 @@
     			<p>가게정보</p>
     		</div>
     		<div>
-    			<p>주문정보</p>
+    			<p>내용</p>
     		</div>
     		<div>
-    			<p>주문일시</p>
+    			<p>작성일</p>
     		</div>
     	</div>
     	<hr size="2px;" width = "95%" color = "black"></hr>
@@ -201,24 +201,24 @@
 				</div>
 			</div>
    		<%}else{
-   			for(OrderList ol : list){%>
+   			for(ReviewManage rm : list){%>
    				<div class="orderContainer2">
 					<div class="div0">
-					<img src="<%=ol.getStoreThumb() %>" width="150px;" height="150px;" >
+					<img src="<%=rm.getStoreThumb() %>" width="150px;" height="150px;" >
 						<div class="div1">
 							<div>
-								<h4><%=ol.getStoreName() %></h>
+								<h4><%=rm.getStoreName() %></h>
 							</div>
 							<div>
-								<p><%=ol.getTotalPrice() %>원</p>
+								<%-- <p><%=ol.getTotalPrice() %>원</p> --%>
 							</div>
 						</div>
 					</div>	
 					<div class="div2">
-						<p><%=ol.getOrderNum() %></p>
+						<p><%=rm.getReviewContent() %></p>
 					</div>
 					<div class="div3">
-						<p><%=ol.getOrderDate() %></p>
+						<p><%=rm.getReviewDate() %></p>
 					</div>
 				</div>
 		<%	} 

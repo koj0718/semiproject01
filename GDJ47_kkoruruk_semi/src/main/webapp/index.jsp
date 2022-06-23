@@ -6,6 +6,8 @@
 
   <!-- 베너(케러셀) -->
   
+  <br><br>
+  <div class="container">
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -38,7 +40,7 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
+</div>
 <%-- 
 <div class="admin_banner_enroll">
 	<input type="button" value="베너관리" onclick="location.assign('<%=request.getContextPath()%>/bannerManage.do');">
@@ -140,6 +142,9 @@
         			<button type="submit">검색</button>
         		</form>
         	</div>   --%>
+        	
+        	
+        	<br><br><br><br>
 
 			<div class="search_lists">
 			<form action="<%=request.getContextPath()%>/searchMenu.do">

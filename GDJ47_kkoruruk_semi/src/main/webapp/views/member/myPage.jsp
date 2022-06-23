@@ -38,7 +38,7 @@
 		        </a>
 		      </li>
 		      <li>
-		        <a href="<%=request.getContextPath() %>/.do" class="nav-link link-dark">
+		        <a href="<%=request.getContextPath()%>/reviewManage.do?loginId=<%=loginMember.getMemId() %>" class="nav-link link-dark">
 		          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
 		          리뷰관리
 		        </a>
