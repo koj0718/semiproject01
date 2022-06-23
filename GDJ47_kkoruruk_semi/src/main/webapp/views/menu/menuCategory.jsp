@@ -11,12 +11,12 @@
 	String selectval=request.getParameter("selectval");
 	Review r=(Review)request.getAttribute("review");
 %>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
    <meta charset="UTF-8">
-   <title>Menu Category</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <title>Menu Category</title> -->
+   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
 	
 <style>
    /* *{
@@ -26,11 +26,14 @@
    padding:20px;
    padding-left:120px;
    padding-right:120px;
+   display: flex;
+   justify-content: center;
    }
    
-   .row{
+   .row1{
    padding-left:10px;
    padding-right:10px;
+   height: 160px;
    }
    
    div>img{
@@ -42,6 +45,7 @@
    }
    
    section>ul{
+   justify-content: space-between;
    display: flex;
    height: 50px;
    }
@@ -72,6 +76,11 @@
    .nav-item>a:hover{
    color:black;
    }
+   #section_box{
+   max-width:86%;
+   margin-right: auto;
+   margin-left: auto;
+   }
     
    section{
    padding-top: 40px;
@@ -81,25 +90,57 @@
    padding:15px;
    margin-top: 40px;
    margin-bottom: 40px;
+   
    }    
    
    .store-card{
    text-decoration: none;
    color:black;
+  
    }
+   
+ 
+ 	/* 페이징처리 css */
+	
+	
+	#pageBar{
+	  display: flex;
+  	  justify-content: center;
+  	  margin-top:50px;
+	
+	}
+
+	.page-link {
+	  color: black; 
+	  /* background-color: #000; */
+		  border-color: #444;
+		}
+	.page-item.active .page-link {
+	 z-index: 1;
+	 color: #ccc;
+	 font-weight:bold;
+	 background-color: #333;
+	  border-color: #444;
+	 
+	}
+	.page-link:focus, .page-link:hover {
+	  color: #ccc;
+	  background-color: #222; 
+	  border-color: #444;
+	}
     
 </style>
 
 
-</head>
+<!-- </head> -->
 <body>
 
-     <section class="">
+     <section id="section_box">
 
-      <ul class="nav justify-content-center" >
-         <li class="nav-item" >
+      <ul class="nav justify-between" >
+         <%-- <li class="nav-item" >
             <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=전체">전체</a>
-         </li>
+         </li> --%>
          <li class="nav-item">
             <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=치킨">치킨</a>
          </li>
@@ -134,7 +175,7 @@
             <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=편의점/마트">편의점/마트</a>
          </li>
       </ul>
-
+         <hr></hr>
       <div>
          <div class="choice-box">
             <select id="choiceType" onchange="fn_change();">
@@ -146,6 +187,7 @@
             </select>
          </div>
       </div>
+      
 
    </section>
 
@@ -154,20 +196,22 @@
          <%for(Store s : list){ %>
          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
             <a href="<%=request.getContextPath()%>/storedetailsearch.do?id=<%=s.getStoreId()%>" class="store-card">
-            <div class="card" style="">
+            <div class="card" id="store_card" style="height:350px;">
                <div>
                   <img src="<%=s.getStoreImg() %>" class="card-img-top" alt="...">
                </div>
-               <div class="row">
-                  <div class="col" style="display: flex; justify-content: space-between;">
+               <div class="row1"  style="margin-top: 0;">
+                  <div class="col" style="display: flex; justify-content: space-between; height: 30px;">
                      <div>
-                        <%=s.getStoreName() %>
+                     	<h5>
+                        	<%=s.getStoreName() %>                     
+                     	</h5>
                      </div>
                      <div>
-                        찜
+                       <!--  찜 -->
                      </div>
                   </div>
-                  <div style="display: flex;" >
+                  <div style="display: flex; height: 30px;">
                      <div>
                         <%-- <%=r.getStarPoint() %> --%>
                      </div>
@@ -178,15 +222,15 @@
                        <!--  거리 -->
                      </div>
                      <div>
-                        <%=s.getPickYN() %>
+                       <%--  <%=s.getPickYN() %> --%>
                      </div>
                   </div>
-                  <div style="display: flex; justify-content: flex-start;">
+                  <div style="display: flex; justify-content: flex-start; height: 30px;">
                      <div>
                         <%-- <%=s.getDeleveryTime() %> --%>
                      </div>
                      <div>
-                        <%=s.getDeleveryTip() %> 원
+                        최소 배달 금액  <%=s.getDeleveryTip() %> 원
                      </div>
                   </div>
                </div>
