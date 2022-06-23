@@ -235,7 +235,7 @@
   		/* 결제 */
 		function payment(){
 			
-			const pay= {
+			const data= {
 				payMethod: $("button[type='submit']:checked").val(),
 				orderNum: rndOrderNum(),
 				name: $(".orderDetail").eq(0).find(".menuName").text(),
@@ -264,16 +264,19 @@
 			}
 			
 			if(data.payMethod == "현장결제") {
-				paymentCash(pay);
+				paymentCash(data);
 				return;
 			}
-			
-			paymentCash(pay);
+			paymentCard(data);
 		}
   		
 	  
   		/* 온라인결제 */
-	    function requestPay() {
+	    function paymentCard(data) {
+  			
+  			const pathName=location.pathname;
+  			const href=location.href;
+  			const m_redirect=href.replaceAll(pathName, "");
 			
 			var IMP = window.IMP;
 			IMP.init("imp87022146");
@@ -334,7 +337,6 @@
 	      }
   		
   		/* 만나서결제 */
-  		
 	  
   </script>
   
