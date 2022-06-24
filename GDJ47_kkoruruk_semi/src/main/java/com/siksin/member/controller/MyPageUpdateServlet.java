@@ -66,7 +66,7 @@ public class MyPageUpdateServlet extends HttpServlet {
 			msg="정보수정에 실패했습니다.";
 		}
 		request.setAttribute("msg", msg);
-		request.setAttribute("loc",loc);
+		request.setAttribute("loc", loc);
 		
 		request.getRequestDispatcher("/views/member/myPageUpdate.jsp").forward(request,response);
 	}

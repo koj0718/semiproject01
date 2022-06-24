@@ -51,5 +51,16 @@ public class MemberService {
 		return result;
 		
 	}
+	
+	public int deleteMember(String userId, String password) {
+		
+		Connection conn=getConnection();
+		int result=dao.deleteMember(conn, userId, password);
+		if(result>0) commit(conn);
+		else rollback(conn);
+		close(conn);
+		return result;
+		
+	}
 
 }
