@@ -6,10 +6,15 @@
 
 <style>
 
-/* .container{
-	width: 565px;
-	height: 280px;
-} */
+ .container{
+	
+	/* height: 280px; */
+} 
+
+.d-block {
+
+	height:420px;
+}
 
 .category-title{
 	text-align: center;
@@ -26,7 +31,7 @@
 
   <!-- 베너(케러셀) -->
   
-  <br><br>
+  <br>
   <div class="container">
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
   <div class="carousel-indicators">

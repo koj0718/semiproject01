@@ -98,6 +98,8 @@
    justify-content: center;
 }
 
+
+
 .orderImage{
 	float : left;
 }
@@ -110,6 +112,14 @@
     justify-content: center; 
    line-height:100px;
    padding-top:25px;
+}
+
+.orderTh{
+	text-align:center;
+}
+
+.period123{
+	float : left;
 }
 
 	
@@ -160,12 +170,13 @@
 		</h2>
 	<section class="">
     	<nav class="nav-button">
+    		<div class="period123">
     		<button onclick="location.assign('<%=request.getContextPath()%>/orderWeek.do?loginId=<%=loginMember.getMemId() %>');">1주일</button>
     		<%-- <%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %> --%>
     		<button onclick="location.assign('<%=request.getContextPath()%>/orderMonth.do?loginId=<%=loginMember.getMemId() %>');" >1개월	</button>
     		<button onclick="location.assign('<%=request.getContextPath()%>/order3Month.do?loginId=<%=loginMember.getMemId() %>');">3개월</button>
     		<button class="orderAll" onclick="location.assign('<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>');">전체시기</button>
-    		
+    		</div>
 			&nbsp;
 			&nbsp;
 			&nbsp;
@@ -204,7 +215,7 @@
 			</form> --%>
 			
 			
-			
+<!-- 			
     	<div class="orderContainer">
     		<div>
     			<p>가게정보</p>
@@ -219,7 +230,7 @@
     	<hr size="2px;" width = "95%" color = "black"></hr>
 	</section>
 	
-	<main id="mainbox">
+	<main id="mainbox"> -->
 	
 <!-- 		<div class="container2">
 			<div class="div0">
@@ -259,7 +270,7 @@
 				<p>2022.06.14</p>
 			</div>
 		</div> -->
-		<%if(list.isEmpty()){ %>
+<%-- 		<%if(list.isEmpty()){ %>
 			<div class="orderContainer2">
 				<div class="div0">
 				<img src="" width="150px;" height="150px;" >
@@ -301,7 +312,7 @@
 					</div>
 				</div>
 		<%	} 
-       		 }%>
+       		 }%> --%>
        		 
        		 
        		 
@@ -309,17 +320,17 @@
 
 
 
-		<h2>
+		<!-- <h2>
 			주문 내역
-		</h2>
+		</h2> -->
 <div class="orderList">
 <table class="table table-hover" style="width:80%">
   <thead >
     <tr>
-      <th  scope="col">#</th>
-      <th scope="col">가게정보</th>
-      <th scope="col">주문번호</th>
-      <th scope="col">주문일시</th>
+      <th  scope="col"><div class="orderTh">#</div></th>
+      <th scope="col"><div class="orderTh">가게정보</div></th>
+      <th scope="col"><div class="orderTh">주문번호</div></th>
+      <th scope="col"><div class="orderTh">주문일시</div></th>
     </tr>
   </thead>
   <tbody>
@@ -332,9 +343,9 @@
 		    <tr>
 		      <th scope="row" ><div class="orderNum"> <%=ol.getrNum() %></div></th>
 		      <td><img src="<%=ol.getStoreThumb() %>" width="150px;" height="150px;" class="orderImage" >
-		      	<br><br><Strong class="orderStore"><%=ol.getStoreName() %></Strong> <br> <p><%=ol.getTotalPrice() %>원</p>	</td>
-		      <td><%=ol.getOrderNum() %></td>
-		      <td><%=ol.getOrderDate() %></td>
+		      	<br><br><Strong class="orderStore"><%=ol.getStoreName() %></Strong> <br> <p ><%=ol.getTotalPrice() %>원</p>	</td>
+		      <td><div class="orderNum"><%=ol.getOrderNum() %></div></td>
+		      <td><div class="orderNum"><%=ol.getOrderDate() %></div></td>
 		    </tr>
 		    
 		    <%	} 
