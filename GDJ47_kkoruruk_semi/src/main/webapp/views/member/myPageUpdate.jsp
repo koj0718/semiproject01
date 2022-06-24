@@ -18,7 +18,7 @@
 		                </div>  
 		                &nbsp;
  		                <div class="col-8">비밀번호<br>
-		                    <input type="password" id="password" name="password" placeholder="********" readonly>
+		                    <input type="password" id="password" name="password" placeholder="<%=loginMember.getMemPwd() %>" readonly>
 		                </div>
 		                &nbsp;
 		                <div class="col-8">
