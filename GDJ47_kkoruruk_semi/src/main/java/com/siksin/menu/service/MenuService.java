@@ -38,9 +38,16 @@ public class MenuService {
 		return menuList;
 	}
 	
-	public List<Store> searchStoreList(String selectval, String searchMenu, int cPage,int numPerpage){
+	public List<Store> searchStoreList(String selectval, String searchMenu, int cPage, int numPerpage){
 		Connection conn=getConnection();
 		List<Store> result=dao.searchStoreList(conn,selectval,searchMenu,cPage,numPerpage); 
+		close(conn);
+		return result;
+	}
+	
+	public int searchStoreCount(String selectval, String searchMenu) {
+		Connection conn=getConnection();
+		int result=dao.searchStoreCount(conn,selectval,searchMenu);
 		close(conn);
 		return result;
 	}

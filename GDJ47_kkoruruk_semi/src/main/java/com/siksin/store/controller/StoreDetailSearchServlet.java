@@ -46,7 +46,7 @@ public class StoreDetailSearchServlet extends HttpServlet {
 //		request.setAttribute("storeId", storeId);
 		request.setAttribute("menuList", menuList);	
 		
-		request.getRequestDispatcher("/views/store/storeDetail.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/store/detail.jsp").forward(request, response);
 		
 	}
 
