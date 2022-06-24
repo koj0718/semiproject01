@@ -21,33 +21,34 @@
 </head>
 <body>
 		<section class="title">
-			<h1>비밀번호 변경</h1>
+			<h1>회원탈퇴</h1>
 		</section>
 		<br>
 		
-		<form id="updatepassword" action="<%=request.getContextPath() %>/updatePasswordEnd.do" method="post">
+		<form id="updatepassword" action="<%=request.getContextPath() %>/deleteMember.do" method="post">
 			<div class="col">
 				<div id="myPageContent" class="row col-8">
 						
-						<div class="col-8">현재 비밀번호<br>
+						<div class="col-8" style="width:700px;">비밀번호가 일치해야 회원탈퇴가 가능합니다.<br>
+											비밀번호를 입력하세요.
 		                    <input type="password" id="password" name="password" placeholder="********" required>
 		                </div>
 		                &nbsp;
-		                <div class="col-8">새 비밀번호<br>
+<!-- 		                <div class="col-8">새 비밀번호<br>
 		                    <input type="password" id="password2" name="password2" placeholder="********" required>
 		                </div>
 		                &nbsp;
 		                <div class="col-8">새 비밀번호 확인<br>
 		                    <input type="password" id="passwordcheck" placeholder="********" required>
 		                </div>
-		                &nbsp;
+		                &nbsp; -->
 		                
 		                <div class="col-8"> <!-- hidden / null 방지 -->
 		                	<input type="hidden" id="userId" name="userId" value="<%=loginMember.getMemId() %>" readonly>	
 		                </div>	
 		                &nbsp;
-				<button onclick="" id="updateBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="정보수정">
-					비밀번호 변경
+				<button onclick="" id="updateBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="회원탈퇴" style="background-color:tomato;">
+					회원탈퇴
 				</button>
 				&nbsp;
 				<button onclick="window.close()" id="closeBtn" class="w-100 btn btn-primary btn-lg" type="button" value="닫기">

@@ -20,9 +20,9 @@
  		                <div class="col-8">비밀번호<br>
 		                    <input type="password" id="password" name="password" placeholder="<%=loginMember.getMemPwd() %>" readonly>
 		                </div>
-		                &nbsp;
+		                
 		                <div class="col-8">
-		                    <button type="button" onclick="updatePassword();" id="updateBtn" class="w-100 btn btn-primary btn-lg" value="정보수정">비밀번호 변경</button>
+		                    <button type="button" onclick="updatePassword();" id="updateBtn" class="w-100 btn btn-primary btn-lg" value="비밀번호변경">비밀번호 변경</button>
 		                </div>
 		                &nbsp;
 		                <div class="col-8">이　름<br>
@@ -47,12 +47,19 @@
 		                &nbsp;
 				<button type="submit" onclick="memUpdate()" id="updateBtn" class="w-100 btn btn-primary btn-lg" value="정보수정">수정하기</button>
 				&nbsp;
-				<button type="submit" onclick="" id="leaveBtn" class="w-100 btn btn-primary btn-lg" value="회원탈퇴" style="background-color:tomato;">회원탈퇴</button>
+				<button type="submit" onclick="deleteMember()" id="deleteBtn" class="w-100 btn btn-primary btn-lg" value="회원탈퇴" style="background-color:tomato;">회원탈퇴</button>
 				</div>
 			</div>
 		</form>
 		
 		<script>
+		
+		const deleteMember=()=> {
+			
+			open("<%=request.getContextPath() %>/member/deleteMember.do?userId=<%=loginMember.getMemId() %>",
+					"_blank", "width=400, height=400, left=800, top=200");
+			
+		}
 		
 		const updatePassword=()=> {
 			
