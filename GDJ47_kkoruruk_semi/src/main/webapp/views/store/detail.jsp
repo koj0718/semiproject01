@@ -291,8 +291,7 @@ $(document).ready(function() {
 			traditional : true
 		})
 		.done(function(result){
-			cartList(result);
-			
+			cartList(result);			
 			alarm();	
 			closeModal();
 			$("#amount").val(1);
@@ -381,18 +380,11 @@ $(document).ready(function() {
 					const optionName = cartList[i].optionName[j];
 					const optionPrice = Number(cartList[i].optionPrice[j]).toLocaleString();
 					
-					optionHtml += `<div class="cart_menu_option"> ${optionName }  ${optionPrice }원</div>`;
+					optionHtml += '<div class="cart_menu_option">'+ optionName + optionPrice + '원</div>';
 				}
 			}
 			
-			html += `<li> 
-						<h3>${cartList[i].foodName  }</h3>
-						<div>${cartList[i].foodPrice.toLocaleString()}원</div>
-						<div>수량 : ${cartList[i].amount }</div>
-						<div>${optionHtml} </div>
-						<div>합계 : ${cartList[i].totalPrice.toLocaleString() }원</div>
-						<button class="cancle_btn"> ${"ｘ"} </button>
-					</li>`; 
+			html += '<li> <h3>'+cartList[i].foodName  +'</h3><div>'+cartList[i].foodPrice.toLocaleString()+'원</div><div>수량 : '+cartList[i].amount +'</div><div>${optionHtml} </div><div>합계 : '+cartList[i].totalPrice.toLocaleString() +'원</div><button class="cancle_btn"> ${"ｘ"} </button></li>'; 
 					 // 장바구니 추가하면 장바구니 리스트 변경
 			
 			
@@ -466,7 +458,7 @@ $(document).ready(function() {
 		$(".m_cart_count").text("");
 		
 		cart.setCartSize(0);
-		cart.setMenuTotalPrice(0);
+		cart.setMenuTotalPrice(0);	
 	};
 	
 	
@@ -475,19 +467,7 @@ $(document).ready(function() {
 	// 주문하기
 	$(".order_btn").click(function() {
 		location.href = "/order";
-	});
-	// 모바일 주문하기
-	$(".m_cart_img_box").click(function() {
-		
-		if(cart.getCartSize() == 0 ){
-			alarm("메뉴를 추가해주세요");
-			return;
-		}
-		location.href = "/order";
-	});
-	
-	
-
+	});	
 
 
 });
