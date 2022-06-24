@@ -17,7 +17,7 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img id="banner" src="images/banner.jpg" class="d-block w-100" alt="안녕">
-      <script>document.getElementById('banner').src=logo_info()</script>
+      <!-- <script>document.getElementById('banner').src=logo_info()</script> -->
       
       
     </div>
@@ -41,6 +41,43 @@
   </button>
 </div>
 </div>
+
+<!-- 두번째 캐러셀  -->
+
+<!--   <div class="container">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img id="banner" src="images/banner.jpg" class="d-block w-100" alt="안녕">
+      <script>document.getElementById('banner').src=logo_info()</script>
+      
+      
+    </div>
+    <div class="carousel-item">
+      <img src="images/banner-2.jpeg" class="d-block w-100" alt="...">
+      https://cdn.gamemeca.com/data_center/228/389/20210429135726.jpg
+    </div>
+    <div class="carousel-item">
+      <img src="http://cdn.tgdaily.co.kr/news/photo/202110/311920_75255_537.png" alt="...">
+    </div>
+    
+    
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div> -->
 <%-- 
 <div class="admin_banner_enroll">
 	<input type="button" value="베너관리" onclick="location.assign('<%=request.getContextPath()%>/bannerManage.do');">
@@ -185,7 +222,7 @@
   		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" wid>
   			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=전체" class="thumbnail" ng-click="select_home_category('all')">
   				<div class="category-title">전체</div>
-  				<img src="images/menuall3.png">
+  				<img src="images/menuall4.png">
   			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
