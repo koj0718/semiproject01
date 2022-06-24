@@ -1,117 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="java.util.List" %>  
 <%@ page import="com.siksin.menu.model.vo.MenuOption" %>
-<%@ page import="com.siksin.menu.model.vo.Menu" %>
+<%@ page import="java.util.List" %>  
 <%
-	List<MenuOption> mopList=(List<MenuOption>)request.getAttribute("mopList");	
-	String menuName=(String)request.getAttribute("menuName");
-	String menuPrice=(String)request.getAttribute("menuPrice");
-%>
-<!DOCTYPE html>	
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
-</head>
-<body>
+	List<MenuOption> foodOption=(List<MenuOption>)request.getAttribute("menuOption");
+%>  
 
-    <article class="blog-post">
-     <%=menuName %> 
-     <%=menuPrice %> 
-     <%for(MenuOption mop : mopList){ %>   		
-      	<div onclick="">
-	        <div  class="row g-5">
-		        <div class="col-md-10" id="sss">		   	            
-		        	<input type="checkbox" name="menuop" id="menuOpId<%=mop.getMenuOpId() %>" value="<%=mop.getMenuOpName() %> <%=mop.getMenuOpPrice() %> ">
-		        	<input type="hidden" name="menuop" value="<%=mop.getMenuId() %> ">
-		        	<input type="hidden" name="menuop" value="<%=mop.getMenuOpPrice() %> ">
-		        	<input type="hidden" name="menuop" value="<%=mop.getMenuOpId() %> ">
-		        	<input type="hidden" name="menuop" value="<%=mop.getMenuOpName() %> ">
-		        	<label for="menuOpId<%=mop.getMenuOpId() %>"><%=mop.getMenuOpName() %>  <%=mop.getMenuOpPrice() %>원 </label>		        			         				        	
-		        	<%-- <div id="menuopprice"><%=mop.getMenuOpPrice() %> 원</div>	 --%>        	
-		        </div>		       
-	        </div>
-        </div>	   
-   	<%} %>
-   <input type="submit" id="cartAdd" value="주문표에 추가">	
-   <input type="submit" value="주문">
- 
-      </article>
-    
-    <script>
-    const btn=document.getElementById("cartAdd");
-    //const aaa=document.getElementById("sss");
-    btn.addEventListener("click",(e)=>{
-    	//console.log($("input[name=menuop]:checked"));
-    	//console.log($("input[name=menuop]:checked")[0]);  
-    	const qwe=$("input[name=menuop]:checked");
-    	const table=document.createElement("table")
-    	const tr=document.createElement("tr");
-    	
-    	//console.log(aaa.children);
-    	/* $(opener.document.getElementById("cart").append(qwe)); */
-    	tr.innerText="<%=menuName %>" +<%=menuPrice %> ;
-    	for(let i=0;i<qwe.length;i++){
-    		const td=document.createElement("td");
-    		td.innerHTML=qwe[i].value; 
-    		//td.innerHTML=aaa.children[i];
-    		//console.log(aaa.children[i].value);
-    		//console.log(aaa.children);
-    		tr.appendChild(td);
-    		//$(opener.document.getElementById("cart").append(table).append(qwe[i].value));
-    	}
-    	table.appendChild(tr);
-    	$(opener.document.getElementById("cart").appendChild(table));
-    	
-    	
-    });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-		<%-- const btn=document.getElementById("cartAdd");
-		btn.addEventListener("click",(e)=>{
-			const table=document.createElement("table")
-			const tr=document.createElement("tr");
-			tr.innerHTML="<%=menuName%>"+<%=menuPrice%>+"<button id=del>X</button>"
-			tr.append("<%=menuName%>","<%=menuPrice%>");
-			
-			
-			/* const td=document.createElement("td"); */
-		
-			console.log($("input[name=menuop]:checked"));
-			const qwe=$("input[name=menuop]:checked");
-			
-			for(let i=0;i<qwe.length;i++){
-				const td=document.createElement("td");
-				console.log(qwe[i].value);
-				td.innerHTML=qwe[i].value;
-							//document.getElementById("menuopprice")
-				tr.appendChild(td);
-				//tr.append(document.getElementById("menuopprice"));
-				//tr.appendChild(document.getElementById("menuopprice"));
-				
-				//console.log(document.getElementById("menuopprice"));	
-				/* td.innerHTML=document.getElementById("menuopprice");
-				tr.appendChild(td) */
-			
-			}
-			//console.log($(opener.document.getElementById("price").appendChild(table).appendChild(tr)));
-					
-			console.log($(opener.document.getElementById("cart").appendChild(table).appendChild(tr)));			
+	<div id="modal_bg"></div>	
+
+	<div class="food_modal modal">
 	
-			//close();	
-		}); --%>
-	</script> 
+    	<div id="modal_header">
+			<button type="button" class="closeA"><i class="fas fa-times"></i></button>
+			<h1>메뉴 상세</h1>
+    	</div>
+	            
+		<div class="modal_box" >
+            
+	        <img src="" alt="이미지" class="menu_img" >
+	        <h2 class="menu_name">메뉴 이름</h2>
+	        <div class="menu_dec"></div>
+	        <div class="price"><span>가격</span><span class="menu_price" >0</span></div>
 
-</body>
-</html>
+			<div id="option">
+				<h2>옵션 선택</h2>
+	            <ul>
+	              
+	     
+	            </ul>
+		    </div>        
+	
+            <div class="amount">
+                <span class="amount_text">수량</span>
+                
+                <span class="amount_box">
+                    <button class="minus">-</button>
+                    <input type="number" id="amount" min="1" value="1" readonly >
+                    <button class="plus">+</button>
+                </span>
+                
+            </div>
+		</div>
+			
+		<div id="btn_box">
+			
+			<input type="hidden" class="add_cart_food_name" >
+			<input type="hidden" class="add_cart_food_price" >
+			<input type="hidden" class="add_cart_food_id" >
+			<div>
+			<div class="min_delevery">배달최소주문금액 원 </div>
+            <div class="sum"><span>총 주문금액</span><span class="total_price">0</span></div>
+            </div>
+          		
+       		<button class=closeB type="button">취소</button>
+       		<button class="add_cart" type="button">장바구니에 담기 </button>
+        </div>
+	</div>
+	
+
+	 

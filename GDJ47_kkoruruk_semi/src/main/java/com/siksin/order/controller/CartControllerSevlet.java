@@ -1,29 +1,31 @@
-package com.siksin.menu.controller;
+package com.siksin.order.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
-import com.siksin.menu.model.vo.MenuOption;
-import com.siksin.menu.service.MenuOptionService;
+import com.siksin.order.model.vo.Cart;
+import com.siksin.order.model.vo.CartList;
+import com.siksin.order.service.CartService;
+import com.siksin.util.FoodPriceCalc;
 
 /**
- * Servlet implementation class MenuOptionServlet
+ * Servlet implementation class CartControllerSevlet
  */
-@WebServlet("/menuoption.do")
-public class MenuOptionServlet extends HttpServlet {
+@WebServlet("/addCart")
+public class CartControllerSevlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MenuOptionServlet() {
+    public CartControllerSevlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,11 +34,19 @@ public class MenuOptionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session=request.getSession();
+		CartList cartList = (CartList) session.getAttribute("cartList");
+		Cart cart=new Cart();
+		int totalPrice = FoodPriceCalc.foodPriceCalc(cart);
+				
+		session.setAttribute("cartList", cartList);
+        
+        System.out.println("cartList = " + cartList);
 		
-		int menuId=Integer.parseInt(request.getParameter("foodId"));		
-		List<MenuOption> menuOption=new MenuOptionService().menuOptionSearch(menuId);			
+		
+		
 		response.setContentType("application/json;charset=utf-8");
-		new Gson().toJson(menuOption,response.getWriter());
+		new Gson().toJson(cartList,response.getWriter());
 	}
 
 	/**

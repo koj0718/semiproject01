@@ -80,6 +80,40 @@
 	.div3>p{
 	
 	}
+	
+	
+	
+	
+	
+	
+
+/* 병현 css */	
+
+/* .table{
+	width:1000px;
+} */
+
+.orderList{
+   display: flex;
+   justify-content: center;
+}
+
+.orderImage{
+	float : left;
+}
+
+.orderStore{
+	font-size:20px;
+}
+.orderNum{
+  	display: flex;
+    justify-content: center; 
+   line-height:100px;
+   padding-top:25px;
+}
+
+	
+	
 
 	#pageBar{
 	  display: flex;
@@ -114,6 +148,11 @@
 	
 
 </style>
+
+
+
+
+
 
 
 		<h2>
@@ -263,6 +302,64 @@
 				</div>
 		<%	} 
        		 }%>
+       		 
+       		 
+       		 
+       		 
+
+
+
+		<h2>
+			주문 내역
+		</h2>
+<div class="orderList">
+<table class="table table-hover" style="width:80%">
+  <thead >
+    <tr>
+      <th  scope="col">#</th>
+      <th scope="col">가게정보</th>
+      <th scope="col">주문번호</th>
+      <th scope="col">주문일시</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%if(list.isEmpty()){ %>
+    <tr>
+    	<td scope="row" colspan="4"><h3>조회된결과가 없습니다!</h3></td>
+    </tr>
+    <%}else{
+   			for(OrderList ol : list){%>
+		    <tr>
+		      <th scope="row" ><div class="orderNum"> <%=ol.getrNum() %></div></th>
+		      <td><img src="<%=ol.getStoreThumb() %>" width="150px;" height="150px;" class="orderImage" >
+		      	<br><br><Strong class="orderStore"><%=ol.getStoreName() %></Strong> <br> <p><%=ol.getTotalPrice() %>원</p>	</td>
+		      <td><%=ol.getOrderNum() %></td>
+		      <td><%=ol.getOrderDate() %></td>
+		    </tr>
+		    
+		    <%	} 
+       		 }%>
+			  </tbody>
+</table>
+</div>  	    
+		    
+		    <!-- <tr>
+		      <th scope="row">2</th>
+		      <td>Jacob</td>
+		      <td>Thornton</td>
+		      <td>@fat</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">3</th>
+		      <td colspan="2">Larry the Bird</td>
+		      <td>@twitter</td>
+		    </tr> -->
+
+ 		 
+       		 
+       		 
+       		 
+       		 
 				
 		
 	</main>
