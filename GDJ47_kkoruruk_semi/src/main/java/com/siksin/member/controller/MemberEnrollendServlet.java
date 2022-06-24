@@ -14,7 +14,7 @@ import com.siksin.member.service.MemberService;
 /**
  * Servlet implementation class MemberEnrollendServlet
  */
-@WebServlet("/memberEnrollEnd.do")
+@WebServlet(name="memberEnrollEndServlet", urlPatterns="/memberEnrollEnd.do") // 필터적용 name
 public class MemberEnrollendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -3,6 +3,10 @@
     
 <%@ include file="/views/common/header.jsp" %>
 <!-- 사이드바 include -->
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/member/myPage.css">
+    
 <div id="bodyContainer" class="row">
    
       <div id="myPageSidebars" class="col-4 row d-flex flex-column flex-shrink-0 p-3 bg-light"
@@ -53,9 +57,6 @@
       
       
       <!-- 마이페이지 -->
-
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/member/myPage.css">
 
       <div class="col" style="text-align: center; margin-left: auto;">
       

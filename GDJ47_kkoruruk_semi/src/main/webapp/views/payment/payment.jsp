@@ -212,13 +212,13 @@
 	
    <script>
 		
-  		/* 온라인결제 */
+  		/* 온라인결제 버튼 */
   		$("#onlinePay").click(function(){
   			$("#onPayBtn").show();
   			$("#diPayBtn").hide();
   			$("input:radio[name='paymentType'][value='온라인결제']").prop("checked", true);	
   		});
-  		/* 만나서결제 */
+  		/* 만나서결제 버튼 */
   		$('#diPayBtn').hide(); /* 기본 숨겨두기 */
   		$("#directPay").click(function(){
   			$("#diPayBtn").show();
