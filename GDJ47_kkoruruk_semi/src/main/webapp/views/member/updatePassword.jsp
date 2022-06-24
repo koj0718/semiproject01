@@ -38,13 +38,13 @@
 		                </div>
 		                &nbsp;
 		                <div class="col-8">새 비밀번호 확인<br>
-		                    <input type="password" id="passwordcheck" name="passwordcheck" placeholder="********" required>
+		                    <input type="password" id="passwordcheck" placeholder="********" required>
 		                </div>
 		                &nbsp;
 		                
 		                <div class="col-8"> <!-- hidden / null 방지 -->
 		                	<input type="hidden" id="userId" name="userId" value="<%=loginMember.getMemId() %>" readonly>	
-		                </div>
+		                </div>	
 		                &nbsp;
 				<button onclick="" id="updateBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="정보수정">비밀번호 변경</button>
 				&nbsp;

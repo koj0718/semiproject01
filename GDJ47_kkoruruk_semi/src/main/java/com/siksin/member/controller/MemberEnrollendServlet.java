@@ -35,7 +35,7 @@ public class MemberEnrollendServlet extends HttpServlet {
 		String userId=request.getParameter("userId");
 		String password=request.getParameter("password");
 		String userName=request.getParameter("name");
-		String email=request.getParameter("email");		
+		String email=request.getParameter("email");
 		String nickName=request.getParameter("nickname");
 		String phone=request.getParameter("phone");
 		

@@ -8,7 +8,7 @@ import java.util.Base64;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
-public class PasswordEncrypt extends HttpServletRequestWrapper {
+public class PasswordEncrypt extends HttpServletRequestWrapper { // 래퍼 클래스 ... 재정의 해서 사용하기 위함
 	
 	public PasswordEncrypt(HttpServletRequest request) {
 		super(request);
@@ -16,7 +16,7 @@ public class PasswordEncrypt extends HttpServletRequestWrapper {
 	
 	@Override
 	public String getParameter(String name) { // filter
-		if(name.equals("password")||name.equals("password_new")) {
+		if(name.equals("password")||name.equals("password2")) { // jsp name값
 			return getSHA512(super.getParameter(name));
 		}
 		return super.getParameter(name);

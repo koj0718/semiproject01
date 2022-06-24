@@ -44,7 +44,7 @@ public class EncryptFilter extends HttpFilter implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 		
-		PasswordEncrypt pe=new PasswordEncrypt((HttpServletRequest)request);
+		PasswordEncrypt pe=new PasswordEncrypt((HttpServletRequest)request); // 래퍼클래스에서 저장 된 객체를 넣어서
 
 		// pass the request along the filter chain
 		chain.doFilter(pe, response);
