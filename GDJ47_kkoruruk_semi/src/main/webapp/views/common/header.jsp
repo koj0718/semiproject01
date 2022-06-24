@@ -107,12 +107,11 @@
       
       
       <div class="col-md-2 text-end" >
-	      <div id="loginHidden" class="dropdown">
-	      <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-	        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+	    <div id="loginHidden" class="dropdown" style="display: flex; justify-content: space-between;">
+		  <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+		    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
 	        <strong><%=loginMember.getMemNick() %></strong>
 	      </a>
-	      <button type="button" class="btn btn-dark">주문표</button>
 	      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
 	        <li><a class="dropdown-item" href="<%=request.getContextPath() %>/mypage.do">마이페이지</a></li>
 	        <li><a class="dropdown-item" href="<%=request.getContextPath() %>/mypageupdate.do">내정보수정</a></li>
@@ -122,8 +121,8 @@
 	        <li><hr class="dropdown-divider"></li>
 	        <li><a class="dropdown-item" onclick="fn_logout();">로그아웃</a></li>
 	      </ul>
-	      
-      </div>
+		  <button type="button" class="btn btn-dark">주문표</button>      	
+      	</div>
      </div>
 
       
