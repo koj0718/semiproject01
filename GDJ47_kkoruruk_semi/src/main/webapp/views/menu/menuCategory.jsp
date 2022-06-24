@@ -60,7 +60,6 @@
    padding-left: 10px;
    padding-right: 10px;
     
-    
    }
    section>ul>li>a{
    text-decoration: none;
@@ -73,7 +72,16 @@
    border-bottom: 2px solid red;
     
    }
-    
+   
+   #choiceType{
+   height: 28px;
+   font-size: 14px;
+   border-top-left-radius:5px;
+   border-bottom-left-radius:5px;
+   border-top-right-radius:5px;
+   border-bottom-right-radius:5px;
+   }
+   
    .nav-item>a{
    color:gray;    
    }

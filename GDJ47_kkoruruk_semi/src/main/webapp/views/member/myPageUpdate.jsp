@@ -46,7 +46,7 @@
 		                </div>
 		                &nbsp;
 				<button type="submit" onclick="memUpdate()" id="updateBtn" class="w-100 btn btn-primary btn-lg" value="정보수정">수정하기</button>
-				&nbsp;
+ 				&nbsp;
 				<button type="submit" onclick="deleteMember()" id="deleteBtn" class="w-100 btn btn-primary btn-lg" value="회원탈퇴" style="background-color:tomato;">회원탈퇴</button>
 				</div>
 			</div>

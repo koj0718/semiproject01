@@ -20,14 +20,19 @@
 <!-- <title>비밀번호 변경</title> -->
 </head>
 <body>
+
+		
+		<h1 style="font-size:200px;">공사중!!*^^*</h1>
+		
+		
 		<section class="title">
 			<h1>회원탈퇴</h1>
 		</section>
 		<br>
 		
-		<form id="updatepassword" action="<%=request.getContextPath() %>/deleteMember.do" method="post">
+		<form id="deleteMember" action="<%=request.getContextPath() %>/deleteMemberEnd.do" method="post">
 			<div class="col">
-				<div id="myPageContent" class="row col-8">
+				<div id="deleteContent" class="row col-8">
 						
 						<div class="col-8" style="width:700px;">비밀번호가 일치해야 회원탈퇴가 가능합니다.<br>
 											비밀번호를 입력하세요.
@@ -47,7 +52,18 @@
 		                	<input type="hidden" id="userId" name="userId" value="<%=loginMember.getMemId() %>" readonly>	
 		                </div>	
 		                &nbsp;
-				<button onclick="" id="updateBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="회원탈퇴" style="background-color:tomato;">
+		        
+		        <!-- 약관동의 체크박스 -->
+<!-- 				<div class="checkbox pull-right">
+					<div class="custom-checkbox">
+						<div class="form-check">
+							<input type="checkbox" name="agree" id="agree" class="form-check-input custom-control-input">
+							<label class="form-check-label custom-control-label" for="agree">위 약관에 동의합니다.</label>
+						</div>
+					</div>
+				</div> -->
+		        &nbsp;
+				<button onclick="" id="deleteBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="회원탈퇴" style="background-color:tomato;">
 					회원탈퇴
 				</button>
 				&nbsp;
@@ -59,6 +75,17 @@
 		</form>
 		
 		<script>
+		
+/* 		function secessionValidate(){
+			
+		    if(!$("#agree").prop("checked")){
+		        alert("약관에 동의해 주세요.");
+		        return false;
+		    }else{
+		        return confirm("정말로 탈퇴 하시겠습니까?");
+		          
+		    }
+		} */
 		
 		</script>
 
