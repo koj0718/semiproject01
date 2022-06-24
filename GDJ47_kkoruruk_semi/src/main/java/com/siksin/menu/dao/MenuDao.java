@@ -102,6 +102,26 @@ public class MenuDao {
 		}return result;	
 	}
 	
+	public int searchStoreCount(Connection conn, String selectval, String searchMenu) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql=prop.getProperty("searchStoreCount");
+		sql=sql.replace("$COL2",selectval+" "+(selectval.equals("REVIEW_COUNT")||selectval.equals("STAR_POINT")?"DESC":"ASC"));
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, searchMenu);
+			rs=pstmt.executeQuery();
+			if(rs.next()) result=rs.getInt(1);
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+	}
+	
 	
 	public static Store getStore(ResultSet rs) {
 		Store s=null;
