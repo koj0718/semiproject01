@@ -342,6 +342,7 @@ public class OrderDao {
 			ol.setTotalPrice(rs.getInt("TOTAL_PRICE"));
 			ol.setStoreThumb(rs.getString("STORE_THUMB"));
 			ol.setStoreName(rs.getString("STORE_NAME"));
+			ol.setrNum(rs.getInt("RNUM"));
 			
 	
 		}catch(SQLException e) {
