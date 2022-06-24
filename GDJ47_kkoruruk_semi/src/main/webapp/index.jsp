@@ -185,73 +185,76 @@
   		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" wid>
   			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=전체" class="thumbnail" ng-click="select_home_category('all')">
   				<div class="category-title">전체</div>
-  				<img src="images/category-01.png">
+  				<img src="images/menuall3.png">
   			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
   			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=치킨" class="thumbnail" ng-click="select_home_category('치킨')">
 	  			<div class="category-title">치킨</div>
-	  			<img src="images/category-02.png">
+	  			<img src="images/chicken3.jpg">
   			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3">
   			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=돈까스/일식" class="thumbnail" ng-click="select_home_category('돈까스일식')">
 	  			<div class="category-title">돈까스/일식</div>
-	  			<img src="images/category-06.png">
+	  			<img src="images/porkcutlet.jpg">
   			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3">
   			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=피자" class="thumbnail" ng-click="select_home_category('피자양식')">
 	  			<div class="category-title">피자/양식</div>
-	  			<img src="images/category-03.png">
+	  			<img src="images/pizza3.png">
   			</a>
   		</div>
+
   		<div class="col-xs-6 col-sm-4 col-md-3">
-			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=중식" class="thumbnail" ng-click="select_home_category('중식')">
-	  			<div class="category-title">중식</div>
-	  			<img src="images/category-04.png">
+  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=고기/구이" class="thumbnail" ng-click="select_home_category('고기/구이')">
+  				<div class="category-title">고기/구이</div>
+  				<img src="images/meat3.png">
 			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3">
-  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=한식" class="thumbnail" ng-click="select_home_category('한식')">
-  				<div class="category-title">한식</div>
-  				<img src="images/category-05.png">
-			</a>
-  		</div>
-  		<div class="col-xs-6 col-sm-4 col-md-3">
-  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=프랜차이즈" class="thumbnail" ng-click="select_home_category('프랜차이즈')">
-	  			<div class="category-title">프랜차이즈</div>
-	  			<img src="images/category-10.png">
+  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=분식" class="thumbnail" ng-click="select_home_category('분식')">
+	  			<div class="category-title">분식</div>
+	  			<img src="images/tteokbokki.png">
   			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3">
-  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=족발/보쌈" class="thumbnail" ng-click="select_home_category('족발보쌈')">
-	  			<div class="category-title">족발/보쌈</div>
-	  			<img src="images/category-07.png">
+  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=햄버거" class="thumbnail" ng-click="select_home_category('햄버거')">
+	  			<div class="category-title">햄버거</div>
+	  			<img src="images/hambuger.png">
   			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3">
   			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=야식" class="thumbnail" ng-click="select_home_category('야식')">
 	  			<div class="category-title">야식</div>
-	  			<img src="images/category-08.png">
+	  			<img src="images/ramen.png">
   			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3">
-  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=분식" class="thumbnail" ng-click="select_home_category('분식')">
-	  			<div class="category-title">분식</div>
-	  			<img src="images/category-09.png">
+  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=족발/보쌈" class="thumbnail" ng-click="select_home_category('족발보쌈')">
+	  			<div class="category-title">족발/보쌈</div>
+	  			<img src="images/bossam.jpg">
   			</a>
   		</div>
+  		<div class="col-xs-6 col-sm-4 col-md-3">
+			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=중식" class="thumbnail" ng-click="select_home_category('중식')">
+	  			<div class="category-title">중식</div>
+	  			<img src="images/Chinesefood.jpeg">
+			</a>
+  		</div>
+
+
   		<div class="col-xs-6 col-sm-4 col-md-3">
   			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=카페/디저트" class="thumbnail" ng-click="select_home_category('카페디저트')">
 	  			<div class="category-title">카페/디저트</div>
-	  			<img src="images/category-11.png">
+	  			<img src="images/cafe.png">
   			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3">
   			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=편의점/마트" class="thumbnail" ng-click="select_home_category('편의점')">
 	  			<div class="category-title">편의점/마트</div>
-	  			<img src="images/category-convenience-store.png">
+	  			<img src="images/conveniencestore.png">
   			</a>
   		</div>
   	</div>
