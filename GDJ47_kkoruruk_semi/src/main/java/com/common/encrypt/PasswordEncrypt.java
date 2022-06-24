@@ -15,8 +15,8 @@ public class PasswordEncrypt extends HttpServletRequestWrapper { // 래퍼 클�
 	}
 	
 	@Override
-	public String getParameter(String name) { // filter
-		if(name.equals("password")||name.equals("password2")) { // jsp name값
+	public String getParameter(String name) { // getParameter 클라이언트 입력값 받아오기
+		if(name.equals("password")||name.equals("password2")) { // jsp name값 일치하도록
 			return getSHA512(super.getParameter(name));
 		}
 		return super.getParameter(name);
