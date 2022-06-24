@@ -66,7 +66,7 @@ public class StoreListSortServlet extends HttpServlet {
 				pageBar+="<li class=\"page-item\"><a class=\"page-link\" href=\"#\">"+pageNo+"</a></li>";
 			}else {
 				pageBar+="<li class=\"page-item\"><a class=\"page-link\" href='"+request.getRequestURL()
-						+"?cPage="+(pageNo)+"&searchMenu="+searchMenu+"'>"+pageNo+"</a></li>";
+						+"?cPage="+(pageNo)+"&selectval="+selectval+"&searchMenu="+searchMenu+"'>"+pageNo+"</a></li>";
 			}
 			pageNo++;
 		}
