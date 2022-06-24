@@ -14,7 +14,7 @@ import com.siksin.member.service.MemberService;
 /**
  * Servlet implementation class MemberEnrollendServlet
  */
-@WebServlet("/memberEnrollEnd.do")
+@WebServlet(name="memberEnrollEndServlet", urlPatterns="/memberEnrollEnd.do") // 필터적용 name
 public class MemberEnrollendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -35,7 +35,7 @@ public class MemberEnrollendServlet extends HttpServlet {
 		String userId=request.getParameter("userId");
 		String password=request.getParameter("password");
 		String userName=request.getParameter("name");
-		String email=request.getParameter("email");		
+		String email=request.getParameter("email");
 		String nickName=request.getParameter("nickname");
 		String phone=request.getParameter("phone");
 		

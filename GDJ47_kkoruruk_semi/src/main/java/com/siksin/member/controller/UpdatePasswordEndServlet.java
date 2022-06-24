@@ -14,7 +14,7 @@ import com.siksin.member.service.MemberService;
 /**
  * Servlet implementation class UpdatePasswordServlet
  */
-@WebServlet(name="UpdatePasswordServlet", urlPatterns = "/updatePasswordEnd.do")
+@WebServlet(name="updatePasswordEndServlet", urlPatterns = "/updatePasswordEnd.do") // 필터적용 name
 public class UpdatePasswordEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
