@@ -39,7 +39,7 @@
                   
 			</div>
 				<div>
-               		<span class="store_review_count" data-review_count="0"> 리뷰 0</span>
+               		<span class="store_review_count" data-review_count="0"> 리뷰 0 </span>
                		
                		<span>사장님 댓글 0</span>
             	</div>				
