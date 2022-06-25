@@ -158,10 +158,10 @@
             <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=치킨">치킨</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=돈까스/일식">돈까스/일식</a>
+            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=돈까스">돈까스</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=피자">피자/양식</a>
+            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=피자">피자</a>
          </li>
          <li class="nav-item">
             <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=고기">고기/구이</a>

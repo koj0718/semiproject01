@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/store/detail.css"/>
 
  	
-<%-- <%@ include file="/views/common/header.jsp"%>	 --%>
+<%@ include file="/views/common/header.jsp"%>
 
 
 <!-- 메인 -->
@@ -25,6 +25,8 @@
 
 
 <script>
+
+
 
 
 $(document).ready(function() {
@@ -144,7 +146,7 @@ $(document).ready(function() {
 		$(".add_cart_food_id").val(foodId);
 
 		openModal(addCartModal);
-		
+	
 
 
 
@@ -439,7 +441,7 @@ $(document).ready(function() {
 	}
 
 
-	// css로 display none시 카카오 맵 깨짐
+	
 	$("main ul.info").hide();
 	// 탭 눌렀을때 색변경 콘텐츠 변경
 	$("ul.tab > li").click(function() {
@@ -491,42 +493,6 @@ $(document).ready(function() {
 
 });
 
-function openModal(modal) {
-	const size = window.innerWidth;
-	
-		modal.css("transition", "0s").css("top", "0%");
-		console.log("pc");
-
-	$("#modal_bg").show();
-	$("body").css("overflow", "hidden");
-	$("body").css("overflow-y", "hidden");
-	
-	
-	$(".closeA").click(function() {
-		closeModal();
-	});
-	
-	$("#modal_bg").click(function() {
-		closeModal();
-	});
-	
-	$(".closeB").click(function() {
-		closeModal();
-	});
-}
- 
- 
- 
- 
-function closeModal() {
-	$("#modal_bg").hide();
-	$(".modal").css("top", "100%");
-	$(".modal_box").scrollTop(0);
-	$("body").css("overflow", "visible");
-	$(".modal input[type='checkBox']").prop("checked", false);
-	
-	$("#amount").val(1);
-};
 
 //찜하기
 $(".inf i").click(function(){
@@ -565,6 +531,49 @@ $(".inf i").click(function(){
 		}
 	})
 })
+
+
+function openModal(modal) {
+	const size = window.innerWidth;
+	
+	if (size > 767) {
+		modal.css("transition", "0s").css("top", "0%");
+		console.log("pc");
+	} else {
+		modal.css("transition", "0.2s").css("top", "0%");
+		console.log("mobile");
+	}
+	$("#modal_bg").show();
+	$("body").css("overflow", "hidden");
+	$("body").css("overflow-y", "hidden");
+	
+	
+	$(".closeA").click(function() {
+		closeModal();
+	});
+	
+	$("#modal_bg").click(function() {
+		closeModal();
+	});
+	
+	$(".closeB").click(function() {
+		closeModal();
+	});
+}
+ 
+ 
+ 
+ 
+function closeModal() {
+	$("#modal_bg").hide();
+	$(".modal").css("top", "100%");
+	$(".modal_box").scrollTop(0);
+	$("body").css("overflow", "visible");
+	$(".modal input[type='checkBox']").prop("checked", false);
+	
+	$("#amount").val(1);
+};
+
 </script>
 
 
