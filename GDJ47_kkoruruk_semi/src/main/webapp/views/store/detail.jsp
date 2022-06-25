@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/store/detail.css"/>
 
  	
-<%@ include file="/views/common/header.jsp"%>
+<%-- <%@ include file="/views/common/header.jsp"%> --%>
 
 
 <!-- 메인 -->

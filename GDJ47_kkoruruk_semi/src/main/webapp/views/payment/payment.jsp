@@ -62,96 +62,46 @@
 		            </select>
 		        </div>
 		        
-<%-- 		        <h4>주문 메뉴 정보</h4>
-		        <div class="orderDetail">
-		            <div><img src="" style="width:200px; height:200px;">메뉴사진</div>
-	        		<div class="row">
-	            		<div class="col">
-	                		메뉴명
-	            		</div>
-	            		<%for() { %>
-	            		<div class="col">
-	                		<%=cartList.getCart() %>
-	            		</div>
-	            		<% } %>
-	        		</div>
-	    		</div>
-	    		<div class="menuOption">
-	        		<div class="row">
-	            		<div class="col">
-	                		메뉴 옵션
-	            		</div>
-	            		<div class="col">
-	                		+(옵션명)n원<br>
-	                		+<br>
-	                		+
-	            		</div>
-	        		</div>
-	    		</div> --%>
-	    		
-<%-- 	    		  <ul class="menu">
-					<h2>주문정보</h2>
-					
-					<%for(int i=0; i<cartList.getCart().size(); i++) { %> 
-					
-               			<li>
-               			<h4><%=cartList.getCart().get(i).getFoodName() %></h4>
-               			
-               			                          
-                   			<div class="menu_box">
-                   			
-					<% for(int j=0; j<cartList.getCart().get(i).getOptionName().length; j++) { %>
-					
-		                     <div>
-		                     <h4><%=cartList.getCart().get(i).getOptionName() %></h4>                          
-		                               
-
-		                      </div>
-		                      
-		                      <% } %>
-		                      
-		                      <div><img src="" alt="이미지">사진자리</div>
-		                    </div>
-		                </li>
-		                
-		            <% } %> --%>
-		            
+	            
 		        <h2>주문정보</h2>
 				
 				<ul>
 					
-  						<%for(Cart c : cc) { %>
+  					<%for(int j=0;j<cartList.getCart().size();j++) {%>
 						<li>
 							<div class="food_name_box">
-								<div class="food_name"><%=cartList.getCart().get(0).getFoodName() %>메뉴이름부분</div>
-								<div><i class="fas fa-times delete"></i></div>
+								<div class="food_name"><%=cartList.getCart().get(j).getFoodName() %></div>
+								<div><i class="fas fa-times delete"></i></div>							
 							</div>
-
-									<%for() { %>
+							<div class="price">ㆍ기본가격 <%=cartList.getCart().get(j).getFoodPrice() %> 원</div>
+									
+									<%if(cartList.getCart().get(0).getOptionName()!=null) {%>
+									<%for(int i=0; i<cartList.getCart().get(j).getOptionName().length; i++) {%>
 									<div class="menu_option"> 
-										<span>옵션이름</span>
 
+										<span><%=cartList.getCart().get(j).getOptionName()[i] %></span>
+										<span><%=cartList.getCart().get(j).getOptionPrice()[i] %> 원</span>							
 									</div>
+										<%} %>
+									<%} %>
 							
 							<div class="amount">
 								<div class="sum">
-
+									<%=cartList.getCart().get(j).getTotalPrice() %>원
 								</div>
 								<!-- 메뉴 하나 총합 -->
 								<div class="amount_box">
 				                    <button type="button" class="minus">-</button>
-				                    <input type="number" class="amount_text" min="1" value="${cart[j].amount }" readonly >
+				                    <input type="number" class="amount_text" min="1" value="<%=cartList.getCart().get(j).getAmount() %>" readonly >
 				                    <button type="button" class="plus">+</button>
 			                   </div>
 							</div>
 							
 						</li>
-						<% } %>
- 					<% } %>
+					<%} %>
+ 					
 				</ul>
-
-
-        
+     
 	    
 	        </div> <!-- 주문자정보 끝 -->
 	
@@ -232,7 +182,7 @@
                 		총 결제 예상금액
             		</div>
             		<div class="col">
-                		n원
+                		<%=cartList.getCartTotal() %>
             		</div>
         		</div>
     		</div>
