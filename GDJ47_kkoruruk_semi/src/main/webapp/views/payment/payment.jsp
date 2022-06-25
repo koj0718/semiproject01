@@ -123,7 +123,7 @@
   						<%for(Cart c : cc) { %>
 						<li>
 							<div class="food_name_box">
-								<div class="food_name"><%=cartList.getCart().get(0).getFoodName() %>/메뉴이름부분</div>
+								<div class="food_name"><%=cartList.getCart().get(0).getFoodName() %>메뉴이름부분</div>
 								<div><i class="fas fa-times delete"></i></div>
 							</div>
 
