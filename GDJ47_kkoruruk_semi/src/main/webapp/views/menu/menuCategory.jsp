@@ -176,16 +176,16 @@
             <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=야식">야식</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=족발/보쌈">족발/보쌈</a>
+            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=족발 보쌈">족발/보쌈</a>
          </li>
          <li class="nav-item">
             <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=중식">중식</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=카페/디저트">카페/디저트</a>
+            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=카페 커피">카페/디저트</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=편의점/마트">편의점/마트</a>
+            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=편의점">편의점/마트</a>
          </li>
       </ul>
          <hr></hr>

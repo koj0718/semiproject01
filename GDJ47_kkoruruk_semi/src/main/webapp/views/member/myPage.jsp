@@ -28,8 +28,10 @@ font-size: 18px;
 padding-left: 0px;
 
 }
+.myPage_Sidebar>li>a:hover{
+color:red;
 
-
+}
 </style>
 
 <body>    
@@ -79,14 +81,20 @@ padding-left: 0px;
                <div class="col-8 col-sm-6"> 
                     <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEwMDRfMjIg%2FMDAxNjMzMzIzOTE4ODU5.Ybx6Tw_gJlO8D7SOZ35MYICEBomcbFLg0iz9y4bnDokg.Gvfzu_HKGoPfqcl26eeoOSDseBWXdTcM1MDosTs8M_sg.JPEG.taotube%2F%25C1%25F8%25C7%25E0%25BF%25E4%25BF%25F8-%25B9%25E6.jpg&type=sc960_832" 
                   	style="height: 180px; display: inline-block;">  
-                 <div style="margin-bottom: 0px;"><%=loginMember.getMemNick() %>님 안녕하세요.</div>
+                 <div style="margin-bottom: 0px; font-size: 18px;" ><%=loginMember.getMemNick() %>님</div>
                </div>
        
                 <div class="col-4 col-sm-6"> 
-                 <br><%=loginMember.getMemPoint() %><br>포인트
-		           <div style="height:40px;">
-		             <%=loginMember.getMemNick() %>님은 <%=loginMember.getRole() %>등급 입니다.
-		           </div>
+		           <h5 style="height:40px;">
+		           <br>
+		             <%=loginMember.getMemNick() %>님은 <%=loginMember.getRole() %>&nbsp등급 입니다.
+		           </h5>
+		           <br>
+		           <br>
+		           <br>
+                   <div>잔여 포인트</div>
+                   <div><%=loginMember.getMemPoint() %>&nbsp포인트</div>
+                 <br>
               </div> 
             </div>
              
@@ -96,10 +104,10 @@ padding-left: 0px;
          
          <br>
          
-         <div id="myPageContent" class="row col-8">
-            <div class="row">
+         <div id="myPage_Content" class="row col-9">
+            <div class="row" style="padding-left: 0px;">
                <div class="col-12 col-sm-12">
-                  <div style="font-size: 35px;">등급 업 조건</div>
+                  <div style="font-size: 24px; float: left;">등급 업 조건</div>
                </div>
    <!--              <div class="col-4 col-sm-6">
                  요건
@@ -120,7 +128,7 @@ padding-left: 0px;
              </div><hr>
              <div style="height:40px;">
                 BRONZ 직전 월 주문횟수 0~2회
-             </div>
+             </div><hr>
          </div>
       </div>
   </div>
