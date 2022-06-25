@@ -296,7 +296,7 @@ display:inline-block;
   			</a>
   		</div> --><!-- end ngRepeat: banner in banner_list -->
   		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" wid>
-  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=전체" class="thumbnail" ng-click="select_home_category('all')">
+  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=" class="thumbnail" ng-click="select_home_category('all')">
   				
   				<img src="images/menuall4.png">
   				<div class="category-title">전체</div>
@@ -310,7 +310,7 @@ display:inline-block;
   			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3">
-  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=돈까스/일식" class="thumbnail" ng-click="select_home_category('돈까스일식')">
+  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=돈까스" class="thumbnail" ng-click="select_home_category('돈까스일식')">
 	  			
 	  			<img src="images/porkcutlet.jpg">
 	  			<div class="category-title">돈까스/일식</div>
@@ -353,7 +353,7 @@ display:inline-block;
   			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3">
-  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=족발/보쌈" class="thumbnail" ng-click="select_home_category('족발보쌈')">
+  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=족발 보쌈" class="thumbnail" ng-click="select_home_category('족발보쌈')">
 	  			
 	  			<img src="images/bossam.jpg">
 	  			<div class="category-title">족발/보쌈</div>
@@ -369,14 +369,14 @@ display:inline-block;
 
 
   		<div class="col-xs-6 col-sm-4 col-md-3">
-  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=카페/디저트" class="thumbnail" ng-click="select_home_category('카페디저트')">
+  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=카페 커피" class="thumbnail" ng-click="select_home_category('카페디저트')">
 	  			
 	  			<img src="images/cafe.png">
 	  			<div class="category-title">카페/디저트</div>
   			</a>
   		</div>
   		<div class="col-xs-6 col-sm-4 col-md-3">
-  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=편의점/마트" class="thumbnail" ng-click="select_home_category('편의점')">
+  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=편의점" class="thumbnail" ng-click="select_home_category('편의점')">
 	  			
 	  			<img src="images/conveniencestore.png">
 	  			<div class="category-title">편의점/마트</div>

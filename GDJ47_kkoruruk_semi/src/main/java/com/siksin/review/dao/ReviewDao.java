@@ -14,7 +14,6 @@ import java.util.Properties;
 
 import com.siksin.order.dao.OrderDao;
 import com.siksin.order.model.vo.OrderList;
-import com.siksin.review.model.vo.Review;
 import com.siksin.review.model.vo.ReviewManage;
 
 public class ReviewDao {
@@ -66,6 +65,58 @@ public class ReviewDao {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		String sql=prop.getProperty("reviewManageCount");
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, loginId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) result=rs.getInt(1);
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+		
+	}
+	
+	
+	
+	public List<ReviewManage> searchReviewListWeek(Connection conn, String  loginId,
+			int cPage, int numPerpage){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		List<ReviewManage> result=new ArrayList();
+		
+		
+		
+		String sql=prop.getProperty("reviewWeek");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, loginId);
+			pstmt.setInt(2, (cPage-1)*numPerpage+1);
+			pstmt.setInt(3, cPage*numPerpage);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				
+				result.add(ReviewDao.getReviewManage(rs));
+				
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+			
+		}return result;
+	}
+	
+	public int searchReviewCountWeek(Connection conn, String loginId) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql=prop.getProperty("reviewCountWeek");
 		int result=0;
 		try {
 			pstmt=conn.prepareStatement(sql);
