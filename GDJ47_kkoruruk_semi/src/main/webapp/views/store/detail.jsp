@@ -429,7 +429,7 @@ $(document).ready(function() {
 		
 		if(minDelevery <= menuTotalPrice) {
 			$(".order_btn").attr("disabled", false); 
-			$(".order_btn").css("background", "#30DAD9");
+			$(".order_btn").css("background", "#333333");
 			$(".order_btn").text("주문하기");
 		} else {
 			$(".order_btn").css("background", "#ddd");

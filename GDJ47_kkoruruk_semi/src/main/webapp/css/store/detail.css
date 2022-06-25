@@ -172,13 +172,13 @@ main ul.tab li {
 }
 
 main ul.tab li:hover {
-	background: #30DAD9;
+	background: #333333;
 	color: #fff;
 	transition: 0.1s;
 }
 
 main ul.tab li.select {
-	background: #30DAD9;
+	background:  #333333;
 	color: #fff;
 	/* 메뉴탭 클릭시 색 바뀜 */
 }
@@ -312,7 +312,7 @@ main ul.menu li .menu_box img {
 }
 
 .add_cart {
-	background: #30DAD9;
+	background:  #333333;
 }
 
 .food_modal ul {
@@ -497,7 +497,7 @@ main ul.menu li .menu_box img {
 }
 
 .modal .btn_box input[type="submit"] {
-	background: #30DAD9;
+	background:  #333333;
 }
 
 
