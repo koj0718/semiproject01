@@ -1,11 +1,15 @@
 package com.siksin.order.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.siksin.order.model.vo.CartList;
 
 /**
  * Servlet implementation class OrderController
@@ -27,8 +31,21 @@ public class OrderController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		HttpSession session=request.getSession();
+	    CartList cartList = (CartList) session.getAttribute("cartList");
 		
-		
+	    request.setAttribute("cartList", cartList);
+	    
+	    	
+	    System.out.println("dhej=="+cartList);
+	    
+	    System.out.println("ddd"+cartList.getCart());
+	    
+	    System.out.println("qqqqq"+cartList.getCart().get(0).getFoodName());
+	    
+	    
+	    
+		request.getRequestDispatcher("/views/payment/payment.jsp").forward(request, response);
 	}
 
 	/**
