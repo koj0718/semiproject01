@@ -16,14 +16,17 @@ margin-right: auto;
 margin-left: auto;
 padding: 12px;
 padding-top: 40px;
+background-color: white;
 }
 
 .myPage_Sidebar{
 list-style-type: none;
+
 }
 .myPage_Sidebar>li>a{
 font-size: 18px;
 padding-left: 0px;
+
 }
 
 
@@ -79,12 +82,12 @@ padding-left: 0px;
                  <div style="margin-bottom: 0px;"><%=loginMember.getMemNick() %>님 안녕하세요.</div>
                </div>
        
-               <div class="col-4 col-sm-6">
+                <div class="col-4 col-sm-6"> 
                  <br><%=loginMember.getMemPoint() %><br>포인트
 		           <div style="height:40px;">
 		             <%=loginMember.getMemNick() %>님은 <%=loginMember.getRole() %>등급 입니다.
 		           </div>
-               </div>
+              </div> 
             </div>
              
              
