@@ -1,4 +1,4 @@
-package com.siksin.order.controller;
+package com.siksin.review.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.siksin.order.model.vo.OrderList;
-import com.siksin.order.service.OrderService;
+import com.siksin.review.model.vo.ReviewManage;
+import com.siksin.review.service.ReviewService;
 
 /**
- * Servlet implementation class OrderCheckMonthServlet
+ * Servlet implementation class ReviewMonthServlet
  */
-@WebServlet("/orderMonth.do")
-public class OrderCheckMonthServlet extends HttpServlet {
+@WebServlet("/reviewMonth.do")
+public class ReviewMonthServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OrderCheckMonthServlet() {
+    public ReviewMonthServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +31,7 @@ public class OrderCheckMonthServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		String loginId=request.getParameter("loginId");
 		
 		int cPage;
@@ -46,8 +46,8 @@ public class OrderCheckMonthServlet extends HttpServlet {
 	
 		
 		
-		List<OrderList> result=new OrderService().searchOrderListMonth(loginId,cPage,numPerpage);
-		int totalData=new OrderService().searchOrderCountMonth(loginId);
+		List<ReviewManage> result=new ReviewService().searchReviewListMonth(loginId,cPage,numPerpage);
+		int totalData=new ReviewService().searchReviewCountMonth(loginId);
 		int totalPage=(int)Math.ceil((double)totalData/numPerpage);
 		int pageBarSize=5;
 		int pageNo=((cPage-1)/pageBarSize)*pageBarSize+1;
@@ -84,8 +84,9 @@ public class OrderCheckMonthServlet extends HttpServlet {
 		request.setAttribute("pageBar", pageBar);
 		request.setAttribute("list", result);
 		
-		request.getRequestDispatcher("/views/order/order.jsp")
+		request.getRequestDispatcher("/views/review/reviewManage.jsp")
 		.forward(request, response);
+		
 	}
 
 	/**

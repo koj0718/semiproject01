@@ -213,7 +213,7 @@
     		<div class="period123">
     		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/reviewWeek.do?loginId=<%=loginMember.getMemId() %>');">1주일</button>
     		<%-- <%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %> --%>
-    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/orderMonth.do?loginId=<%=loginMember.getMemId() %>');" >1개월	</button>
+    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/reviewMonth.do?loginId=<%=loginMember.getMemId() %>');" >1개월	</button>
     		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/order3Month.do?loginId=<%=loginMember.getMemId() %>');">3개월</button>
     		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>');">전체시기</button>
     		</div>
