@@ -29,7 +29,7 @@ public class DelAddressServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String mapAddress=request.getParameter("Address");
+		String mapAddress=request.getParameter("mapAddress");
 		String detAddress=request.getParameter("detAddress");
 		
 		HttpSession session=null;
@@ -38,6 +38,9 @@ public class DelAddressServlet extends HttpServlet {
 		
 		session.setAttribute("mapAddress",mapAddress);
 		session.setAttribute("detAddress",detAddress);
+		
+		System.out.println(mapAddress);
+		System.out.println(detAddress);
 		
 		String script="opener.location.replace('"+request.getContextPath()+"/');close();";
 		request.setAttribute("script",script);

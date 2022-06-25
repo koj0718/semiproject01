@@ -65,17 +65,17 @@ cursor: pointer;
 <div id="map" style="width:380px;height:380px;"></div>
 
 <div class="map_wrap">
-	<form action="<%=request.getContextPath() %>/deladdress.do">
+  <form action="<%=request.getContextPath() %>/deladdress.do" method="get">
 	    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>   
 	    <div class="Addr">
-	        <span class="title" font>지도중심기준 행정동 주소정보</span><br>
-	    	<input type="text" value="" id="mapAddress"></div>
+	        <span class="title">지도중심기준 행정동 주소정보</span><br>
+	    	<input name="mapAddress" type="text" id="mapAddress">
 	    </div>
-	    <div id="">
-			<input type="text" id="detAddress" placeholder="상세주소를 입력하세요(건물명, 동/호수 등)">
+	    <div>
+			<input name="detAddress" type="text" id="detAddress" placeholder="상세주소를 입력하세요(건물명, 동/호수 등)">
 			<button name="btn" type="submit" id="addbutton">주소 저장</button>
 		</div>
-	</form>
+  </form>
 </div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c7fed37bf5a28c91c2f899bb4b9338c9&libraries=services"></script>
 
