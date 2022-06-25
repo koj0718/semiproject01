@@ -19,7 +19,7 @@ public class Cart {
  
 	private String[] optionName;
 	private int[] optionPrice;
-	private long[] optionId;
+	private int[] optionId;
 	
 	@Override
 	public int hashCode() {
@@ -43,5 +43,23 @@ public class Cart {
 		return foodId == other.foodId && Objects.equals(foodName, other.foodName) && foodPrice == other.foodPrice
 				&& Arrays.equals(optionId, other.optionId) && Arrays.equals(optionName, other.optionName)
 				&& Arrays.equals(optionPrice, other.optionPrice);
+	}
+	public Cart(long foodId, String foodName, int foodPrice, int amount,  String[] optionName,
+			int[] optionPrice, int[] optionId) {
+		super();
+		this.foodId = foodId;
+		this.foodName = foodName;
+		this.foodPrice = foodPrice;
+		this.amount = amount;
+		this.optionName = optionName;
+		this.optionPrice = optionPrice;
+		this.optionId = optionId;
+	}
+	public Cart(long foodId, String foodName, int foodPrice, int amount) {
+		super();
+		this.foodId = foodId;
+		this.foodName = foodName;
+		this.foodPrice = foodPrice;
+		this.amount = amount;		
 	}
 }

@@ -1,4 +1,6 @@
-
+ul{
+   list-style:none;
+   }
 .fas.fa-heart {
 	color: red;
 }
@@ -51,50 +53,6 @@ nav .inf .store_review_count:after {
 
 /* -------------- 장바구니 -------------- */
 
-/* 모바일 카트 */
-.m_cart_img {
-	position: fixed;
-	bottom: 3%;
-	right: 3%;
-	display: none;
-	z-index: 11;
-	cursor: pointer;
-}
-
-.m_cart_img_box {
-	width: 70px;
-	height: 70px;
-	border-radius: 50%;
-	background: #2AC1BC;
-	box-shadow: 0px 2px 3px 0px rgb(0 0 0/ 25%);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.fa-shopping-cart {
-	color: #fff;
-	font-size: 20px;
-}
-
-.m_cart_count {
-	width: 15px;
-	height: 15px;
-	border-radius: 50%;
-	position: absolute;
-	top: 20%;
-	right: 20%;
-	font-size: 13px;
-	text-align: center;
-	color: #2AC1BC;
-	background: #fff;
-	border: 2px solid #2AC1BC;;
-	vertical-align: middle;
-	font-weight: 1000;
-	display: none;
-}
-/* 모바일 카트 */
-
 /* 카트 담았을때 메세지 */
 .alarm {
 	position: fixed;
@@ -114,7 +72,7 @@ nav .inf .store_review_count:after {
 }
 
 #cart {
-	width: 28%;
+	width: 30%;
 	order: 1;
 }
 
@@ -178,7 +136,7 @@ nav .inf .store_review_count:after {
 	width: 100%;
 	height: 30px;
 	margin-top: 20px;
-	font-size: 1.8rem;
+	font-size: 1.5rem;
 	border: none;
 	cursor: pointer;
 	/* background: #30DAD9; */
@@ -263,198 +221,6 @@ main ul.menu li .menu_box img {
 
 /* -------------- 메인 -------------- */
 
-/* ----------------- 정보 탭 ----------------- */
-main ul.info {
-	/* display: none; */
-	/* 카카오 지도 깨져서 스크립트로 hide함 */
-	
-}
-
-.info li {
-	width: 100%;
-	margin: 15px auto;
-}
-
-#map_box {
-	position: relative;
-	width: 100%;
-	height: 400px;
-	margin-bottom: 10px;
-}
-
-#map_box #map {
-	width: 100%;
-	height: 100%;
-}
-
-#map_box #position_box {
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
-	z-index: 1;
-}
-
-#map_box #position_box button {
-	border-radius: 50px;
-	border: 1px solid #999999;
-	background: #fff;
-	padding: 5px 10px;
-	font-size: 1.5rem;
-}
-
-#map_box #position_box .userPosition {
-	display: none;
-}
-
-.info li>div {
-	font-size: 1.8rem;
-	border-radius: 10px;
-	border: 1px solid #ddd;
-	padding: 15px;
-	min-height: 150px;
-}
-
-.info h2 {
-	padding-bottom: 10px;
-}
-
-.info div {
-	font-size: 1.6rem;
-}
-
-.info li .info_detail_title {
-	display: inline-block;
-	width: 200px;
-}
-
-.info li .info_detail {
-	display: inline-block;
-}
-
-/* ----------------- 정보 탭 ----------------- */
-
-/* ----------------- 리뷰 탭 ----------------- */
-main .comment {
-	display: none;
-}
-
-main .comment .score_info {
-	border: 1px solid #ddd;
-	border-radius: 10px;
-	padding: 15px;
-	display: flex;
-	justify-content: space-around;
-}
-
-main .comment .score_info .score {
-	font-size: 4.5rem;
-	font-weight: bold;
-	text-align: center;
-}
-
-main .comment .score_info i {
-	font-size: 1.4rem;
-}
-
-main .comment .score_count {
-	font-size: 1.4rem;
-}
-
-main .comment .score_count>div {
-	display: flex;
-	justify-content: space-between;
-	width: 150px;
-}
-
-main .comment .score_info .score_count>div div:first-child {
-	font-weight: bold;
-}
-
-main .comment .score_count .graph_box {
-	position: relative;
-	width: 100px;
-}
-
-main .comment .score_count .graph_box div {
-	width: 100%;
-	height: 5px;
-	background: #ddd;
-	border-radius: 5px;
-	position: absolute;
-	top: 40%;
-}
-
-main .comment .score_info .score_count .review_count {
-	color: #999999;
-	text-align: left;
-	width: 0px;
-}
-
-main .comment .boss_comment {
-	margin-bottom: 10px;
-}
-
-main .comment li {
-	border-radius: 10px;
-	width: 100%;
-	margin: 15px auto 30px;
-	font-size: 1.8rem;
-}
-
-main .comment li .nickname {
-	font-weight: bold;
-}
-
-main .comment li .client {
-	border: 1px solid #ddd;
-	border-radius: 10px;
-	padding: 15px;
-}
-
-.review_header {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 15px;
-}
-
-.review_header div div:last-child {
-	font-size: 1.4rem;
-}
-
-main .comment li .boss_comment_box {
-	background: #ddd;
-	width: 90%;
-	border-radius: 10px;
-	padding: 15px;
-	position: relative;
-	left: 6%;
-	margin-top: 15px;
-}
-
-.review_btn, .boss_comment_btn {
-	background: #fff;
-	border-radius: 5px;
-	padding: 5px;
-}
-
-.boss_comment .comment_area {
-	width: 90%;
-	height: 100px;
-	padding: 10px;
-	border-radius: 5px;
-	margin-top: 5px;
-}
-
-.boss.input {
-	display: none;
-}
-
-.review_img {
-	width: 30%;
-	border-radius: 10px;
-	cursor: pointer;
-}
-/* 리뷰탭 */
 
 
 
@@ -527,11 +293,11 @@ main .comment li .boss_comment_box {
 }
 
 .food_modal .modal_box {
-	height: calc(100% - 130px);
+	height: calc(100% - 140px);
 }
 
 .food_modal #btn_box {
-	height: 90px;
+	height: 200px;
 	
 }
 
@@ -809,7 +575,7 @@ main .comment li .boss_comment_box {
 		height: 100%;
 	}
 	.modal .btn_box input, .modal .btn_box button {
-		height: 45px;
+		height: 80px;
 	}
 }
 

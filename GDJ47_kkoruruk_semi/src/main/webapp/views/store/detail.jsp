@@ -77,6 +77,24 @@ $(document).ready(function() {
 			};
 	})();
 	
+	// 가게 입장시 카트리스트 불러오기
+	 (function(){
+		$.ajax({
+			url: "<%=request.getContextPath() %>/cartList",
+			type: "get"
+		})
+		.done(function(result){
+			if(result == "" ) {
+				cartReset();
+				return;
+			}
+			cartList(result);
+		})
+		.fail(function(){
+			swal("장바구니 정보 에러");
+		})
+	})();
+	
  
 
 	$(".menu > li .menu_box").click(function() {
@@ -206,7 +224,7 @@ $(document).ready(function() {
 		deleteCartAll();
 	})	
 
-	// 리뷰탭 그래프
+/* 	// 리뷰탭 그래프
 	const reviewCount = $(".store_review_count").data("review_count");
 	
 	if(reviewCount != 0) {
@@ -216,7 +234,7 @@ $(document).ready(function() {
 			target.css("background","gold").css("width", score+"%");
 		}
 	}
-	
+	 */
 	
 	
 	/* function foodModalHtml(result) {
@@ -245,7 +263,7 @@ $(document).ready(function() {
 	function foodModalHtml(result) {
 		let html = "";
 		console.log(result);
-		console.log(result[1]["optionName"]);
+		console.log(result[1]["menuOpName"]);
 		for(var i=0;i<result.length;i++) {
 			html += '<li><div class="option_box"><span><i class="fas fa-check-square"></i><input type="checkbox" class="menu_option" name="option" value="'+result[i]["menuOpName"] +'">'+result[i]["menuOpName"] +'<input type="hidden" class="option_price" value="'+result[i]["menuOpPrice"]+'"> <input type="hidden" class="option_id" value="'+result[i]["menuOpId"]+ '"></span>\<span>'+result[i]["menuOpPrice"] +' 원</span></div></li>';
 		}
@@ -271,7 +289,7 @@ $(document).ready(function() {
 			foodOptionPrice.push(optionPrice);
 		})
 		
-		const data = {
+		const data = { 
 			foodId : addCart.siblings(".add_cart_food_id").val(),
 			foodName : addCart.siblings(".add_cart_food_name").val(),
 			foodPrice : addCart.siblings(".add_cart_food_price").val(),
@@ -291,6 +309,7 @@ $(document).ready(function() {
 			traditional : true
 		})
 		.done(function(result){
+			console.log(result);
 			cartList(result);			
 			alarm();	
 			closeModal();
@@ -330,7 +349,7 @@ $(document).ready(function() {
 	// 장바구니 1개 삭제
 	function deleteCartOne(index){
 		$.ajax({
-			url: "/cartOne",
+			url: "<%=request.getContextPath() %>/cartOne",
 			type: "DELETE",
 			data: {index : index}
 		})
@@ -351,7 +370,7 @@ $(document).ready(function() {
 
 	function deleteCartAll(){
 		$.ajax({
-			url: "/cartAll",
+			url: "<%=request.getContextPath() %>/cartAll",
 			type: "DELETE"
 		})
 		.done(function(){
@@ -466,7 +485,7 @@ $(document).ready(function() {
 	
 	// 주문하기
 	$(".order_btn").click(function() {
-		location.href = "/order";
+		location.href = "<%=request.getContextPath() %>/order.do";
 	});	
 
 
@@ -508,6 +527,44 @@ function closeModal() {
 	
 	$("#amount").val(1);
 };
+
+//찜하기
+$(".inf i").click(function(){
+	let likes ="";
+	
+	if($(this).hasClass("far")) {
+		$(this).removeClass("far").addClass("fas");
+		likes = "on";
+	} else {
+		$(this).removeClass("fas").addClass("far");
+		likes = "off";
+	}
+	
+	const data = {
+		id : $("#store_id").val(),
+		likes : likes
+	}
+	$.ajax({
+		url: "/store/likes",
+		type: "POST",
+		data: data
+	})
+	.done(function(result){
+		if(result == 0) {
+		} else {
+			
+			let likesCount = $(".likes_count").data("count");
+			
+			if(likes == "on") {
+				$(".likes_count").text(likesCount+1);
+				$(".likes_count").data("count", likesCount+1 );
+			} else {
+				$(".likes_count").text(likesCount-1);
+				$(".likes_count").data("count", likesCount-1 );
+			}
+		}
+	})
+})
 </script>
 
 
