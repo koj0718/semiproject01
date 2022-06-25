@@ -10,7 +10,7 @@
 
 <%
 	CartList cartList=(CartList)request.getAttribute("cartList");
-	Cart cc=cartList.getCart().get(0);
+ 	Cart cc=cartList.getCart().get(0); 
 %>
 
   <!-- iamport.payment.js -->
@@ -120,24 +120,22 @@
 				
 				<ul>
 					
-<%-- 						<%for(CartList c : cartList) { %> --%>
+  						<%for(Cart c : cc) { %>
 						<li>
 							<div class="food_name_box">
-								<div class="food_name">${cart[j].foodName }</div>
+								<div class="food_name"><%=cartList.getCart().get(0).getFoodName() %>/메뉴이름부분</div>
 								<div><i class="fas fa-times delete"></i></div>
 							</div>
-							<div class="price">ㆍ기본가격 <fm:formatNumber value="${cart[j].foodPrice }"  pattern="###,###" />원</div>
-						
-							
-								
+
+									<%for() { %>
 									<div class="menu_option"> 
-										<span>ㆍ${cart[j].optionName[i]  }</span>
-										<span><fm:formatNumber  value="${cart[j].optionPrice[i] }" pattern="###,###" />원</span>
+										<span>옵션이름</span>
+
 									</div>
 							
 							<div class="amount">
 								<div class="sum">
-									<fm:formatNumber value="${cart[j].totalPrice }" pattern="###,###" />원
+
 								</div>
 								<!-- 메뉴 하나 총합 -->
 								<div class="amount_box">
@@ -148,8 +146,8 @@
 							</div>
 							
 						</li>
-						
-<%-- 					<% } %> --%>
+						<% } %>
+ 					<% } %>
 				</ul>
 
 
