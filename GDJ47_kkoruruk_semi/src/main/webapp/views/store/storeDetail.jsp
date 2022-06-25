@@ -12,7 +12,38 @@
  <div id="wrap">
     <nav>	 
         <h1 id="store_name" data-store_name="<%=s.getStoreName() %>" ><%=s.getStoreName() %></h1>
-		<div class="inf">			                
+		<div class="inf">
+			<div>
+				<%-- 
+				<span class="score_box">
+             		<c:forEach begin="0" end="4" var="i">
+             			<c:choose>
+	           				<c:when test="${Math.round(info.score) > i }">
+		                   		<i class="far fas fa-star"></i>
+		                   	</c:when>
+		                   	<c:otherwise>
+		                   		<i class="far fa-star"></i>
+		                   	</c:otherwise>
+             			</c:choose> 
+             		</c:forEach>
+                  		
+                  	<span class="store_score" data-score="${info.score }">${info.score }</span>
+                  	
+				</span><br>
+                 --%>
+                   
+           		<span><i class="fas fa-heart" ></i> 찜 </span>
+                   	
+                    
+                <span class="likes_count" data-count=0 >0</span>
+                  
+			</div>
+				<div>
+               		<span class="store_review_count" data-review_count="0"> 리뷰 0</span>
+               		
+               		<span>사장님 댓글 0</span>
+            	</div>				
+		                
                	<div id="min_delevery" data-min_delevery="<%=s.getMinDelevery() %>">최소주문금액 <%=s.getMinDelevery() %>원</div>
                	<div>예상 배달시간 <%=s.getDeleveryTime() %>분</div>
                	<div id="delevery_tip" data-delevery_tip="<%=s.getDeleveryTip() %>">배달팁 <%=s.getDeleveryTip() %>원</div>
