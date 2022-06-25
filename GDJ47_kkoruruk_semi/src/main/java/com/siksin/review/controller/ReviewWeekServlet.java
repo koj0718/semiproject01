@@ -88,7 +88,7 @@ public class ReviewWeekServlet extends HttpServlet {
 		request.setAttribute("pageBar", pageBar);
 		request.setAttribute("list", result);
 		
-		request.getRequestDispatcher("/views/order/order.jsp")
+		request.getRequestDispatcher("/views/review/reviewManage.jsp")
 		.forward(request, response);
 		
 	}

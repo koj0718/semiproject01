@@ -135,6 +135,60 @@ public class ReviewDao {
 	
 	
 	
+	
+	public List<ReviewManage> searchReviewListMonth(Connection conn, String  loginId,
+			int cPage, int numPerpage){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		List<ReviewManage> result=new ArrayList();
+		
+		
+		
+		String sql=prop.getProperty("reviewMonth");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, loginId);
+			pstmt.setInt(2, (cPage-1)*numPerpage+1);
+			pstmt.setInt(3, cPage*numPerpage);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				
+				result.add(ReviewDao.getReviewManage(rs));
+				
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+			
+		}return result;
+	}
+	
+	
+	public int searchReviewCountMonth(Connection conn, String loginId) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql=prop.getProperty("reviewCountMonth");
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, loginId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) result=rs.getInt(1);
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+		
+	}
+	
+	
+	
 	public static ReviewManage getReviewManage(ResultSet rs) {
 		
 		ReviewManage rm=null;

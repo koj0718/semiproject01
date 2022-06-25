@@ -47,4 +47,20 @@ private ReviewDao dao=new ReviewDao();
 		close(conn);
 		return result;
 	}
+	
+	
+	
+	public List<ReviewManage> searchReviewListMonth(String loginId,int cPage,int numPerpage){
+		Connection conn=getConnection();
+		List<ReviewManage> result=dao.searchReviewListMonth(conn,loginId,cPage,numPerpage);
+		close(conn);
+		return result;
+	}
+
+	public int searchReviewCountMonth(String loginId) {
+		Connection conn=getConnection();
+		int result=dao.searchReviewCountMonth(conn,loginId);
+		close(conn);
+		return result;
+	}
 }

@@ -325,7 +325,7 @@ display:inline-block;
   		</div>
 
   		<div class="col-xs-6 col-sm-4 col-md-3">
-  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=고기/구이" class="thumbnail" ng-click="select_home_category('고기/구이')">
+  			<a href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=고기 고깃집" class="thumbnail" ng-click="select_home_category('고기/구이')">
   				
   				<img src="images/meat3.png">
   				<div class="category-title">고기/구이</div>
