@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.siksin.member.model.vo.Member" %>    
 <%
+	String mapAddress=(String)session.getAttribute("mapAddress");
+	String detAddress=(String)session.getAttribute("detAddress");
 	Member loginMember=(Member)session.getAttribute("loginMember");
 	Cookie[] cookies=request.getCookies();
 	String saveId=null;
@@ -80,7 +82,11 @@
       
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <%if(detAddress==null) {%>
         <li><a href="#" class="nav-link px-2 link-secondary" onclick="corrent_location();" id="headerLocation"> <img src="images/location-01.png" width="35" height="35"> &nbsp 현재 위치로 주소찾기&nbsp&nbsp&nbsp  <img src="images/locationDown-01.png" width="15" height="15"></a></li>
+        <%} else{ %>
+        <li><a href="#" class="nav-link px-2 link-secondary" onclick="corrent_location();" id="headerLocation"> <img src="images/location-01.png" width="35" height="35"><%=mapAddress %>&nbsp<%=detAddress %>&nbsp<img src="images/locationDown-01.png" width="15" height="15"></a></li>
+        <%} %>
         <!-- <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>

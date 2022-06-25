@@ -164,22 +164,22 @@
             <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=피자">피자/양식</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=중식">중식</a>
+            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=고기">고기/구이</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=한식">한식</a>
+            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=분식">분식</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=프랜차이즈">프랜차이즈</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=족발/보쌈">족발/보쌈</a>
+            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=햄버거">햄버거</a>
          </li>
          <li class="nav-item">
             <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=야식">야식</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=분식">분식</a>
+            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=족발/보쌈">족발/보쌈</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=중식">중식</a>
          </li>
          <li class="nav-item">
             <a class="nav-link" href="<%=request.getContextPath()%>/searchMenu.do?searchMenu=카페/디저트">카페/디저트</a>

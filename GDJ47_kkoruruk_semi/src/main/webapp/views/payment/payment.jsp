@@ -3,7 +3,15 @@
     
 <%@ include file="/views/common/header.jsp" %>
 
-<% %>
+<%@ page import="com.siksin.order.model.vo.CartList" %>
+<%@ page import="com.siksin.order.model.vo.Cart" %>
+
+<%@ page import="java.util.List" %>  
+
+<%
+	CartList cartList=(CartList)request.getAttribute("cartList");
+	Cart cc=cartList.getCart().get(0);
+%>
 
   <!-- iamport.payment.js -->
   <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
@@ -26,14 +34,14 @@
 		        <div class="col-md-7 col-lg-8 center">
 		            <label for="address" class="form-label">주소</label>
 		          	    <div class="col-8 text-center">
-		                    <input type="text" class="form-control" id="address" placeholder="주소 고정값 가져오기" required>
+		                    <input type="text" class="form-control" id="address" placeholder="">
 		                </div>
 		                <br>
 		                <div class="col-8">
 		                    <input type="text" class="form-control" id="address2" placeholder="상세주소를 입력하세요 (건물명, 동/호수 등)"><br>
 		                </div>
 		                <div class="col-8">
-		                    <input type="text" class="form-control" id="phone" placeholder="휴대전화번호를 입력하세요"><br>
+		                    <input type="text" class="form-control" id="phone" placeholder="<%=loginMember.getMemPhone() %>" readonly><br>
 		                    <input type="checkbox" class="form-check-input" id="same-address">
 			            	<label class="form-check-label" for="same-address">안심번호 체크</label>
 		                </div>
@@ -45,25 +53,27 @@
 		            <label for="country" class="form-label">요청사항</label>
 		            <select class="form-select" id="country" required>
 		                <option value="">주문요청사항을 선택해주세요.</option>
-		                <option>배송전연락바람</option>
-		                <option>벨x 등등</option>
-		                <option>(직접입력)</option>
+		                <option>배송 전 연락 바랍니다.</option>
+		                <option>벨 누르지 말아주세요.</option>
+		                <option>기사님이 드세요.</option>
 		                <input type="checkbox" class="form-check-input" id="same-address">
-		            	<label class="form-check-label" for="same-address">일회용 수저, 포크가 필요해용</label>
+		            	<label class="form-check-label" for="same-address">일회용 수저, 포크가 필요해요.</label>
 		            	<p style="color:green">환경보호를 위해 꼭 필요할 때만 선택해주세요!</p>
 		            </select>
 		        </div>
 		        
-		        <h4>주문 메뉴 정보</h4>
+<%-- 		        <h4>주문 메뉴 정보</h4>
 		        <div class="orderDetail">
-		            <div><img src="" style="width:200px; height:200px;">사진</div>
+		            <div><img src="" style="width:200px; height:200px;">메뉴사진</div>
 	        		<div class="row">
 	            		<div class="col">
-	                		선택한 메뉴
+	                		메뉴명
 	            		</div>
+	            		<%for() { %>
 	            		<div class="col">
-	                		메뉴이름
+	                		<%=cartList.getCart() %>
 	            		</div>
+	            		<% } %>
 	        		</div>
 	    		</div>
 	    		<div class="menuOption">
@@ -77,8 +87,74 @@
 	                		+
 	            		</div>
 	        		</div>
-	    		</div>
+	    		</div> --%>
 	    		
+<%-- 	    		  <ul class="menu">
+					<h2>주문정보</h2>
+					
+					<%for(int i=0; i<cartList.getCart().size(); i++) { %> 
+					
+               			<li>
+               			<h4><%=cartList.getCart().get(i).getFoodName() %></h4>
+               			
+               			                          
+                   			<div class="menu_box">
+                   			
+					<% for(int j=0; j<cartList.getCart().get(i).getOptionName().length; j++) { %>
+					
+		                     <div>
+		                     <h4><%=cartList.getCart().get(i).getOptionName() %></h4>                          
+		                               
+
+		                      </div>
+		                      
+		                      <% } %>
+		                      
+		                      <div><img src="" alt="이미지">사진자리</div>
+		                    </div>
+		                </li>
+		                
+		            <% } %> --%>
+		            
+		        <h2>주문정보</h2>
+				
+				<ul>
+					
+<%-- 						<%for(CartList c : cartList) { %> --%>
+						<li>
+							<div class="food_name_box">
+								<div class="food_name">${cart[j].foodName }</div>
+								<div><i class="fas fa-times delete"></i></div>
+							</div>
+							<div class="price">ㆍ기본가격 <fm:formatNumber value="${cart[j].foodPrice }"  pattern="###,###" />원</div>
+						
+							
+								
+									<div class="menu_option"> 
+										<span>ㆍ${cart[j].optionName[i]  }</span>
+										<span><fm:formatNumber  value="${cart[j].optionPrice[i] }" pattern="###,###" />원</span>
+									</div>
+							
+							<div class="amount">
+								<div class="sum">
+									<fm:formatNumber value="${cart[j].totalPrice }" pattern="###,###" />원
+								</div>
+								<!-- 메뉴 하나 총합 -->
+								<div class="amount_box">
+				                    <button type="button" class="minus">-</button>
+				                    <input type="number" class="amount_text" min="1" value="${cart[j].amount }" readonly >
+				                    <button type="button" class="plus">+</button>
+			                   </div>
+							</div>
+							
+						</li>
+						
+<%-- 					<% } %> --%>
+				</ul>
+
+
+        
+	    
 	        </div> <!-- 주문자정보 끝 -->
 	
 	        <hr class="my-4">
