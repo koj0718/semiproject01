@@ -15,18 +15,14 @@
 	border:1px solid red;
 	}  */
 	
-	h2{
+	h1{
 	padding-top:80px;
 	padding-left:20px;
 	}
 	h4{
 	margin: 0px;
 	}
-	.nav-button{
-	padding-top:50px;
-	padding-left:20px;
-	padding-bottom:20px;	
-	}
+
 	.orderContainer{
 	display:flex;
 	justify-content: space-between;
@@ -93,6 +89,27 @@
 	width:1000px;
 } */
 
+
+.orderTitle{
+
+	padding-left:130px;
+	padding-bottom:50px;
+	display: flex; 
+	
+}
+
+
+	.nav-button{
+	/*  padding-top:50px; */
+	padding-left:130px;
+	/* padding-bottom:20px; */ 
+ 	    display: flex; 
+   /* justify-content: center; */	 
+	}
+
+
+
+
 .orderList{
    display: flex;
    justify-content: center;
@@ -119,7 +136,25 @@
 }
 
 .period123{
-	float : left;
+	/* float : left; */
+}
+
+.orderPeriodContainer{
+	/* margin-top:15px; */
+}
+
+
+.orderAll{
+	width: 70px;
+	height:45px;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom : none;
+	background-color: black;
+	color : white;
+	border-radius: 10px;
+
 }
 
 	
@@ -156,6 +191,9 @@
 	
 	
 	
+	
+	
+	
 
 </style>
 
@@ -164,25 +202,26 @@
 
 
 
-
-		<h2>
-			주문 내역
-		</h2>
+		<div class="orderTitle">
+		<h1 >
+			 주문 내역
+		</h1>
+		</div>
 	<section class="">
     	<nav class="nav-button">
     		<div class="period123">
-    		<button onclick="location.assign('<%=request.getContextPath()%>/orderWeek.do?loginId=<%=loginMember.getMemId() %>');">1주일</button>
+    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/orderWeek.do?loginId=<%=loginMember.getMemId() %>');">1주일</button>
     		<%-- <%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %> --%>
-    		<button onclick="location.assign('<%=request.getContextPath()%>/orderMonth.do?loginId=<%=loginMember.getMemId() %>');" >1개월	</button>
-    		<button onclick="location.assign('<%=request.getContextPath()%>/order3Month.do?loginId=<%=loginMember.getMemId() %>');">3개월</button>
-    		<button class="orderAll" onclick="location.assign('<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>');">전체시기</button>
+    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/orderMonth.do?loginId=<%=loginMember.getMemId() %>');" >1개월	</button>
+    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/order3Month.do?loginId=<%=loginMember.getMemId() %>');">3개월</button>
+    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>');">전체시기</button>
     		</div>
 			&nbsp;
 			&nbsp;
 			&nbsp;
 <!--     		<input type='date' name="">&nbsp;
     		<input type='date' name=""> -->
-    		
+    		<div class="orderPeriodContainer">
     		<form class="orderPeriod" action="<%=request.getContextPath()%>/orderPeriod.do">
 				
 				<input  type="date" name="searchPeriod"  > &nbsp
@@ -190,10 +229,11 @@
 				<input type="hidden" name="loginId" value="<%=loginMember.getMemId() %>"/>
 			 	&nbsp;
     			&nbsp;
-				<button  type="submit" >조회 </button>
+				<button class="btn btn-outline-dark me-2"  type="submit" >조회 </button>
 	
-			</form>  
-    		
+			</form>
+			</div> 
+    	
     		
 <!--     		&nbsp;
     		&nbsp;

@@ -6,6 +6,50 @@
 
 <style>
 
+
+/* 검색 */
+
+.search_lists {
+width: 100%;
+text-align: center;
+margin-left : 15px;
+margin-right : 15px;
+margin-top : 80px;
+margin-bottom : 80px;
+
+}
+
+.search_list {
+display:inline-block;
+
+
+}
+
+
+#input1{
+	width: 350px;
+	height:45px;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 3px solid black;
+	text-align: center;
+	font-size:18px; 
+}
+#input2{
+	width: 70px;
+	height:45px;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom : none;
+	background-color: black;
+	color : white;
+	border-radius: 10px;
+	
+}
+
+
  .container{
 	
 	/* height: 280px; */

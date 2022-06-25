@@ -1,14 +1,97 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>	
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/member/memberLoginPage.css">
-<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>	
-</head>
-<body>
+<%@ include file="/views/common/header.jsp" %>
+
+<style>
+.logintop{
+	
+	margin-top:150px;
+
+}
+
+
+.loginTitle{
+	margin-bottom:50px;
+}
+
+
+.search_list {
+display:inline-block;
+
+
+}
+
+
+#input1{
+	width: 500px;
+	height:45px;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 1px solid grey;
+	
+	font-size:18px;
+	 
+}
+#input2{
+	width: 70px;
+	height:45px;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom : none;
+	background-color: black;
+	color : white;
+	border-radius: 10px;
+	
+}
+
+.emailContainer{
+
+	padding-right:425px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size:16px;
+	
+}
+
+.passwordContainer{
+	padding-top:10px;
+	padding-right:440px;
+	padding-bottom:10px;
+	font-size:16px;
+}
+
+
+#logPageBtn{
+
+	width:500px;
+	height:60px;
+	border-radius:10px;
+	font-size:18px;
+
+}
+.logPageBtnContainer{
+	padding-top:30px;
+}
+
+.loginMainText{
+	
+}
+
+
+.enrollContainer{
+	display: flex;
+   justify-content: center;
+	margin-top:150px;
+}
+
+</style>
+
+
+
+
+<%-- 
 	<main>
 		<div class="login_box">
         	<a href="/"><img src="/img/bamin2.png" alt="이미지" class="bm_img"></a>
@@ -59,11 +142,55 @@
 	                
 	               <input type="submit" value="회원가입" class="login_btn" >
 			</form>
-        </div>
+        </div> --%>
+        
+        <div class="enrollContainer">
+        
+        			<form action="<%=request.getContextPath() %>/memberEnrollEnd.do" method="post">
+				<div class="emailContainer">
+				<strong>아이디</strong><br>
+				</div>
+				<input id="input1" type="text" name="userId" placeholder="아이디(ID) 를 입력해 주세요." size="30" ><br>
+				<div class="passwordContainer">
+				<strong>비밀번호</strong><br>
+				</div>
+				<input id="input1" type="password" name="password" placeholder="비밀번호를 입력해 주세요." size="30"><br>
+				<div class="passwordContainer">
+				<!-- <strong>비밀번호확인</strong><br> -->
+				</div>
+				<input id="input1" type="password" name="password" placeholder="비밀번호 확인" size="30"><br>
+				<div class="emailContainer">
+				<strong>이름</strong><br>
+				</div>
+				<input id="input1" type="text" name="name" placeholder="이름을 입력해 주세요." size="30" ><br>
+				<div class="emailContainer">
+				<strong>이메일</strong><br>
+				</div>
+				<input id="input1" type="email" name="email" placeholder="이메일 주소를 입력해 주세요." size="30" ><br>
+				<div class="emailContainer">
+				<strong>닉네임</strong><br>
+				</div>
+				<input id="input1" type="text" name="nickname" placeholder="사용하실 닉네임을 입력해주세요." size="30" ><br>
+				<div class="emailContainer">
+				<strong>연락처</strong><br>
+				</div>
+				<input id="input1" type="text" name="phone" placeholder="'-' 없이 입력해주세요." size="30" ><br>
+				<!-- <button id="input2" type="submit" >검색 </button> -->
+				
+	
+
+				
+				<div class="logPageBtnContainer">
+				<button type="submit" class="btn btn-outline-dark me-2" id="logPageBtn">회원가입</button>
+				<!-- <button type="submit" class="btn-dark me-2" id="logPageBtn">로그인</button> -->
+				</div>
+			</form>
+			<!-- </div> -->
+			
+			</div>
         
         
-        
-        <script>
+        <!-- <script> -->
     	<%-- const fn_idDuplicate=()=>{
     		const userId=$("#userId_").val().trim();
     		if(userId.length<4){
@@ -124,7 +251,5 @@
     	}
     
     </script> --%>
- 
-    </main>
-</body>
-</html>
+  
+<%@ include file="/views/common/footer.jsp" %>

@@ -94,6 +94,7 @@ public class ReviewDao {
 //			rm.setTotalPrice(rs.getInt("TOTAL_PRICE"));
 			rm.setStoreThumb(rs.getString("STORE_THUMB"));
 			rm.setStoreName(rs.getString("STORE_NAME"));
+			rm.setrNum(rs.getInt("RNUM"));
 				
 		}catch(SQLException e) {
 			e.printStackTrace();

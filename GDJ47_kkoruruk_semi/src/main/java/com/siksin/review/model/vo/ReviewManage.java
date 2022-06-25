@@ -10,18 +10,21 @@ public class ReviewManage {
 	private int totalPrice;
 	private String storeThumb;
 	private String storeName;
+	private int rNum;
 	
 	public ReviewManage() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ReviewManage(String reviewContent, Date reviewDate, int totalPrice, String storeThumb, String storeName) {
+	public ReviewManage(String reviewContent, Date reviewDate, int totalPrice, String storeThumb, String storeName,
+			int rNum) {
 		super();
 		this.reviewContent = reviewContent;
 		this.reviewDate = reviewDate;
 		this.totalPrice = totalPrice;
 		this.storeThumb = storeThumb;
 		this.storeName = storeName;
+		this.rNum = rNum;
 	}
 
 	public String getReviewContent() {
@@ -64,11 +67,20 @@ public class ReviewManage {
 		this.storeName = storeName;
 	}
 
+	public int getrNum() {
+		return rNum;
+	}
+
+	public void setrNum(int rNum) {
+		this.rNum = rNum;
+	}
+
 	@Override
 	public String toString() {
 		return "ReviewManage [reviewContent=" + reviewContent + ", reviewDate=" + reviewDate + ", totalPrice="
-				+ totalPrice + ", storeThumb=" + storeThumb + ", storeName=" + storeName + "]";
+				+ totalPrice + ", storeThumb=" + storeThumb + ", storeName=" + storeName + ", rNum=" + rNum + "]";
 	}
+	
 	
 	
 }

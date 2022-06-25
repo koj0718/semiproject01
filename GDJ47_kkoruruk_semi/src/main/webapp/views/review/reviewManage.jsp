@@ -10,23 +10,20 @@
    List<ReviewManage> list=(List<ReviewManage>)request.getAttribute("list");
 %>
 
+
 <style>
 	/* *{
 	border:1px solid red;
 	}  */
 	
-	h2{
+	h1{
 	padding-top:80px;
 	padding-left:20px;
 	}
 	h4{
 	margin: 0px;
 	}
-	.nav-button{
-	padding-top:50px;
-	padding-left:20px;
-	padding-bottom:20px;	
-	}
+
 	.orderContainer{
 	display:flex;
 	justify-content: space-between;
@@ -80,6 +77,89 @@
 	.div3>p{
 	
 	}
+	
+	
+	
+	
+	
+	
+
+/* 병현 css */	
+
+/* .table{
+	width:1000px;
+} */
+
+
+.orderTitle{
+
+	padding-left:130px;
+	padding-bottom:50px;
+	display: flex; 
+	
+}
+
+
+	.nav-button{
+	/*  padding-top:50px; */
+	padding-left:130px;
+	/* padding-bottom:20px; */ 
+ 	    display: flex; 
+   /* justify-content: center; */	 
+	}
+
+
+
+
+.orderList{
+   display: flex;
+   justify-content: center;
+}
+
+
+
+.orderImage{
+	float : left;
+}
+
+.orderStore{
+	font-size:20px;
+}
+.orderNum{
+  	display: flex;
+    justify-content: center; 
+   line-height:100px;
+   padding-top:25px;
+}
+
+.orderTh{
+	text-align:center;
+}
+
+.period123{
+	/* float : left; */
+}
+
+.orderPeriodContainer{
+	/* margin-top:15px; */
+}
+
+
+.orderAll{
+	width: 70px;
+	height:45px;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom : none;
+	background-color: black;
+	color : white;
+	border-radius: 10px;
+
+}
+
+	
+	
 
 	#pageBar{
 	  display: flex;
@@ -112,39 +192,53 @@
 	
 	
 	
+	
+	
+	
 
 </style>
 
 
-		<h2>
-			리뷰 관리
-		</h2>
+
+
+
+
+		<div class="orderTitle">
+		<h1 >
+			 리뷰 관리
+		</h1>
+		</div>
 	<section class="">
     	<nav class="nav-button">
-    		<button onclick="<%-- location.assign('<%=request.getContextPath()%>/orderWeek.do?loginId=<%=loginMember.getMemId() %>'); --%>">1주일</button>
+    		<div class="period123">
+    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/orderWeek.do?loginId=<%=loginMember.getMemId() %>');">1주일</button>
     		<%-- <%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %> --%>
-    		<button onclick="<%-- location.assign('<%=request.getContextPath()%>/orderMonth.do?loginId=<%=loginMember.getMemId() %>'); --%>" >1개월	</button>
-    		<button onclick="<%-- location.assign('<%=request.getContextPath()%>/order3Month.do?loginId=<%=loginMember.getMemId() %>'); --%>">3개월</button>
-    		<button class="orderAll" onclick="<%-- location.assign('<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>'); --%>">전체시기</button>
-    		
+    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/orderMonth.do?loginId=<%=loginMember.getMemId() %>');" >1개월	</button>
+    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/order3Month.do?loginId=<%=loginMember.getMemId() %>');">3개월</button>
+    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>');">전체시기</button>
+    		</div>
 			&nbsp;
 			&nbsp;
 			&nbsp;
-
-    		
-    		<form class="orderPeriod" action="<%-- <%=request.getContextPath()%>/orderPeriod.do --%>">
+<!--     		<input type='date' name="">&nbsp;
+    		<input type='date' name=""> -->
+    		<div class="orderPeriodContainer">
+    		<form class="orderPeriod" action="<%=request.getContextPath()%>/orderPeriod.do">
 				
 				<input  type="date" name="searchPeriod"  > &nbsp
 				<input  type="date" name="searchPeriod2"  >
 				<input type="hidden" name="loginId" value="<%=loginMember.getMemId() %>"/>
 			 	&nbsp;
     			&nbsp;
-				<button  type="submit" >조회 </button>
+				<button class="btn btn-outline-dark me-2"  type="submit" >조회 </button>
 	
-			</form>  
+			</form>
+			</div> 
+    	
     		
-    		
-
+<!--     		&nbsp;
+    		&nbsp;
+    		<button>조회</button> -->
     		
 		
     		
@@ -162,25 +256,62 @@
 			</form> --%>
 			
 			
-			
+<!-- 			
     	<div class="orderContainer">
     		<div>
     			<p>가게정보</p>
     		</div>
     		<div>
-    			<p>내용</p>
+    			<p>주문정보</p>
     		</div>
     		<div>
-    			<p>작성일</p>
+    			<p>주문일시</p>
     		</div>
     	</div>
     	<hr size="2px;" width = "95%" color = "black"></hr>
 	</section>
 	
-	<main id="mainbox">
+	<main id="mainbox"> -->
 	
-
-		<%if(list.isEmpty()){ %>
+<!-- 		<div class="container2">
+			<div class="div0">
+			<img src=https://blog.kakaocdn.net/dn/7Td9y/btq4Bx055dJ/th0xtvJ6cal2I5ZSihs261/img.jpg width="150px;" height="150px;" >
+				<div class="div1">
+					<div>
+						<h4>교촌치킨 부평점</h>
+					</div>
+					<div>
+						<p>교촌 반반윙 1개 21,000원</p>
+					</div>
+				</div>
+			</div>	
+			<div class="div2">
+				<p>A09834124</p>
+			</div>
+			<div class="div3">
+				<p>2022.06.14</p>
+			</div>
+		</div>
+		<div class="container2">
+			<div class="div0">
+			<img src=https://www.bhc.co.kr/images/common/logo300.jpg width="150px;" height="150px;" >
+				<div class="div1">
+					<div>
+						<h4>BHC치킨 부평점</h>
+					</div>
+					<div>
+						<p>뿌링클링 1개 21,000원</p>
+					</div>
+				</div>
+			</div>	
+			<div class="div2">
+				<p>B09834124</p>
+			</div>
+			<div class="div3">
+				<p>2022.06.14</p>
+			</div>
+		</div> -->
+<%-- 		<%if(list.isEmpty()){ %>
 			<div class="orderContainer2">
 				<div class="div0">
 				<img src="" width="150px;" height="150px;" >
@@ -201,28 +332,86 @@
 				</div>
 			</div>
    		<%}else{
-   			for(ReviewManage rm : list){%>
+   			for(OrderList ol : list){%>
    				<div class="orderContainer2">
 					<div class="div0">
-					<img src="<%=rm.getStoreThumb() %>" width="150px;" height="150px;" >
+					<img src="<%=ol.getStoreThumb() %>" width="150px;" height="150px;" >
 						<div class="div1">
 							<div>
-								<h4><%=rm.getStoreName() %></h>
+								<h4><%=ol.getStoreName() %></h>
 							</div>
 							<div>
-								<%-- <p><%=ol.getTotalPrice() %>원</p> --%>
+								<p><%=ol.getTotalPrice() %>원</p>
 							</div>
 						</div>
 					</div>	
 					<div class="div2">
-						<p><%=rm.getReviewContent() %></p>
+						<p><%=ol.getOrderNum() %></p>
 					</div>
 					<div class="div3">
-						<p><%=rm.getReviewDate() %></p>
+						<p><%=ol.getOrderDate() %></p>
 					</div>
 				</div>
 		<%	} 
+       		 }%> --%>
+       		 
+       		 
+       		 
+       		 
+
+
+
+		<!-- <h2>
+			주문 내역
+		</h2> -->
+<div class="orderList">
+<table class="table table-hover" style="width:80%">
+  <thead >
+    <tr>
+      <th  scope="col"><div class="orderTh">#</div></th>
+      <th scope="col"><div class="orderTh">가게정보</div></th>
+      <th scope="col"><div class="orderTh">주문번호</div></th>
+      <th scope="col"><div class="orderTh">주문일시</div></th>
+    </tr>
+  </thead>
+  <tbody>
+  <%if(list.isEmpty()){ %>
+    <tr>
+    	<td scope="row" colspan="4"><h3>조회된결과가 없습니다!</h3></td>
+    </tr>
+    <%}else{
+   			for(ReviewManage rm : list){%>
+		    <tr>
+		      <th scope="row" ><div class="orderNum"> <%=rm.getrNum() %></div></th>
+		      <td><img src="<%=rm.getStoreThumb() %>" width="150px;" height="150px;" class="orderImage" >
+		      	<br><br><Strong class="orderStore"><%=rm.getStoreName() %></Strong> <br> 	</td>
+		      <td><div class="orderNum"><%=rm.getReviewContent() %></div></td>
+		      <td><div class="orderNum"><%=rm.getReviewDate() %></div></td>
+		    </tr>
+		    
+		    <%	} 
        		 }%>
+			  </tbody>
+</table>
+</div>  	    
+		    
+		    <!-- <tr>
+		      <th scope="row">2</th>
+		      <td>Jacob</td>
+		      <td>Thornton</td>
+		      <td>@fat</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">3</th>
+		      <td colspan="2">Larry the Bird</td>
+		      <td>@twitter</td>
+		    </tr> -->
+
+ 		 
+       		 
+       		 
+       		 
+       		 
 				
 		
 	</main>
@@ -230,7 +419,6 @@
 		<div id="pageBar">
         	<%=request.getAttribute("pageBar") %>
         </div>
-        
         
 
 
