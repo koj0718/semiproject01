@@ -72,7 +72,7 @@ padding-left: 0px;
          </section>
          <div id="myPage_Content" class="row col-9" style="border-radius: 20px;">
             <hr>
-            <div class="row" style="height: 250px; padding: 0px; margin: 0px;">
+            <div class="row" style="heieght: 250px; padding: 0px; margin: 0px;">
                <div class="col-8 col-sm-6"> 
                     <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEwMDRfMjIg%2FMDAxNjMzMzIzOTE4ODU5.Ybx6Tw_gJlO8D7SOZ35MYICEBomcbFLg0iz9y4bnDokg.Gvfzu_HKGoPfqcl26eeoOSDseBWXdTcM1MDosTs8M_sg.JPEG.taotube%2F%25C1%25F8%25C7%25E0%25BF%25E4%25BF%25F8-%25B9%25E6.jpg&type=sc960_832" 
                   	style="height: 180px; display: inline-block;">  
