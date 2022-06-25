@@ -45,7 +45,7 @@ public class DelAddressServlet extends HttpServlet {
 		String script="opener.location.replace('"+request.getContextPath()+"/');close();";
 		request.setAttribute("script",script);
 		
-		request.getRequestDispatcher("/views/common/msg.jsp")
+		request.getRequestDispatcher("/views/common/locmsg.jsp")
 		.forward(request,response);
 		
 	}
