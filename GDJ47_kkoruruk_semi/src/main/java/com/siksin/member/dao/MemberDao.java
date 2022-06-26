@@ -125,6 +125,24 @@ public class MemberDao {
 		
 	}
 	
+	public Member selectMemberById(Connection conn, String userId) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		Member m=null;
+		try {
+			pstmt=conn.prepareStatement(prop.getProperty("selectMemberById"));
+			pstmt.setString(1, userId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) m=getMember(rs);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return m;
+	}
+	
+	
 	public static Member getMember(ResultSet rs) throws SQLException {		
 		return Member.builder()
 				.memId(rs.getString("mem_id"))
