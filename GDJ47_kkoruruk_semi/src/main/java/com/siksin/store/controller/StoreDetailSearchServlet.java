@@ -38,6 +38,7 @@ public class StoreDetailSearchServlet extends HttpServlet {
 		Store s=new StoreService().selectStoreId(storeId);
 		List<Menu> menuList=new MenuService().searchStoreDeatil(storeId);
 		
+		
 //		List<MenuOption> menuOption=new MenuService().MenuOption(menuId);		
 		
 	

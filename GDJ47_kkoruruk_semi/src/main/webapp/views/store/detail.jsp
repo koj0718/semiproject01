@@ -5,7 +5,7 @@
 <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"/>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/store/detail.css"/>
+
 
  	
 
@@ -23,6 +23,533 @@
 <%@ include file="/views/menu/menuOption.jsp"%>
 <!-- 메뉴 모달 -->
 
+
+<<style>
+ul{
+   list-style:none;
+   }
+.fas.fa-heart {
+	color: red;
+}
+
+.score_box .fas {
+	color: gold;
+}
+
+.comment .fas {
+	color: gold;
+}
+
+#wrap {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	flex-wrap: wrap;
+	display: flex;
+	min-height: calc(100vh - 210px);
+}
+
+/* -------------- 상단 가게 정보 -------------- */
+nav {
+	width: 100%;
+	text-align: center;
+	margin: 30px 0 30px 0;
+}
+
+nav i {
+	font-size: 2rem;
+}
+
+nav div {
+	font-size: 1.8rem;
+}
+
+nav .inf button {
+	width: 200px;
+	height: 40px;
+	margin-top: 20px;
+	font-size: 1.8rem;
+	background: none;
+}
+
+nav .inf .store_review_count:after {
+	content: '|';
+}
+
+/* -------------- 상단 가게 정보 -------------- */
+
+/* -------------- 장바구니 -------------- */
+
+/* 카트 담았을때 메세지 */
+.alarm {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	width: 30vw;
+	height: 15vh;
+	background: rgba(0, 0, 0, 0.7);
+	color: #fff;
+	text-align: center;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+	line-height: 15vh;
+	z-index: 1000;
+	min-width: 200px;
+	display: none;
+}
+
+#cart {
+	width: 30%;
+	order: 1;
+}
+
+#cart .cart {
+	position: sticky;
+	top: 10%;
+	font-size: 1.8rem;
+	margin: 5%;
+	border: 1px solid #ddd;
+}
+
+#cart .cart h2 {
+	background-color: #333333;
+	color: #fff;
+	text-align: center;
+}
+
+#cart .cart .deleteAll {
+	font-size: 2rem;
+	cursor: pointer;
+	color: white;
+	position: absolute;	
+	right: 10px;
+	top: 5px;
+}
+
+#cart .cart .cart_list {
+	max-height: 400px;
+	overflow: auto;
+}
+
+#cart .cart ul {
+	width: 90%;
+	margin: 0 auto;
+}
+
+#cart .cart li {
+	border-bottom: 1px solid #ddd;
+	padding: 10px 0 10px 0;
+	position: relative;
+}
+
+#cart .cart li .cart_menu_option {
+	color: #999;
+}
+
+#cart .cart button.cancle_btn {
+	font-size: 1.8rem;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding-bottom: 30px;
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+#cart .cart button.order_btn {
+	width: 100%;
+	height: 30px;
+	margin-top: 20px;
+	font-size: 1.5rem;
+	border: none;
+	cursor: pointer;
+	/* background: #30DAD9; */
+	background: #ddd;
+	color: #fff;
+	border-radius: 0;
+}
+
+#cart .cart .total {
+	text-align: center;
+	margin-top: 10px;
+}
+
+/* -------------- 장바구니 -------------- */
+
+/* -------------- 메인 -------------- */
+main {
+	width: 70%;
+}
+
+main ul.tab {
+	display: flex;
+	background: #fff;
+}
+
+main ul.tab li {
+	width: 100%;
+	padding: 5px 0;
+	border: 1px solid #ddd;
+	text-align: center;
+	cursor: pointer;
+	font-size: 2rem;
+}
+
+main ul.tab li:hover {
+	background: #333333;
+	color: #fff;
+	transition: 0.1s;
+}
+
+main ul.tab li.select {
+	background:  #333333;
+	color: #fff;
+	/* 메뉴탭 클릭시 색 바뀜 */
+}
+
+/* 메뉴 정보 리뷰 탭 */
+main ul.menu {
+	padding-bottom: 50px;
+	/* border: 2px solid #ddd; */
+	margin-bottom: 30px;
+}
+
+/* 메뉴 내용 */
+main ul.menu li {
+	border-bottom: 1px solid #ddd;
+}
+
+main ul li .menu_delete_label {
+	margin-left: 15px;
+	cursor: pointer;
+	color: #ddd;
+	/* #30DAD9 */
+}
+
+main ul li .menu_delete_checkbox {
+	display: none;
+}
+
+main ul.menu li .menu_box {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px;
+	cursor: pointer;
+}
+
+main ul.menu li .menu_box img {
+	width: 150px;
+	height: 150px;
+    object-fit: cover;
+}
+
+/* -------------- 메인 -------------- */
+
+
+
+
+/* 메뉴 클릭 모달 */
+.food_modal{
+	width: 560px;
+}
+
+
+
+.food_modal img {
+	width: 100%;
+}
+
+.food_modal .menu_name {
+	text-align: center;
+	display: block;
+	font-size: 20px;
+}
+
+.food_modal .modal_box>div {
+	font-size: 1.6rem;
+	width: 95%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding: 15px 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.food_modal .modal_box .menu_dec {
+	justify-content: center;
+	font-size: 1.8rem;
+}
+
+.food_modal .modal_box .price {
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+.food_modal .modal_box #option {
+	display: block;
+}
+
+.food_modal .modal_box #option .fas {
+	color: #ddd;
+}
+
+.food_modal .amount_box {
+	border: 1px solid #ddd;
+	display: flex;
+	width: 150px;
+	border-radius: 40px;
+
+	overflow: hidden;
+}
+
+.food_modal .amount_box button {
+	border: none;
+	background: #fff;
+	font-size: 2.2rem;
+	width: 30%;
+}
+
+.food_modal .amount_box #amount {
+	text-align: center;
+	border: none;
+	width: 40%;
+}
+
+
+.food_modal .amount .amount_text {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 43px;
+}
+
+.food_modal .modal_box {
+	height: calc(95% - 138px);
+}
+
+.food_modal #btn_box {
+	height: 200px;
+	
+}
+
+.food_modal #btn_box>div {
+	text-align: center;
+	height: 80px;
+}
+
+.food_modal .min_delevery {
+	font-size: 1.5rem;
+	margin-top: 5px;
+}
+
+.add_cart {
+	background:  #333333;
+}
+
+.food_modal ul {
+	font-size: 1.8rem;
+	width: 95%;
+	margin-left: auto;
+}
+
+.food_modal ul .option_box {
+	display: flex;
+	justify-content: space-between;
+}
+
+.food_modal ul .option_box .menu_option {
+	display: none;
+}
+
+/*-------메뉴리스트 클릭 모달 ---------*/
+
+
+	
+	 #wrap {
+		width: 99%;
+	}
+	nav .inf button {
+		width: 100px;
+		font-size: 1.6rem;
+		border-radius: 10px;
+	}
+	main ul.tab {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+	}
+	main ul.menu li .menu_box img {
+	 	width: 100px;
+		height: 100px;
+	}
+	#map_box {
+		height: 300px;
+	}
+	main .comment li .boss {
+		width: 86%;
+	}
+	.alarm {
+		font-size: 1.8rem;
+		height: 10vh;
+		line-height: 10vh;
+	} 
+	
+
+/*--------- 모달 공통 ---------*/
+.modal {
+	width: 560px;
+	height: 85vh;
+	max-height: 720px;
+	position: fixed;
+	left: 25%;
+	top: 100%;
+	z-index: 200;
+	margin-left: 0px;
+	margin-top: 3%;
+	border-radius: 10px;
+	overflow-x: hidden;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: 3px 3px 20px 10px rgb(0 0 0/ 25%);
+		
+}
+
+#modal_header {
+	background: #333333;
+	position: relative;	
+	width: 100%;
+	display: block;
+}
+
+.closeA {
+	background: #333333;
+	border: none;
+	color: #fff;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	right: 2%;
+	width: 4%;
+	height: 100%;
+	font-size: 2.4rem;
+}
+
+.closeB {
+	background: #808080;
+}
+
+.modal h1 {
+	color: #fff;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+}
+
+#modal_bg {
+	background: rgba(0, 0, 0, 0.3);
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 10;
+}
+
+.modal_box {
+	position: relative;
+	overflow: auto;
+	overflow-x: hidden;
+	/* height: 70vh; */
+	height: calc(100% - 81px);
+}
+
+.modal_box::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, Opera*/
+}
+
+.modal #btn_box {
+	/* 
+	position: absolute;
+	bottom: 0;
+	 */
+	width: 100%;
+	font-size: 1.8rem;
+	border-top: 1px solid #ddd;
+	height: 120px;
+}
+
+.modal .btn_box input, .modal #btn_box button {
+	height: 40px;
+	font-size: 2rem;
+	width: 50%;
+	float: left;
+	border: none;
+	color: white;
+	border-radius: unset;
+}
+
+.modal .btn_box input[type="submit"] {
+	background:  #333333;
+}
+
+
+
+/* input file */
+
+.modal .img_box {
+	width: 80%;
+	margin: 0 auto 50px;
+}
+
+.modal .img {
+	display: none; 
+}
+
+.modal .img_box label {
+	display: inline-block;
+	width: 80px;
+	height: 60px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	text-align: center;
+	line-height: 60px;
+}
+
+.modal .img_box div {
+	margin-top: 20px;
+	position: relative;
+	display: none;
+	width: 150px;
+	height: 150px;
+}
+
+.modal .img_box img {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	object-fit: cover;
+	border: 1px solid #ddd;
+}
+
+.modal .img_close {
+	background: #ccc;
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	width: 25px;
+	height: 25px;
+	color: #fff;
+	border-radius: 50%;
+	border: none;
+}
+
+
+</style>
 
 <script>
 
@@ -181,7 +708,7 @@ $(document).ready(function() {
 				
 			} else {
 				$(this).siblings(".menu_option").prop("checked" , true);
-				$(this).css("color" , "#30DAD9");
+				$(this).css("color" , "#333333");
 				
 				foodPrice += optionPrice; 
 			}

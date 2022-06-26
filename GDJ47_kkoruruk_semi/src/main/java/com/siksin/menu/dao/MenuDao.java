@@ -183,6 +183,7 @@ public class MenuDao {
 				.menuName(rs.getString("menu_name"))
 				.menuPrice(rs.getInt("menu_price"))
 				.menuDec(rs.getString("menu_dec"))
+				.menuImg(rs.getString("menu_img"))
 				.menuThumb(rs.getString("menu_thumb"))
 				.build();
 	}
