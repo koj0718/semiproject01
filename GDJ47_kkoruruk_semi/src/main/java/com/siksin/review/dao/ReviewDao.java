@@ -188,6 +188,116 @@ public class ReviewDao {
 	}
 	
 	
+	public List<ReviewManage> searchReviewList3Month(Connection conn, String  loginId,
+			int cPage, int numPerpage){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		List<ReviewManage> result=new ArrayList();
+		
+		
+		
+		String sql=prop.getProperty("review3Month");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, loginId);
+			pstmt.setInt(2, (cPage-1)*numPerpage+1);
+			pstmt.setInt(3, cPage*numPerpage);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				
+				result.add(ReviewDao.getReviewManage(rs));
+				
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+			
+		}return result;
+	}
+	
+	
+	public int searchReviewCount3Month(Connection conn, String loginId) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql=prop.getProperty("reviewCount3Month");
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, loginId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) result=rs.getInt(1);
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+		
+	}
+	
+	
+
+
+	public List<ReviewManage> searchReviewListPeriod(Connection conn, String  loginId,
+			String searchPeriod,String searchPeriod2,int cPage, int numPerpage){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		List<ReviewManage> result=new ArrayList();
+		
+		
+		
+		String sql=prop.getProperty("reviewtPeriod");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, searchPeriod);
+			pstmt.setString(2, searchPeriod2);
+			pstmt.setString(3, loginId);
+			pstmt.setInt(4, (cPage-1)*numPerpage+1);
+			pstmt.setInt(5, cPage*numPerpage);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				
+				result.add(ReviewDao.getReviewManage(rs));
+				
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+			
+		}return result;
+	}
+	
+	
+	public int searchReviewCountPeriod(Connection conn, String loginId, String searchPeriod, String searchPeriod2) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql=prop.getProperty("reviewCountPeriod");
+		int result=0;
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, searchPeriod);
+			pstmt.setString(2, searchPeriod2);
+			pstmt.setString(3, loginId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) result=rs.getInt(1);
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+		
+	}
+	
+	
 	
 	public static ReviewManage getReviewManage(ResultSet rs) {
 		

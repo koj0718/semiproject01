@@ -119,6 +119,7 @@
 
 .orderImage{
 	float : left;
+	margin-top : 12px;
 }
 
 .orderStore{
@@ -128,7 +129,7 @@
   	display: flex;
     justify-content: center; 
    line-height:100px;
-   padding-top:25px;
+   padding-top:12px;
 }
 
 .orderTh{
@@ -191,7 +192,11 @@
 	
 	
 	
+	.StoreContainer{
 	
+	 margin-top:10px;
+	 
+	}
 	
 	
 
@@ -382,8 +387,8 @@
    			for(OrderList ol : list){%>
 		    <tr>
 		      <th scope="row" ><div class="orderNum"> <%=ol.getrNum() %></div></th>
-		      <td><img src="<%=ol.getStoreThumb() %>" width="150px;" height="150px;" class="orderImage" >
-		      	<br><br><Strong class="orderStore"><%=ol.getStoreName() %></Strong> <br> <p ><%=ol.getTotalPrice() %>원</p>	</td>
+		      <td><img src="<%=ol.getStoreThumb() %>" width="100px;" height="100px;" class="orderImage" >
+		      	<br><div class="StoreContainer"><Strong class="orderStore"><%=ol.getStoreName() %></Strong> <br> <p ><%=ol.getTotalPrice() %>원</p>	</div></td>
 		      <td><div class="orderNum"><%=ol.getOrderNum() %></div></td>
 		      <td><div class="orderNum"><%=ol.getOrderDate() %></div></td>
 		    </tr>
