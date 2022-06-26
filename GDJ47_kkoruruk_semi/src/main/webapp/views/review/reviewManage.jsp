@@ -120,6 +120,7 @@
 
 .orderImage{
 	float : left;
+	margin-top : 12px;
 }
 
 .orderStore{
@@ -129,7 +130,7 @@
   	display: flex;
     justify-content: center; 
    line-height:100px;
-   padding-top:25px;
+   padding-top:12px;
 }
 
 .orderTh{
@@ -214,8 +215,8 @@
     		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/reviewWeek.do?loginId=<%=loginMember.getMemId() %>');">1주일</button>
     		<%-- <%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %> --%>
     		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/reviewMonth.do?loginId=<%=loginMember.getMemId() %>');" >1개월	</button>
-    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/order3Month.do?loginId=<%=loginMember.getMemId() %>');">3개월</button>
-    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/checkOrder.do?loginId=<%=loginMember.getMemId() %>');">전체시기</button>
+    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/review3Month.do?loginId=<%=loginMember.getMemId() %>');">3개월</button>
+    		<button class="btn btn-outline-dark me-2" onclick="location.assign('<%=request.getContextPath()%>/reviewManage.do?loginId=<%=loginMember.getMemId() %>');">전체시기</button>
     		</div>
 			&nbsp;
 			&nbsp;
@@ -223,7 +224,7 @@
 <!--     		<input type='date' name="">&nbsp;
     		<input type='date' name=""> -->
     		<div class="orderPeriodContainer">
-    		<form class="orderPeriod" action="<%=request.getContextPath()%>/orderPeriod.do">
+    		<form class="orderPeriod" action="<%=request.getContextPath()%>/reviewPeriod.do">
 				
 				<input  type="date" name="searchPeriod"  > &nbsp
 				<input  type="date" name="searchPeriod2"  >
@@ -370,8 +371,8 @@
     <tr>
       <th  scope="col"><div class="orderTh">#</div></th>
       <th scope="col"><div class="orderTh">가게정보</div></th>
-      <th scope="col"><div class="orderTh">주문번호</div></th>
-      <th scope="col"><div class="orderTh">주문일시</div></th>
+      <th scope="col"><div class="orderTh">내용</div></th>
+      <th scope="col"><div class="orderTh">작성일</div></th>
     </tr>
   </thead>
   <tbody>
@@ -383,7 +384,7 @@
    			for(ReviewManage rm : list){%>
 		    <tr>
 		      <th scope="row" ><div class="orderNum"> <%=rm.getrNum() %></div></th>
-		      <td><img src="<%=rm.getStoreThumb() %>" width="150px;" height="150px;" class="orderImage" >
+		      <td><img src="<%=rm.getStoreThumb() %>" width="100px;" height="100px;" class="orderImage" >
 		      	<br><br><Strong class="orderStore"><%=rm.getStoreName() %></Strong> <br> 	</td>
 		      <td><div class="orderNum"><%=rm.getReviewContent() %></div></td>
 		      <td><div class="orderNum"><%=rm.getReviewDate() %></div></td>
