@@ -271,6 +271,7 @@ padding-left: 0px;
 		const memUpdate=()=> {
 			
 			$("#memberFrm").submit();
+			alert("정보수정이 완료되었습니다.");
 			
 		}
 		

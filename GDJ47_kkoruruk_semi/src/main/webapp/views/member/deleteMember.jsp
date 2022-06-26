@@ -110,11 +110,12 @@ display:inline-block;
 		
 		<!-- <h1 style="font-size:200px;">공사중!!*^^*</h1> -->
 		
-		
 		<section class="title">
 			<h1>회원탈퇴</h1>
 		</section>
 		<br>
+		
+<!-- 		<img src="images/storeImages/logo6.png"> -->
 		
 <%-- 		<form id="deleteMember" action="<%=request.getContextPath() %>/deleteMemberEnd.do" method="post">
 			<div class="col">

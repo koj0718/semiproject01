@@ -20,15 +20,15 @@
 
 </style>
 
-<div class="container" style="justify-content:center;">
+<div class="container">
         
     <div class="py-5 text-center">
 	    <h2>주문하기</h2>
 	</div>
-  
-		<div class="col-md-7 col-lg-8"> <!-- 주문자정보 -->
+  		
+		<div class="col-md-7 col-lg-8" style="position: relative; left:200px;"> <!-- 주문자정보 -->
 		
-		    <h4 class="mb-3">1. 주문자 정보</h4>
+		    <h4 class="mb-3">◆ 주문자 정보</h4>
 		    <form class="needs-validation" novalidate>
 		    
 		        <div class="col-md-7 col-lg-8 center">
@@ -70,44 +70,50 @@
 		            <label for="country">요청사항</label>
 		            <select class="form-select" id="country" required name="request">
 		                <option value="">주문요청사항을 선택해주세요.</option>
-		                <option>배송 전 연락 바랍니다.</option>
-		                <option>벨 누르지 말아주세요.</option>
-		                <option>기사님이 드세요.</option>
+		                <option>아이가 먹을거니 마라탕 안맵게 해주세요^^</option>
+		                <option>심부름:강원평창수1L.오로나민씨2개.고추참치</option>
+		                <option>*맛집블로거* 파스타양마니주새오ㅎㅎ</option>
+		                <option>7명에서 먹는대 치킨 마니주세요ㅠㅠ</option>
+		                <option>첫주문 서비스 빵빵하게 아시져?ㅎ</option>
+		                <option>픽업시간 확인하고 돌려보냅니다(일산 20년 토박이)</option>
 		                <input type="checkbox" class="form-check-input" id="same-address">
 		            	<label class="form-check-label" for="same-address">일회용 수저, 포크가 필요해요.</label>
 		            	<p style="color:green">환경보호를 위해 꼭 필요할 때만 선택해주세요!</p>
 		            </select>
 		        </div>
 		        
+		        <hr class="my-4">
+		        
 	            
-		        <h4 class="mb-3">주문정보</h4>
+		        <h4 class="mb-3" style="font-size: 30px; text-align: center;">내 장바구니</h4>
 				
-				<div class="store_name1" style="font-size: 30px;"><%=cartList.getStoreName() %></div>
-				
-				<ul>
+				<div class="store_name1" style="font-size: 40px; font-weight: bold;"><%=cartList.getStoreName() %></div>
+				<hr class="my-4">
+				<ul style="list-style-type:none;">
 					
   					<%for(int j=0;j<cartList.getCart().size();j++) {%>
 						<li>
 							<div class="food_name_box">
-								<div class="food_name"><%=cartList.getCart().get(j).getFoodName() %></div>
+								<div class="food_name" style="font-size: 25px;"><%=cartList.getCart().get(j).getFoodName() %></div>
 								<div><i class="fas fa-times delete"></i></div>							
 							</div>
-							<div class="price">ㆍ기본가격 <%=cartList.getCart().get(j).getFoodPrice() %> 원</div>
+							<div class="price" style="font-size: 20px;">ㆍ기본가격 <%=cartList.getCart().get(j).getFoodPrice() %> 원</div>
 									
 									<%if(cartList.getCart().get(0).getOptionName()!=null) {%>
 									<%for(int i=0; i<cartList.getCart().get(j).getOptionName().length; i++) {%>
 									<div class="menu_option"> 
 
-										<span><%=cartList.getCart().get(j).getOptionName()[i] %></span>
+										<span>+ <%=cartList.getCart().get(j).getOptionName()[i] %></span>
 										<span><%=cartList.getCart().get(j).getOptionPrice()[i] %> 원</span>							
 									</div>
 										<%} %>
 									<%} %>
 							
 							<div class="amount">
-								<div class="sum">
+								<div class="sum" style="font-size: 25px;">
 									<%=cartList.getCart().get(j).getTotalPrice() %> 원
 								</div>
+								<hr class="my-4">
 								<!-- 메뉴 하나 총합 -->
 <%-- 								<div class="amount_box">
 				                    <button type="button" class="minus">-</button>
@@ -126,9 +132,9 @@
 	
 	        
 	          
-	        <div class="col-md-7 col-lg-8">
-	        <hr class="my-4">
-	          	<h4 class="mb-3">2. 할인/포인트</h4>
+	        <div class="col-md-7 col-lg-8" style="position: relative; left:200px;">
+	        
+	          	<h4 class="mb-3">◆ 할인/포인트</h4>
 	          	
 	        <div class="container">
         		<div class="row">
@@ -161,7 +167,7 @@
 	        
 	        <hr class="my-4">
 	
- 	        <h4 class="mb-3">3. 결제</h4>
+ 	        <h4 class="mb-3">◆ 결제</h4>
  	        
 			<div class="container">
         		<div class="row">
@@ -208,10 +214,12 @@
     		</div>
     		
     		<br>
-				
+			
+			<div>
   				<label><input type="radio" id="onlinePay" name="paymentType" value="온라인결제" checked="checked">온라인결제</label>
 	        	<label><input type="radio" id="directPay" name="paymentType" value="만나서결제">만나서결제</label>
-
+			</div>
+			
 	    	</form>
 	    	
         	<hr>
@@ -293,27 +301,30 @@
    		
   		/* 만나서결제 */
     		function paymentCash(data){
+  			
+  				alert("주문이 완료되었습니다.");
+  				location.href='http://localhost:9090/GDJ47_kkoruruk_semi/views/payment/paymentComplete.jsp';
 	
-			$.ajax({
+/* 			$.ajax({
 				url: "http://localhost:9090/GDJ47_kkoruruk_semi/",
 		        method: "POST",
 		        data: data,
 			})
-			.done(function() {
+ 			.done(function() {
 					
 		        alert({
 					text: "주문이 완료되었습니다.",
 					closeOnClickOutside : false
 				})
 				.then(function(){
-					location.replace("/payment/payment.jsp");
+					location.replace("/");
 				})
 				
 			})
 		    .fail(function() {
 				alert("에러");
-				location.replace("/webapp/index.jsp");
-			}) 
+				location.replace("/");
+			}) */
 		}
 		
   		/* 온라인결제 */

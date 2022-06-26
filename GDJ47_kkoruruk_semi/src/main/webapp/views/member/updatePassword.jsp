@@ -151,9 +151,6 @@ display:inline-block;
 		</section>
 		<br>
 		
-
-		
-		
 		     	<div class="enrollContainer">
         
        		<form action="<%=request.getContextPath() %>/updatePasswordEnd.do" method="post"">
