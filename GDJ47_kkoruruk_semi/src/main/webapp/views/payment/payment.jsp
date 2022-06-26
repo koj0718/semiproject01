@@ -20,7 +20,7 @@
 
 </style>
 
-<div class="container">
+<div class="container" style="justify-content:center;">
         
     <div class="py-5 text-center">
 	    <h2>주문하기</h2>
@@ -33,20 +33,22 @@
 		    
 		        <div class="col-md-7 col-lg-8 center">
 		            <label for="address" class="form-label">주소</label>
-		          	    <div class="col-8 text-center">
-		                    <input type="text" class="address2" id="mapAddress" placeholder="<%=mapAddress %>">
+		          	    <div class="col-8">
+		                    <input type="text" class="address2" id="mapAddress" placeholder="<%=mapAddress %>" style="width:400px;">
 		                </div>
 		                <br>
 						<%if(!detAddress.equals("")){ %>
 		                <div class="col-8">
-		                    <input type="text" class="address3" id="detAddress" placeholder="<%=detAddress %>"><br>
+		                    <input type="text" class="address3" id="detAddress" placeholder="<%=detAddress %>" style="width:400px;">
 		                </div>
 		                <% }else{%>
 		                <div class="col-8">
-		                    <input type="text" class="address3" id="detAddress" placeholder="상세주소를 입력하세요(동/호수)"><br>
+		                    <input type="text" class="address3" id="detAddress" placeholder="상세주소를 입력하세요.(동/호수)" style="width:400px;"><br>
 		                </div>
 		                
 		                <%} %>
+		                
+		                <br>
 		                
 		                <!-- 클라이언트 hidden 정보 -->
 		                <input type="hidden" id="nickname1" value="<%=loginMember.getMemNick() %>" name="nickname1"> 
@@ -56,7 +58,7 @@
 		        		<input type="hidden" id="hiddenemail" value="<%=loginMember.getMemEmail() %>" name="hiddenemail">
 						
 		                <div class="col-8">
-		                    <input type="text" class="form-control" id="phone" placeholder="<%=loginMember.getMemPhone() %>" readonly><br>
+		                    <input type="text" class="form-control" id="phone" style="width:400px;" placeholder="<%=loginMember.getMemPhone() %>" readonly><br>
 		                    <input type="checkbox" class="form-check-input" id="same-address">
 			            	<label class="form-check-label" for="same-address">안심번호 체크</label>
 		                </div>
@@ -78,9 +80,9 @@
 		        </div>
 		        
 	            
-		        <h2>주문정보</h2>
+		        <h4 class="mb-3">주문정보</h4>
 				
-				<div class="store_name1"><%=cartList.getStoreName() %></div>
+				<div class="store_name1" style="font-size: 30px;"><%=cartList.getStoreName() %></div>
 				
 				<ul>
 					
@@ -104,7 +106,7 @@
 							
 							<div class="amount">
 								<div class="sum">
-									<%=cartList.getCart().get(j).getTotalPrice() %>원
+									<%=cartList.getCart().get(j).getTotalPrice() %> 원
 								</div>
 								<!-- 메뉴 하나 총합 -->
 <%-- 								<div class="amount_box">
@@ -122,9 +124,10 @@
 	    
 	        </div> <!-- 주문자정보 끝 -->
 	
-	        <hr class="my-4">
+	        
 	          
 	        <div class="col-md-7 col-lg-8">
+	        <hr class="my-4">
 	          	<h4 class="mb-3">2. 할인/포인트</h4>
 	          	
 	        <div class="container">
@@ -133,7 +136,7 @@
                 		포인트
             		</div>
             		<div class="col">
-                		<%=loginMember.getMemPoint() %> 원
+                		<%=loginMember.getMemPoint() %>
             		</div>
         		</div>
     		</div>
@@ -143,7 +146,7 @@
                 		선택한 포인트
             		</div>
             		<div class="col">
-                		<%=loginMember.getMemPoint() %> 원
+                		<%=loginMember.getMemPoint() %>
             		</div>
         		</div>
         		<div class="row">
@@ -151,7 +154,7 @@
                 		사용 후 포인트
             		</div>
             		<div class="col">
-                		<%=loginMember.getMemPoint() %> 원
+                		<%=loginMember.getMemPoint() %>
             		</div>
         		</div>
     		</div>
@@ -166,7 +169,7 @@
                 		총 상품금액
             		</div>
             		<div class="col">
-                		<%=cartList.getCartTotal() %> 원
+                		<%=cartList.getCartTotal() %>
             		</div>
         		</div>
     		</div>
@@ -176,7 +179,7 @@
                 		배달팁
             		</div>
             		<div class="col">
-                		<%=cartList.getDeleveryTip() %> 원
+                		<%=cartList.getDeleveryTip() %>
             		</div>
         		</div>
     		</div>
@@ -186,7 +189,7 @@
                 		적립금 사용
             		</div>
             		<div class="col">
-                		<%=loginMember.getMemPoint() %> 원
+                		<%=loginMember.getMemPoint() %>
             		</div>
         		</div>
     		</div>
@@ -199,7 +202,7 @@
                 		총 결제 예상금액
             		</div>
             		<div class="col" class="total" id="totalPrice">
-                		<%=cartList.getCartTotal()+cartList.getDeleveryTip() %> 원
+                		<%=cartList.getCartTotal()+cartList.getDeleveryTip() %>
             		</div>
         		</div>
     		</div>
@@ -259,7 +262,7 @@
   		/* 결제 */
    		function payment(){
 			
-   			const data= {
+    			const data= {
    				payMethod : $("input[type='radio']:checked").val(),
    				orderNum: rndOrderNum(),
    				name: $(".store_name1").text(),
@@ -287,9 +290,9 @@
 			}
 			paymentCard(data);
 		}
-  		
+   		
   		/* 만나서결제 */
-   		function paymentCash(data){
+    		function paymentCash(data){
 	
 			$.ajax({
 				url: "http://localhost:9090/GDJ47_kkoruruk_semi/",
@@ -306,7 +309,7 @@
 					location.replace("/payment/payment.jsp");
 				})
 				
-			}) // done 
+			})
 		    .fail(function() {
 				alert("에러");
 				location.replace("/webapp/index.jsp");
@@ -332,8 +335,8 @@
                	buyer_name: data.nickname,
           		buyer_tel: data.phone,
           		buyer_addr: data.deleveryAddress2+" "+data.deleveryAddress3,
-           		buyer_postcode: 08378,
-  	            m_redirect_url: "http://localhost:9090/GDJ47_kkoruruk_semi/"
+           		buyer_postcode: "08378",
+   	            m_redirect_url: "http://localhost:9090/GDJ47_kkoruruk_semi/"
  	            
 	        },
 	        
