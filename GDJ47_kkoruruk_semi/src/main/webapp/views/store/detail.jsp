@@ -8,8 +8,8 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/store/detail.css"/>
 
  	
-<%-- <%@ include file="/views/common/header.jsp"%> --%>
 
+<%@ include file="/views/common/header.jsp"%>
 
 <!-- 메인 -->
 <%@ include file="/views/store/storeDetail.jsp"%>
@@ -44,6 +44,7 @@ $(document).ready(function() {
 		const setCartStoreId = function(set){
 			cartStoreId = set;
 		}
+		
 		// 장바구니에 담긴 상품 수
 		let cartSize = 0;
 		
@@ -66,9 +67,7 @@ $(document).ready(function() {
 		const setMenuTotalPrice = function(set){
 			menuTotalPrice = set;
 		}
-
 	
-		
 		return {
 			getCartStoreId : getCartStoreId, 
 			setCartStoreId : setCartStoreId,
@@ -78,6 +77,7 @@ $(document).ready(function() {
 			setMenuTotalPrice : setMenuTotalPrice,
 			};
 	})();
+	
 	
 	// 가게 입장시 카트리스트 불러오기
 	 (function(){
@@ -191,7 +191,7 @@ $(document).ready(function() {
 			$(".total_price").text(Number(totalPrice).toLocaleString() + '원');
 		})
 		
-	}) 		 // 메뉴 클릭
+	}) // 메뉴 클릭
 	
 	
 	
@@ -226,41 +226,6 @@ $(document).ready(function() {
 		deleteCartAll();
 	})	
 
-/* 	// 리뷰탭 그래프
-	const reviewCount = $(".store_review_count").data("review_count");
-	
-	if(reviewCount != 0) {
-		for(var i=1;i<=5;i++) {
-			const target = $(".graph.score"+i)
-			const score = target.data("score"+i) / reviewCount * 100;
-			target.css("background","gold").css("width", score+"%");
-		}
-	}
-	 */
-	
-	
-	/* function foodModalHtml(result) {
-		let html = "";
-		console.log(result);
-		console.log(result[1]["optionName"]);
-		console.log(result[1]["optionName"]);
-		for(var i=0;i<result.length;i++) {
-			html += `<li>
-                <div class="option_box">
-                	<span>
-            			<i class="fas fa-check-square"></i>
-     	 				<input type="checkbox" class="menu_option" name="option" value="${result[i]["optionName"] }"> ${result[i]["optionName"] }       				
-     	 				<input type="hidden" class="option_price" value="${result[i]["optionPrice"] }">       			
-     	 				<input type="hidden" class="option_id" value="${result[i]["id"] }">
-         	 		</span>
-        			<span>${result[i]["optionPrice"] } 원</span>
-            	</div>
-          	</li>`;
-		}
-			
-		$("#option ul").html(html);
-	} */
-	
 	
 	function foodModalHtml(result) {
 		let html = "";
@@ -317,17 +282,17 @@ $(document).ready(function() {
 			closeModal();
 			$("#amount").val(1);
 			
-			// 밖에 있으니 작동이 안되서 추가
-			$(document).on("click", ".cancle_btn", function() {
+				$(document).on("click", ".cancle_btn", function() {
 				const index = $(this).parent().index();
 				deleteCartOne(index);
 			}); // 장바구니 1개 삭제
 			
-		}) // done
+		}) 
 		.fail(function(){
 			swal("에러가 발생했습니다");
-		}) // ajax
-	} // addCart
+		}) 
+	}
+	
 	
 	
 	
@@ -346,6 +311,7 @@ $(document).ready(function() {
 		const index = $(this).parent().index();
 		deleteCartOne(index);
 	}); 
+	
 	
 	
 	// 장바구니 1개 삭제
@@ -466,9 +432,6 @@ $(document).ready(function() {
 	});
 
 
-
-
-
 	function cartReset() {
 		$(".cart ul").html("");
 		$(".total").html("장바구니가 비었습니다.");
@@ -534,18 +497,14 @@ $(".inf i").click(function(){
 
 
 function openModal(modal) {
-	const size = window.innerWidth;
+	/* const size = window.innerWidth; */
 	
-	if (size > 767) {
-		modal.css("transition", "0s").css("top", "0%");
-		console.log("pc");
-	} else {
-		modal.css("transition", "0.2s").css("top", "0%");
-		console.log("mobile");
-	}
+	modal.css("transition", "0s").css("top", "0%");
+	$(".food_modal").show();
+	
 	$("#modal_bg").show();
 	$("body").css("overflow", "hidden");
-	$("body").css("overflow-y", "hidden");
+	$("body").css("overflow-y", "hidden"); 
 	
 	
 	$(".closeA").click(function() {
@@ -558,7 +517,7 @@ function openModal(modal) {
 	
 	$(".closeB").click(function() {
 		closeModal();
-	});
+	}); 
 }
  
  

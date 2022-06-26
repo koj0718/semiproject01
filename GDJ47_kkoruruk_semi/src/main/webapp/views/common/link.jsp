@@ -7,8 +7,7 @@
     <meta charset="UTF-8">
     <title>꼬르륵</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1" >
-    <!-- 제이쿼리 -->
-    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
  
     <!-- 폰트 어썸 -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">

@@ -94,7 +94,7 @@ nav .inf .store_review_count:after {
 	font-size: 2rem;
 	cursor: pointer;
 	color: white;
-	position: absolute;
+	position: absolute;	
 	right: 10px;
 	top: 5px;
 }
@@ -186,7 +186,7 @@ main ul.tab li.select {
 /* 메뉴 정보 리뷰 탭 */
 main ul.menu {
 	padding-bottom: 50px;
-	border: 2px solid #ddd;
+	/* border: 2px solid #ddd; */
 	margin-bottom: 30px;
 }
 
@@ -331,42 +331,10 @@ main ul.menu li .menu_box img {
 }
 
 /*-------메뉴리스트 클릭 모달 ---------*/
-@media ( max-width :1023px) {
-	#wrap {
-		width: 95%;
-	}
-	#cart {
-		display: none;
-	}
-	.m_cart_img {
-		display: block;
-	}
-	main {
-		width: 100%;
-	}
-	.info li .info_detail_title {
-		width: 40%;
-	}
-	.store_reg_modal .modal_box ul {
-		margin-left: 0px;
-	}
-	.alarm {
-		font-size: 2rem;
-	}
-	
-	main ul.menu li .menu_box img {
-	 	width: 125px;
-		height: 125px;
-	}
-}
 
-@media ( max-width :767px) {
-	html {
-		font-size: 60%;
-	}
+
 	
-	
-	#wrap {
+	 #wrap {
 		width: 99%;
 	}
 	nav .inf button {
@@ -393,35 +361,31 @@ main ul.menu li .menu_box img {
 		font-size: 1.8rem;
 		height: 10vh;
 		line-height: 10vh;
-	}
+	} 
 	
-	
-	
-	
-	
-}
 
 /*--------- 모달 공통 ---------*/
 .modal {
 	width: 560px;
-	height: 85vh;
+	height: 50vh;
 	max-height: 720px;
 	position: fixed;
 	left: 50%;
 	top: 100%;
 	z-index: 200;
-	margin-left: -275px;
+	margin-left: 0px;
 	margin-top: 3%;
 	border-radius: 10px;
 	overflow-x: hidden;
 	overflow: hidden;
 	background: #fff;
 	box-shadow: 3px 3px 20px 10px rgb(0 0 0/ 25%);
+		
 }
 
 #modal_header {
 	background: #333333;
-	position: relative;
+	position: relative;	
 	width: 100%;
 	display: block;
 }
@@ -549,36 +513,5 @@ main ul.menu li .menu_box img {
 	color: #fff;
 	border-radius: 50%;
 	border: none;
-}
-
-
-
-
-
-
-@media ( max-width :1023px) {
-}
-
-@media ( max-width :767px) {
-	.modal {
-		width: 80%;
-		margin-left: -40%;
-	}
-	.closeA {
-		display: none;
-	}
-	.modal {
-		width: 100%;
-		margin: 0;
-		/* margin-top: 1vh; */
-		left: 0;
-		height: 100%;
-	}
-	.modal .btn_box input, .modal .btn_box button {
-		height: 80px;
-	}
-}
-
-@media ( max-width :480px) {
 }
 

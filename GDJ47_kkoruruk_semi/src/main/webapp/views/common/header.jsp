@@ -18,7 +18,7 @@
 <!doctype html>
 
 	<!-- jQuery -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script> 
+	<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<!-- Bootstrap core CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -78,7 +78,7 @@
       <a href="<%=request.getContextPath() %>/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
         <!-- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg> -->
         <img src="images/logo5.png" width="70" height="70">&nbsp&nbsp&nbsp
-        <h2>kkoruruk</h2>
+        <h2>KKORRUK</h2>
       </a>
       
 
