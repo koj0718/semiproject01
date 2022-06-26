@@ -88,7 +88,7 @@ display:inline-block;
 
 .emailContainer{
 
-	padding-right:425px;
+	padding-right:485px;
 	padding-top:10px;
 	padding-bottom:10px;
 	font-size:16px;
@@ -213,9 +213,9 @@ display:inline-block;
 			<div class="search_lists">
 			<form action="<%=request.getContextPath() %>/login.do"  method="post">
 				<div class="emailContainer">
-				<strong>이메일(ID)</strong><br>
+				<strong>ID</strong><br>
 				</div>
-				<input id="input1" type="text" name="userId" placeholder="이메일(ID) 주소를 입력해주세요." size="30" value="<%=saveId!=null?saveId:""%>"><br>
+				<input id="input1" type="text" name="userId" placeholder="ID를 입력해주세요." size="30" value="<%=saveId!=null?saveId:""%>"><br>
 				<div class="passwordContainer">
 				<strong>비밀번호</strong><br>
 				</div>

@@ -18,13 +18,13 @@ import com.siksin.order.model.vo.CartList;
  * Servlet implementation class CartOneServlet
  */
 @WebServlet("/cartOne")
-public class CartOneServlet extends HttpServlet {
+public class CartOneDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CartOneServlet() {
+    public CartOneDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,7 +36,7 @@ public class CartOneServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		CartList cartList = (CartList) session.getAttribute("cartList");
 		int index=Integer.parseInt(request.getParameter("index"));
-		System.out.println(index);
+		System.out.println("인덱스"+index);
 		if (cartList == null) {
 			response.setContentType("application/json;charset=utf-8");
 			new Gson().toJson(null,response.getWriter());

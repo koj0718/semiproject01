@@ -112,7 +112,7 @@
 				            <input type="hidden" value="<%=m.getMenuThumb()%>" name="foodThumb" class="food_thumb"   >
 		                </div>
 		                
-                    	<div><img src="" alt="이미지"></div>
+                    	<div><img src="<%=m.getMenuImg() %>" alt="이미지"></div>
                     </div>
 	             </li>
 	        <%} %>

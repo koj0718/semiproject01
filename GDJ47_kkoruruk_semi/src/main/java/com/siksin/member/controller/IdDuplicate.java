@@ -1,7 +1,6 @@
-package com.siksin.store.controller;
+package com.siksin.member.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,22 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.siksin.menu.model.vo.Menu;
-import com.siksin.menu.service.MenuService;
-import com.siksin.store.model.vo.Store;
-import com.siksin.store.service.StoreService;
+import com.siksin.member.model.vo.Member;
+import com.siksin.member.service.MemberService;
 
 /**
- * Servlet implementation class StoreDetailSearchServlet
+ * Servlet implementation class IdDuplicate
  */
-@WebServlet("/storedetailsearch.do")
-public class StoreDetailSearchServlet extends HttpServlet {
+@WebServlet("/idDuplicate.do")
+public class IdDuplicate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreDetailSearchServlet() {
+    public IdDuplicate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,22 +30,11 @@ public class StoreDetailSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String userId=request.getParameter("userId");	
+		Member m=new MemberService().selectMemberById(userId);
 		
-		String storeId=request.getParameter("id");
-		Store s=new StoreService().selectStoreId(storeId);
-		List<Menu> menuList=new MenuService().searchStoreDeatil(storeId);
-		
-		
-//		List<MenuOption> menuOption=new MenuService().MenuOption(menuId);		
-		
-	
-		
-		request.setAttribute("store", s);	
-//		request.setAttribute("storeId", storeId);
-		request.setAttribute("menuList", menuList);	
-		
-		request.getRequestDispatcher("/views/store/detail.jsp").forward(request, response);
-		
+		request.setAttribute("result",(m==null?true:false));
+		request.getRequestDispatcher("/views/member/idDuplicate.jsp").forward(request, response);
 	}
 
 	/**

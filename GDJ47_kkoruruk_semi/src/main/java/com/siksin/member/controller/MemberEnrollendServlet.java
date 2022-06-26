@@ -48,9 +48,7 @@ public class MemberEnrollendServlet extends HttpServlet {
 				.memPhone(phone)
 				.build();
 				
-		System.out.println(m);
 		int result=new MemberService().memberEnroll(m);
-		System.out.println(result);
 		String msg="",loc="";
 		if(result>0) {
 			msg="회원가입을 축하드립니다!";
