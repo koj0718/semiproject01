@@ -200,7 +200,7 @@ padding-left: 0px;
 				<div class="passwordContainer">
 				<strong>비밀번호</strong><br>
 				</div>
-				<input id="input1" type="password" name="password" placeholder="<%=loginMember.getMemPwd() %>" readonly size="30"><br>
+				<input id="input1" type="password" name="password" placeholder="********" readonly size="30"><br>
 				<div class="logPageBtnContainer">
 				<button type="button" onclick="updatePassword();" class="btn btn-outline-dark me-2" id="logPageBtn">비밀번호 변경</button>
 				<!-- <button type="submit" class="btn-dark me-2" id="logPageBtn">로그인</button> -->
@@ -227,8 +227,6 @@ padding-left: 0px;
 		                    <input type="hidden" id="rank" name="rank" value="<%=loginMember.getMemRank() %>" readonly>
 		                    <input type="hidden" id="role" name="role" value="<%=loginMember.getRole() %>" readonly>
 		        </div>
-	
-
 				
 				<div class="logPageBtnContainer">
 				<button type="submit" onclick="memUpdate()" class="btn btn-outline-dark me-2" id="logPageBtn" value="정보수정">수정하기</button>
