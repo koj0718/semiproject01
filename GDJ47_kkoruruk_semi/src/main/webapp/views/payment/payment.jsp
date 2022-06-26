@@ -48,12 +48,15 @@
 		                
 		                <%} %>
 		                
-		        		<input type="hidden" id="deleveryAddress2" value="<%=mapAddress %>" name="deleveryAddress2"> 
-						<input type="hidden" id="deleveryAddress3" value="<%=detAddress %>" name="deleveryAddress3">
+		                <!-- 클라이언트 hidden 정보 -->
+		                <input type="hidden" id="nickname1" value="<%=loginMember.getMemNick() %>" name="nickname1"> 
+		        		<input type="hidden" id="deleveryAddress2" value="<%=mapAddress %>" name="deleveryAddress2">
+		        		<input type="hidden" id="deleveryAddress3" value="<%=detAddress %>" name="deleveryAddress3">
+		        		<input type="hidden" id="hiddenphone" value="<%=loginMember.getMemPhone() %>" name="hiddenphone">
+		        		<input type="hidden" id="hiddenemail" value="<%=loginMember.getMemEmail() %>" name="hiddenemail">
 						
 		                <div class="col-8">
-		                    <input type="text" class="form-control" id="phone" placeholder="<%=loginMember.getMemPhone() %>" readonly>
-		                    <%=loginMember.getMemPhone() %><br>
+		                    <input type="text" class="form-control" id="phone" placeholder="<%=loginMember.getMemPhone() %>" readonly><br>
 		                    <input type="checkbox" class="form-check-input" id="same-address">
 			            	<label class="form-check-label" for="same-address">안심번호 체크</label>
 		                </div>
@@ -62,8 +65,8 @@
 		        <br> 
 		        
 		        <div class="col-md-5">
-		            <label for="country" name="request">요청사항</label>
-		            <select class="form-select" id="country" required>
+		            <label for="country">요청사항</label>
+		            <select class="form-select" id="country" required name="request">
 		                <option value="">주문요청사항을 선택해주세요.</option>
 		                <option>배송 전 연락 바랍니다.</option>
 		                <option>벨 누르지 말아주세요.</option>
@@ -104,11 +107,11 @@
 									<%=cartList.getCart().get(j).getTotalPrice() %>원
 								</div>
 								<!-- 메뉴 하나 총합 -->
-								<div class="amount_box">
+<%-- 								<div class="amount_box">
 				                    <button type="button" class="minus">-</button>
 				                    <input type="number" class="amount_text" min="1" value="<%=cartList.getCart().get(j).getAmount() %>" readonly >
 				                    <button type="button" class="plus">+</button>
-			                   </div>
+			                   </div> --%>
 							</div>
 							
 						</li>
@@ -130,7 +133,7 @@
                 		포인트
             		</div>
             		<div class="col">
-                		n
+                		<%=loginMember.getMemPoint() %> 원
             		</div>
         		</div>
     		</div>
@@ -140,7 +143,7 @@
                 		선택한 포인트
             		</div>
             		<div class="col">
-                		-n원
+                		<%=loginMember.getMemPoint() %> 원
             		</div>
         		</div>
         		<div class="row">
@@ -148,7 +151,7 @@
                 		사용 후 포인트
             		</div>
             		<div class="col">
-                		n
+                		<%=loginMember.getMemPoint() %> 원
             		</div>
         		</div>
     		</div>
@@ -163,7 +166,7 @@
                 		총 상품금액
             		</div>
             		<div class="col">
-                		<%=cartList.getCartTotal() %>
+                		<%=cartList.getCartTotal() %> 원
             		</div>
         		</div>
     		</div>
@@ -173,7 +176,7 @@
                 		배달팁
             		</div>
             		<div class="col">
-                		<%=cartList.getDeleveryTip() %>
+                		<%=cartList.getDeleveryTip() %> 원
             		</div>
         		</div>
     		</div>
@@ -183,7 +186,7 @@
                 		적립금 사용
             		</div>
             		<div class="col">
-                		-n원
+                		<%=loginMember.getMemPoint() %> 원
             		</div>
         		</div>
     		</div>
@@ -195,8 +198,8 @@
             		<div class="col">
                 		총 결제 예상금액
             		</div>
-            		<div class="col" class="total">
-                		<%=cartList.getCartTotal()+cartList.getDeleveryTip() %>
+            		<div class="col" class="total" id="totalPrice">
+                		<%=cartList.getCartTotal()+cartList.getDeleveryTip() %> 원
             		</div>
         		</div>
     		</div>
@@ -215,8 +218,8 @@
         	<input type="hidden" value="${orderNum }" id="orderNum">
         	
 			<div>
-				<button onclick="paymentCard()" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="온라인결제">온라인 결제하기</button>
-				<button onclick="paymentCash()" id="diPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="만나서결제">만나서 결제하기</button>
+				<button onclick="payment()" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="온라인결제">온라인 결제하기</button>
+				<button onclick="payment()" id="diPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="만나서결제">만나서 결제하기</button>
 			</div>
 		</div>
 	</div>
@@ -245,6 +248,7 @@
 			const day=String(date.getDate()).padStart(2, "0");
 			
 			let orderNum=year+month+day;
+			
 			for(let i=0;i<10;i++) {
 				orderNum+=Math.floor(Math.random()*8);	
 			}
@@ -253,63 +257,64 @@
 		}
   		
   		/* 결제 */
-/*   		function payment(){
+   		function payment(){
 			
-			const data= {
-				payMethod: $("button[type='submit']:checked").val(),
-				orderNum: rndOrderNum(),
-				name: $(".food_name_box").eq(0).find(".food_name").text(),
-				amount: Number($("#total").val()) - Number($(".point_input").val()),
-				phone: $("input[name='phone']").val(),
-				request: $("textarea[name='request']").val(),
- 				usedPoint: $("input[name='usedPoint']").val(),
-				deleveryAddress1: $("#deleveryAddress1").val(),
-			 	deleveryAddress2: $("#deleveryAddress2").val(),
-			 	deleveryAddress3: $("#deleveryAddress3").val(),
-			 	totalPrice: $("#total").val()
-			}
+   			const data= {
+   				payMethod : $("input[type='radio']:checked").val(),
+   				orderNum: rndOrderNum(),
+   				name: $(".store_name1").text(),
+   				phone: $("#hiddenphone").val(),
+   				request: $("select[name='request']").val(),
+   	/*  			usedPoint: $("input[name='usedPoint']").val(), */
+   	 			nickname: $("#nickname1").val(),
+   	 			email: $("#hiddenemail").val(),
+   				deleveryAddress2: $("#deleveryAddress2").val(),
+   				deleveryAddress3: $("#deleveryAddress3").val(),
+   				totalPrice: $("#totalPrice").text()
+   			}
 			
-			if(!data.deleveryAddress1 || !data.deleveryAddress2 ) {
+			if(!data.deleveryAddress2) {
 				alert('배달 받으실 주소를 입력해 주세요')
 				return;
-			}
-			
-			if($(".food_name_box").length < 1) {
+			} if($(".food_name_box").length<1) {
 				return;
-			}
-			
-			if(!data.phone) {
+			} if(!data.phone) {
 				alert('전화번호를 입력해주세요');
 				return;
-			}
-			
-			if(data.payMethod == "만나서결제") {
+			} if(data.payMethod=="만나서결제") {
 				paymentCash(data);
 				return;
 			}
 			paymentCard(data);
-		} */
-		
-		const data= {
-				orderNum: rndOrderNum(),
-				name: $(".store_name1").text(),
-				phone: $(".form-control").text(),
-				request: $("textarea[name='request']").val(),
- 				usedPoint: $("input[name='usedPoint']").val(),
-				deleveryAddress1: $("#deleveryAddress1").val(),
-			 	deleveryAddress2: $("#deleveryAddress2").val(),
-			 	deleveryAddress3: $("#deleveryAddress3").val(),
-			 	totalPrice: $("#total").val()
-			}
-		console.log(data);
+		}
   		
-	  
+  		/* 만나서결제 */
+   		function paymentCash(data){
+	
+			$.ajax({
+				url: "http://localhost:9090/GDJ47_kkoruruk_semi/",
+		        method: "POST",
+		        data: data,
+			})
+			.done(function() {
+					
+		        alert({
+					text: "주문이 완료되었습니다.",
+					closeOnClickOutside : false
+				})
+				.then(function(){
+					location.replace("/payment/payment.jsp");
+				})
+				
+			}) // done 
+		    .fail(function() {
+				alert("에러");
+				location.replace("/webapp/index.jsp");
+			}) 
+		}
+		
   		/* 온라인결제 */
-	    function paymentCard() {
-  			
-/*     		const pathName=location.pathname;
-  			const href=location.href;
-  			const m_redirect=href.replaceAll(pathName, "");  */
+	    function paymentCard(data) {
 			
 			var IMP = window.IMP;
 			IMP.init("imp87022146");
@@ -317,67 +322,39 @@
 	        // 결제창 호출
 	        IMP.request_pay({ // param
 	        	
-/*    	            pg: "html5_inicis",
-	            pay_method: data.payMethod,
- 	            merchant_uid: data.orderNum,
-	            name: data.name,
-	            amount: data.amount,
-	            buyer_email: "",
-	            buyer_name: "",
-	            buyer_tel: data.phone,
-	            buyer_addr: data.deleveryAddress2+" "+data.deleveryAddress3,
-	            buyer_postcode: """,
-	            m_redirect_url : m_redirect, */
-	            	
-	            	
-  <%--           	pg: "html5_inicis",
-	            pay_method: "card",
-  	            merchant_uid: "ORD20180131-0000011", */
- 	            merchant_uid: 'merchant'+new Date().getTime(),
-	            name: "결제테스트",
-	            amount: 1,
-	            buyer_email: "",
-	            buyer_name: <%=loginMember.getMemNick() %>,
-	            buyer_tel: <%=loginMember.getMemPhone() %>,
-	            buyer_addr: <%=mapAddress %>+<%=detAddress %>,
-	            buyer_postcode: ""
-	            /* m_redirect_url : "", --%>
-	            
-	            	/* 테스트용 */
-	            	    		        pg: "html5_inicis",
-	            			            pay_method: "card",
-	            		 	            merchant_uid: "ORD20180131-0000011",
-	            		 	            merchant_uid: rndOrderNum(),
-	            			            name: data.name,
-	            			            amount: 100,
-	            			            buyer_email: "gildong@gmail.com",
-	            			            buyer_name: "홍길동",
-	            			            buyer_tel: "010-4242-4242",
-	            			            buyer_addr: "서울특별시 강남구 신사동",
-	            			            buyer_postcode: "01181"
-	            			            /* m_redirect_url : */
-	           
+                pg: "html5_inicis",
+               	pay_method: "card",
+               	merchant_uid: rndOrderNum(),
+               	name: data.name,
+ 	           	amount: data.totalPrice,
+/*   	           	amount: 100, */
+          		buyer_email: data.email,
+               	buyer_name: data.nickname,
+          		buyer_tel: data.phone,
+          		buyer_addr: data.deleveryAddress2+" "+data.deleveryAddress3,
+           		buyer_postcode: 08378,
+  	            m_redirect_url: "http://localhost:9090/GDJ47_kkoruruk_semi/"
+ 	            
 	        },
 	        
-	        function (rsp) { // callback
+	        function(rsp) { // callback
 	        	
 	            if (rsp.success) { // 성공로직
 	            	
-/*   	            	data.impUid=rsp.imp_uid;
-	            	data.merchant_uid=rsp.merchant_uid;
-	            	paymentComplete(data); */
-	            	
+   	            	paymentComplete(data); 
+    	
 					/* 테스트용 */
-   	            	var msg="주문완료";
+/*   	            	var msg="주문성공";
 	            	msg+='고유ID : '+rsp.imp+uid;
 	            	msg+='상점거래ID : '+rsp.merchang_uid;
 	            	msg+='결제금액 : '+rsp.paid_amount;
-	            	msg+='카드승인번호 : '+rsp.apply_num;
+	            	msg+='카드승인번호 : '+rsp.apply_num; */
+	            	
 	            	
 	            } else { // 실패로직
 					
-	            	var msg='결제실패!!!!';
-	            	msg+='(에러 : '+rsp.error_msg+')';
+	            	var msg='결제실패 : ';
+	            	msg+=rsp.error_msg;
 	            	
 	            }
 	        	alert(msg);
@@ -385,10 +362,8 @@
 	        });
 	      }
   		
-  		/* 만나서결제 */
-  		
   		/* 결제완료 */
- 		function paymentComplete(data) {
+     		function paymentComplete(data) {
 			
 			 $.ajax({
 				url: "/views/payment/paymentComplete.jsp",
@@ -403,22 +378,19 @@
 					closeOnClickOutside : false
 				})
 				.then(function(){
-					location.replace("/orderList"); // 장바구니 주소확인
+					location.replace("/order.do");
 				})
 				
 			}) // done 
 		    .fail(function() {
-				alert("에러");
-				location.replace("/");
+  				alert("주문성공");
+				location.replace("http://localhost:9090/GDJ47_kkoruruk_semi/");
 			}) 
 		}
-  		
 	  
   </script>
   
 	<%@ include file="/views/common/footer.jsp" %> 
-	
-	</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="form-validation.js"></script>

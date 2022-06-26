@@ -35,17 +35,13 @@ public class OrderController extends HttpServlet {
 	    CartList cartList = (CartList) session.getAttribute("cartList");
 		
 	    request.setAttribute("cartList", cartList);
-	    
 	    	
 	    System.out.println("dhej=="+cartList);
-	    
 	    System.out.println("ddd"+cartList.getCart());
-	    
 	    System.out.println("qqqqq"+cartList.getCart().get(0).getFoodName());
 	    
-	    
-	    
 		request.getRequestDispatcher("/views/payment/payment.jsp").forward(request, response);
+		
 	}
 
 	/**
