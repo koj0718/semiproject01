@@ -90,7 +90,7 @@
    color:black;
    }
    #section_box{
-   max-width:1320px;
+   max-width:1298px;
    margin-right: auto;
    margin-left: auto;
    }
