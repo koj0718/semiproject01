@@ -34,14 +34,26 @@
 		        <div class="col-md-7 col-lg-8 center">
 		            <label for="address" class="form-label">주소</label>
 		          	    <div class="col-8 text-center">
-		                    <input type="text" class="form-control" id="address" placeholder="">
+		                    <input type="text" class="address2" id="mapAddress" placeholder="<%=mapAddress %>">
 		                </div>
 		                <br>
+						<%if(!detAddress.equals("")){ %>
 		                <div class="col-8">
-		                    <input type="text" class="form-control" id="address2" placeholder="상세주소를 입력하세요 (건물명, 동/호수 등)"><br>
+		                    <input type="text" class="address3" id="detAddress" placeholder="<%=detAddress %>"><br>
 		                </div>
+		                <% }else{%>
 		                <div class="col-8">
-		                    <input type="text" class="form-control" id="phone" placeholder="<%=loginMember.getMemPhone() %>" readonly><br>
+		                    <input type="text" class="address3" id="detAddress" placeholder="상세주소를 입력하세요(동/호수)"><br>
+		                </div>
+		                
+		                <%} %>
+		                
+		        		<input type="hidden" id="deleveryAddress2" value="<%=mapAddress %>" name="deleveryAddress2"> 
+						<input type="hidden" id="deleveryAddress3" value="<%=detAddress %>" name="deleveryAddress3">
+						
+		                <div class="col-8">
+		                    <input type="text" class="form-control" id="phone" placeholder="<%=loginMember.getMemPhone() %>" readonly>
+		                    <%=loginMember.getMemPhone() %><br>
 		                    <input type="checkbox" class="form-check-input" id="same-address">
 			            	<label class="form-check-label" for="same-address">안심번호 체크</label>
 		                </div>
@@ -50,7 +62,7 @@
 		        <br> 
 		        
 		        <div class="col-md-5">
-		            <label for="country" class="form-label">요청사항</label>
+		            <label for="country" name="request">요청사항</label>
 		            <select class="form-select" id="country" required>
 		                <option value="">주문요청사항을 선택해주세요.</option>
 		                <option>배송 전 연락 바랍니다.</option>
@@ -64,6 +76,8 @@
 		        
 	            
 		        <h2>주문정보</h2>
+				
+				<div class="store_name1"><%=cartList.getStoreName() %></div>
 				
 				<ul>
 					
@@ -149,7 +163,7 @@
                 		총 상품금액
             		</div>
             		<div class="col">
-                		n원
+                		<%=cartList.getCartTotal() %>
             		</div>
         		</div>
     		</div>
@@ -159,13 +173,13 @@
                 		배달팁
             		</div>
             		<div class="col">
-                		+n원
+                		<%=cartList.getDeleveryTip() %>
             		</div>
         		</div>
     		</div>
     		<div class="container">
         		<div class="row">
-            		<div class="col">
+            		<div class="col" class="point_input">
                 		적립금 사용
             		</div>
             		<div class="col">
@@ -181,42 +195,15 @@
             		<div class="col">
                 		총 결제 예상금액
             		</div>
-            		<div class="col">
-                		<%=cartList.getCartTotal() %>
+            		<div class="col" class="total">
+                		<%=cartList.getCartTotal()+cartList.getDeleveryTip() %>
             		</div>
         		</div>
     		</div>
     		
     		<br>
-	
-<!--  			<div>온라인결제<br>
-				    <input type="checkbox" class="form-check-input" id="same-address">
-				  	<label class="form-check-label" for="same-address">신용카드</label>
-				  	<input type="checkbox" class="form-check-input" id="same-address">
-				  	<label class="form-check-label" for="same-address">네이버페이</label>
-				  	<input type="checkbox" class="form-check-input" id="same-address">
-				  	<label class="form-check-label" for="same-address">카카오페이</label>
-				  	<input type="checkbox" class="form-check-input" id="same-address">
-				  	<label class="form-check-label" for="same-address">PAYCO</label>
-				  	<br>
-				  	<input type="checkbox" class="form-check-input" id="same-address">
-				  	<label class="form-check-label" for="same-address">휴대폰</label>
-				  	<input type="checkbox" class="form-check-input" id="same-address">
-				  	<label class="form-check-label" for="same-address">페이코인</label>
-				  	<input type="checkbox" class="form-check-input" id="same-address">
-				  	<label class="form-check-label" for="same-address">Smilypay</label>
-				  	<input type="checkbox" class="form-check-input" id="same-address">
-				  	<label class="form-check-label" for="same-address">LPAY</label>
-				</div>
-		        <br>
-				<div>만나서 결제<br>
-				    <input type="checkbox" class="form-check-input" id="same-address">
-				  	<label class="form-check-label" for="same-address">만나서 카드결제</label>
-				  	<input type="checkbox" class="form-check-input" id="same-address">
-				  	<label class="form-check-label" for="same-address">만나서 현금결제</label>
-				</div> -->
 				
- 				<label><input type="radio" id="onlinePay" name="paymentType" value="온라인결제" checked="checked">온라인결제</label>
+  				<label><input type="radio" id="onlinePay" name="paymentType" value="온라인결제" checked="checked">온라인결제</label>
 	        	<label><input type="radio" id="directPay" name="paymentType" value="만나서결제">만나서결제</label>
 
 	    	</form>
@@ -229,7 +216,7 @@
         	
 			<div>
 				<button onclick="paymentCard()" id="onPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="온라인결제">온라인 결제하기</button>
-				<button onclick="paymentCard()" id="diPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="만나서결제">만나서 결제하기</button>
+				<button onclick="paymentCash()" id="diPayBtn" class="w-100 btn btn-primary btn-lg" type="submit" value="만나서결제">만나서 결제하기</button>
 			</div>
 		</div>
 	</div>
@@ -266,16 +253,16 @@
 		}
   		
   		/* 결제 */
-  		function payment(){
+/*   		function payment(){
 			
 			const data= {
 				payMethod: $("button[type='submit']:checked").val(),
 				orderNum: rndOrderNum(),
-				name: $(".orderDetail").eq(0).find(".menuName").text(),
-				amount: Number($("#total").val()) - Number($(".pointInput").val()),
+				name: $(".food_name_box").eq(0).find(".food_name").text(),
+				amount: Number($("#total").val()) - Number($(".point_input").val()),
 				phone: $("input[name='phone']").val(),
 				request: $("textarea[name='request']").val(),
-				usedPoint: $("input[name='usedPoint']").val(),
+ 				usedPoint: $("input[name='usedPoint']").val(),
 				deleveryAddress1: $("#deleveryAddress1").val(),
 			 	deleveryAddress2: $("#deleveryAddress2").val(),
 			 	deleveryAddress3: $("#deleveryAddress3").val(),
@@ -287,7 +274,7 @@
 				return;
 			}
 			
-			if($(".order_info li").length < 1) {
+			if($(".food_name_box").length < 1) {
 				return;
 			}
 			
@@ -301,15 +288,28 @@
 				return;
 			}
 			paymentCard(data);
-		}
+		} */
+		
+		const data= {
+				orderNum: rndOrderNum(),
+				name: $(".store_name1").text(),
+				phone: $(".form-control").text(),
+				request: $("textarea[name='request']").val(),
+ 				usedPoint: $("input[name='usedPoint']").val(),
+				deleveryAddress1: $("#deleveryAddress1").val(),
+			 	deleveryAddress2: $("#deleveryAddress2").val(),
+			 	deleveryAddress3: $("#deleveryAddress3").val(),
+			 	totalPrice: $("#total").val()
+			}
+		console.log(data);
   		
 	  
   		/* 온라인결제 */
-	    function paymentCard(data) {
+	    function paymentCard() {
   			
-    		const pathName=location.pathname;
+/*     		const pathName=location.pathname;
   			const href=location.href;
-  			const m_redirect=href.replaceAll(pathName, ""); 
+  			const m_redirect=href.replaceAll(pathName, "");  */
 			
 			var IMP = window.IMP;
 			IMP.init("imp87022146");
@@ -317,7 +317,7 @@
 	        // 결제창 호출
 	        IMP.request_pay({ // param
 	        	
-   	            pg: "html5_inicis",
+/*    	            pg: "html5_inicis",
 	            pay_method: data.payMethod,
  	            merchant_uid: data.orderNum,
 	            name: data.name,
@@ -326,39 +326,53 @@
 	            buyer_name: "",
 	            buyer_tel: data.phone,
 	            buyer_addr: data.deleveryAddress2+" "+data.deleveryAddress3,
-	            buyer_postcode: data.deleveryAddress1,
-	            m_redirect_url : m_redirect,
+	            buyer_postcode: """,
+	            m_redirect_url : m_redirect, */
 	            	
-	            	/* 테스트용 */
-/*    		            pg: "html5_inicis",
-		            pay_method: "card",
-	 	            merchant_uid: "ORD20180131-0000011",
-	 	            merchant_uid: 'merchant'+new Date().getTime(),
-		            name: "결제테스트",
-		            amount: 100,
-		            buyer_email: "gildong@gmail.com",
-		            buyer_name: "홍길동",
-		            buyer_tel: "010-4242-4242",
-		            buyer_addr: "서울특별시 강남구 신사동",
-		            buyer_postcode: "01181" */
-		            /* m_redirect_url : 모바일결제만 설정 -> 랜딩URL */
+	            	
+  <%--           	pg: "html5_inicis",
+	            pay_method: "card",
+  	            merchant_uid: "ORD20180131-0000011", */
+ 	            merchant_uid: 'merchant'+new Date().getTime(),
+	            name: "결제테스트",
+	            amount: 1,
+	            buyer_email: "",
+	            buyer_name: <%=loginMember.getMemNick() %>,
+	            buyer_tel: <%=loginMember.getMemPhone() %>,
+	            buyer_addr: <%=mapAddress %>+<%=detAddress %>,
+	            buyer_postcode: ""
+	            /* m_redirect_url : "", --%>
 	            
+	            	/* 테스트용 */
+	            	    		        pg: "html5_inicis",
+	            			            pay_method: "card",
+	            		 	            merchant_uid: "ORD20180131-0000011",
+	            		 	            merchant_uid: rndOrderNum(),
+	            			            name: data.name,
+	            			            amount: 100,
+	            			            buyer_email: "gildong@gmail.com",
+	            			            buyer_name: "홍길동",
+	            			            buyer_tel: "010-4242-4242",
+	            			            buyer_addr: "서울특별시 강남구 신사동",
+	            			            buyer_postcode: "01181"
+	            			            /* m_redirect_url : */
+	           
 	        },
 	        
 	        function (rsp) { // callback
 	        	
 	            if (rsp.success) { // 성공로직
 	            	
-  	            	data.impUid=rsp.imp_uid;
+/*   	            	data.impUid=rsp.imp_uid;
 	            	data.merchant_uid=rsp.merchant_uid;
-	            	paymentComplete(data);
+	            	paymentComplete(data); */
 	            	
 					/* 테스트용 */
-/*   	            	var msg="주문완료";
+   	            	var msg="주문완료";
 	            	msg+='고유ID : '+rsp.imp+uid;
 	            	msg+='상점거래ID : '+rsp.merchang_uid;
 	            	msg+='결제금액 : '+rsp.paid_amount;
-	            	msg+='카드승인번호 : '+rsp.apply_num; */
+	            	msg+='카드승인번호 : '+rsp.apply_num;
 	            	
 	            } else { // 실패로직
 					
