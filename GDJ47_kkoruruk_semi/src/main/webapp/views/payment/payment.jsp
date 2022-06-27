@@ -134,36 +134,7 @@
 	          
 	        <div class="col-md-7 col-lg-8" style="position: relative; left:200px;">
 	        
-	          	<h4 class="mb-3">◆ 할인/포인트</h4>
-	          	
-	        <div class="container">
-        		<div class="row">
-            		<div class="col">
-                		포인트
-            		</div>
-            		<div class="col">
-                		<%=loginMember.getMemPoint() %>
-            		</div>
-        		</div>
-    		</div>
-    		<div class="container">
-        		<div class="row">
-            		<div class="col">
-                		선택한 포인트
-            		</div>
-            		<div class="col">
-                		<%=loginMember.getMemPoint() %>
-            		</div>
-        		</div>
-        		<div class="row">
-            		<div class="col">
-                		사용 후 포인트
-            		</div>
-            		<div class="col">
-                		<%=loginMember.getMemPoint() %>
-            		</div>
-        		</div>
-    		</div>
+	          
 	        
 	        <hr class="my-4">
 	
@@ -189,16 +160,7 @@
             		</div>
         		</div>
     		</div>
-    		<div class="container">
-        		<div class="row">
-            		<div class="col" class="point_input">
-                		적립금 사용
-            		</div>
-            		<div class="col">
-                		<%=loginMember.getMemPoint() %>
-            		</div>
-        		</div>
-    		</div>
+    		
     		
     		<hr class="my-4">
     		
