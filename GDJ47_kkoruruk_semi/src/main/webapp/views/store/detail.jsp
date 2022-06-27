@@ -896,9 +896,8 @@ $(document).ready(function() {
 					
 					optionHtml += '<div class="cart_menu_option">'+ optionName + optionPrice + '원</div>';
 				}
-			}
-			
-			html += '<li> <h3>'+cartList[i].foodName  +'</h3><div>'+cartList[i].foodPrice.toLocaleString()+'원</div><div>수량 : '+cartList[i].amount +'</div><div>${optionHtml} </div><div>합계 : '+cartList[i].totalPrice.toLocaleString() +'원</div><button class="cancle_btn"> ${"ｘ"} </button></li>'; 
+			}		
+			html += '<li> <h3>'+cartList[i].foodName  +'</h3><div>'+cartList[i].foodPrice.toLocaleString()+'원</div><div>수량 : '+cartList[i].amount +'</div><div>'+optionHtml+'</div><div>합계 : '+cartList[i].totalPrice.toLocaleString() +'원</div><button class="cancle_btn"> ${"ｘ"} </button></li>'; 
 					 // 장바구니 추가하면 장바구니 리스트 변경
 			
 			
